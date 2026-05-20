@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8-Day Safari Itinerary — Tamiron Afrika Adventures</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* ── ITINERARY SECTION ── */
+    #itinerary {
+      background: var(--night);
+      padding: 7rem 4rem;
+    }
+
+    .itin-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .itin-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 5rem;
+      margin-top: 4rem;
+    }
+
+    /* Day sidebar */
+    .itin-days {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .itin-day-btn {
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 1.2rem 1.5rem;
+      cursor: pointer;
+      border-left: 2px solid rgba(212,184,150,0.15);
+      transition: border-color 0.25s, background 0.25s;
+      color: var(--fog);
+      opacity: 0.5;
+      font-family: 'Josefin Sans', sans-serif;
+    }
+
+    .itin-day-btn:hover { opacity: 0.85; border-color: var(--sand); }
+
+    .itin-day-btn.active {
+      border-color: var(--gold);
+      background: rgba(212,184,150,0.05);
+      opacity: 1;
+    }
+
+    .itin-day-btn .day-num {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .itin-day-btn .day-title {
+      font-size: 0.82rem;
+      color: var(--fog);
+    }
+
+    /* Day panel */
+    .itin-panel { display: none; }
+    .itin-panel.active { display: block; }
+
+    .itin-panel-inner {
+      border: 1px solid rgba(212,184,150,0.1);
+      padding: 2.8rem;
+    }
+
+    .itin-panel-day {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .itin-panel-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--ivory);
+      margin-bottom: 1.4rem;
+      line-height: 1.2;
+    }
+
+    .itin-panel-body {
+      font-size: 0.85rem;
+      line-height: 1.9;
+      color: var(--fog);
+      opacity: 0.8;
+      margin-bottom: 1.8rem;
+    }
+
+    .itin-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .itin-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid rgba(212,184,150,0.25);
+      color: var(--sand);
+      text-transform: uppercase;
+    }
+
+    .itin-img {
+      width: 100%;
+      aspect-ratio: 16/7;
+      object-fit: cover;
+      margin-top: 1.8rem;
+    }
+
+    /* Accommodations note */
+    .accom-note {
+      background: var(--dusk);
+      padding: 5rem 4rem;
+      text-align: center;
+    }
+
+    .accom-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 3rem auto 0;
+    }
+
+    .accom-card {
+      border: 1px solid rgba(212,184,150,0.12);
+      padding: 1.8rem 1.5rem;
+      text-align: left;
+    }
+
+    .accom-park {
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .accom-semi {
+      font-size: 0.8rem;
+      color: var(--fog);
+      opacity: 0.7;
+      margin-bottom: 0.3rem;
+    }
+
+    .accom-lux {
+      font-size: 0.8rem;
+      color: var(--sand);
+      font-style: italic;
+    }
+
+    .accom-stars {
+      font-size: 0.65rem;
+      color: var(--gold);
+      margin-top: 0.3rem;
+    }
+
+    @media (max-width: 900px) {
+      .itin-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .accom-grid  { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 500px) {
+      .accom-grid { grid-template-columns: 1fr; }
+      #itinerary  { padding: 5rem 2rem; }
+      .itin-panel-inner { padding: 1.8rem 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CURSOR & NAV -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav id="navbar">
+    <a href="../index.html" class="nav-logo">Tamiron <span>Afrika</span></a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="safaris.html" class="active">Safaris</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="book.html" class="nav-cta">Book Safari</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="about.html"        onclick="closeMobileNav()">About</a>
+    <a href="destinations.html" onclick="closeMobileNav()">Destinations</a>
+    <a href="safaris.html"      onclick="closeMobileNav()">Safaris</a>
+    <a href="pricing.html"      onclick="closeMobileNav()">Pricing</a>
+    <a href="book.html"         onclick="closeMobileNav()">Book Safari</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1575722703378-7e0d6c64da20?w=1400&q=80');"></div>
+    <div class="page-hero-content">
+      <p class="page-hero-eyebrow">Safari Itinerary</p>
+      <h1 class="page-hero-title">8 Days Across<br><em>Wild Kenya</em></h1>
+    </div>
+  </div>
+
+  <!-- ITINERARY TABS -->
+  <section id="itinerary">
+    <div class="itin-inner">
+      <div class="reveal">
+        <p class="section-label">Day by Day</p>
+        <h2 class="section-title">Your Complete <em>Journey</em></h2>
+        <p class="section-body" style="margin-top:0.5rem">27th December 2026 → 3rd January 2027 · Select a day to explore</p>
+      </div>
+
+      <div class="itin-layout">
+        <!-- SIDEBAR -->
+        <div class="itin-days reveal">
+          <button class="itin-day-btn active" onclick="showDay(0)">
+            <span class="day-num">Day 1 · Dec 27</span>
+            <span class="day-title">Arrival · Nairobi</span>
+          </button>
+          <button class="itin-day-btn" onclick="showDay(1)">
+            <span class="day-num">Day 2 · Dec 28</span>
+            <span class="day-title">Amboseli National Park</span>
+          </button>
+          <button class="itin-day-btn" onclick="showDay(2)">
+            <span class="day-num">Day 3 · Dec 29</span>
+            <span class="day-title">Full Day in Amboseli</span>
+          </button>
+          <button class="itin-day-btn" onclick="showDay(3)">
+            <span class="day-num">Day 4 · Dec 30</span>
+            <span class="day-title">Lake Naivasha</span>
+          </button>
+          <button class="itin-day-btn" onclick="showDay(4)">
+            <span class="day-num">Day 5 · Dec 31</span>
+            <span class="day-title">Lake Nakuru</span>
+          </button>
+          <button class="itin-day-btn" onclick="showDay(5)">
+            <span class="day-num">Day 6 · Jan 1</span>
+            <span class="day-title">Masai Mara</span>
+          </button>
+          <button class="itin-day-btn" onclick="showDay(6)">
+            <span class="day-num">Day 7 · Jan 2</span>
+            <span class="day-title">Full Day in the Mara</span>
+          </button>
+          <button class="itin-day-btn" onclick="showDay(7)">
+            <span class="day-num">Day 8 · Jan 3</span>
+            <span class="day-title">Return to Nairobi</span>
+          </button>
+        </div>
+
+        <!-- PANELS -->
+        <div class="reveal">
+
+          <!-- Day 1 -->
+          <div class="itin-panel active" id="day-0">
+            <div class="itin-panel-inner">
+              <p class="itin-panel-day">Day 1 · 27th December 2026</p>
+              <h3 class="itin-panel-title">Welcome to Nairobi</h3>
+              <p class="itin-panel-body">Your adventure begins with a warm meet-and-greet at JKIA Airport. Our representative transfers you to the 4-star Sarova Panafric Hotel in the heart of Nairobi, where you'll settle in for a comfortable evening before the wild journey ahead. Accommodation is on a Bed &amp; Breakfast basis.</p>
+              <div class="itin-highlights">
+                <span class="itin-tag">JKIA Airport Pickup</span>
+                <span class="itin-tag">Sarova Panafric Hotel</span>
+                <span class="itin-tag">B&amp;B Accommodation</span>
+              </div>
+              <img src="https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=900&q=80" alt="Nairobi" class="itin-img" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Day 2 -->
+          <div class="itin-panel" id="day-1">
+            <div class="itin-panel-inner">
+              <p class="itin-panel-day">Day 2 · 28th December 2026</p>
+              <h3 class="itin-panel-title">Nairobi → Amboseli</h3>
+              <p class="itin-panel-body">After breakfast, drive 250 km (approx. 4 hours) to Amboseli National Park — best known for its free-roaming herds of over 1,600 elephants against the backdrop of Mt. Kilimanjaro. Arrive in time for a hot lunch, then enjoy an afternoon game drive around 4 PM before returning for dinner.</p>
+              <div class="itin-highlights">
+                <span class="itin-tag">250 km Drive</span>
+                <span class="itin-tag">Elephant Herds</span>
+                <span class="itin-tag">Mt. Kilimanjaro Views</span>
+                <span class="itin-tag">Afternoon Game Drive</span>
+                <span class="itin-tag">Full Board Lodge</span>
+              </div>
+              <img src="https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?w=900&q=80" alt="Amboseli" class="itin-img" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Day 3 -->
+          <div class="itin-panel" id="day-2">
+            <div class="itin-panel-inner">
+              <p class="itin-panel-day">Day 3 · 29th December 2026</p>
+              <h3 class="itin-panel-title">Full Day · Amboseli</h3>
+              <p class="itin-panel-body">A flexible day entirely at your pace. <strong style="color:var(--sand)">Option 1:</strong> Early morning game drive, leisurely midday at the lodge, and an evening drive. <strong style="color:var(--sand)">Option 2:</strong> A full-day game drive with a packed lunch, maximising wildlife time on the savannah.</p>
+              <div class="itin-highlights">
+                <span class="itin-tag">Morning Game Drive</span>
+                <span class="itin-tag">Pool &amp; Relaxation</span>
+                <span class="itin-tag">Maasai Community</span>
+                <span class="itin-tag">Sunset Views</span>
+              </div>
+              <img src="https://images.unsplash.com/photo-1575722703378-7e0d6c64da20?w=900&q=80" alt="Amboseli game drive" class="itin-img" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Day 4 -->
+          <div class="itin-panel" id="day-3">
+            <div class="itin-panel-inner">
+              <p class="itin-panel-day">Day 4 · 30th December 2026</p>
+              <h3 class="itin-panel-title">Amboseli → Lake Naivasha</h3>
+              <p class="itin-panel-body">Drive 350 km (approx. 6 hours) to Lake Naivasha — one of Africa's most renowned freshwater lakes. After a relaxed lunch, embark on a thrilling hippo boat ride and a walking safari at the enchanting Crescent Island Animal Sanctuary, Naivasha's best-kept secret.</p>
+              <div class="itin-highlights">
+                <span class="itin-tag">Hippo Boat Ride</span>
+                <span class="itin-tag">Crescent Island Walk</span>
+                <span class="itin-tag">1,000+ Hippos</span>
+                <span class="itin-tag">Bird Watching</span>
+              </div>
+              <img src="https://images.unsplash.com/photo-1534567406-78e171143574?w=900&q=80" alt="Lake Naivasha" class="itin-img" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Day 5 -->
+          <div class="itin-panel" id="day-4">
+            <div class="itin-panel-inner">
+              <p class="itin-panel-day">Day 5 · 31st December 2026</p>
+              <h3 class="itin-panel-title">Naivasha → Lake Nakuru</h3>
+              <p class="itin-panel-body">A short 100 km drive to Lake Nakuru National Park. The park is famed for its extraordinary flamingo displays, endangered Rothschild's giraffes, and both black and white rhinos. Afternoon game drive through the rift valley scenery, culminating in a New Year's Eve dinner at the lodge.</p>
+              <div class="itin-highlights">
+                <span class="itin-tag">Flamingos</span>
+                <span class="itin-tag">Black &amp; White Rhinos</span>
+                <span class="itin-tag">Rothschild Giraffe</span>
+                <span class="itin-tag">Makalia Waterfall</span>
+                <span class="itin-tag">New Year's Eve 🎊</span>
+              </div>
+              <img src="https://images.unsplash.com/photo-1446329813274-7c9036bd9a1f?w=900&q=80" alt="Lake Nakuru" class="itin-img" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Day 6 -->
+          <div class="itin-panel" id="day-5">
+            <div class="itin-panel-inner">
+              <p class="itin-panel-day">Day 6 · 1st January 2027</p>
+              <h3 class="itin-panel-title">Nakuru → Masai Mara</h3>
+              <p class="itin-panel-body">Ring in the New Year and drive 300 km to the legendary Masai Mara — home to the highest concentration of wildlife in Kenya. All the Big Five can be spotted here. Arrive for lunch, rest, then head out for your first Mara afternoon game drive.</p>
+              <div class="itin-highlights">
+                <span class="itin-tag">The Big Five</span>
+                <span class="itin-tag">Big Cats</span>
+                <span class="itin-tag">Savannah Landscape</span>
+                <span class="itin-tag">Tented Camp</span>
+              </div>
+              <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=900&q=80" alt="Masai Mara" class="itin-img" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Day 7 -->
+          <div class="itin-panel" id="day-6">
+            <div class="itin-panel-inner">
+              <p class="itin-panel-day">Day 7 · 2nd January 2027</p>
+              <h3 class="itin-panel-title">Full Day · Masai Mara</h3>
+              <p class="itin-panel-body">Your final day in the Mara — make it count. <strong style="color:var(--sand)">Option 1:</strong> Whole-day game drive. <strong style="color:var(--sand)">Option 2:</strong> Morning big-cat hunt with afternoon relaxation. <strong style="color:var(--sand)">Option 3:</strong> Hot air balloon at sunrise (USD 450 pp) followed by game drives and an optional Maasai village visit (USD 30 pp).</p>
+              <div class="itin-highlights">
+                <span class="itin-tag">Hot Air Balloon (Optional)</span>
+                <span class="itin-tag">Maasai Village (Optional)</span>
+                <span class="itin-tag">Big Cat Tracking</span>
+                <span class="itin-tag">Mara River</span>
+              </div>
+              <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=900&q=80" alt="Masai Mara balloon" class="itin-img" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Day 8 -->
+          <div class="itin-panel" id="day-7">
+            <div class="itin-panel-inner">
+              <p class="itin-panel-day">Day 8 · 3rd January 2027</p>
+              <h3 class="itin-panel-title">Masai Mara → Nairobi</h3>
+              <p class="itin-panel-body">After breakfast, begin the 350 km journey back to Nairobi. Spend your final afternoon with optional excursions to the Giraffe Centre or Maasai Market. End your safari in style with an included dinner at the famous Carnivore Restaurant before your transfer to JKIA for your onward flight.</p>
+              <div class="itin-highlights">
+                <span class="itin-tag">Giraffe Centre (Optional)</span>
+                <span class="itin-tag">Maasai Market (Optional)</span>
+                <span class="itin-tag">Carnivore Dinner ✓ Included</span>
+                <span class="itin-tag">JKIA Transfer</span>
+              </div>
+              <img src="https://images.unsplash.com/photo-1590050751812-1e2f7d1d7cf8?w=900&q=80" alt="Nairobi departure" class="itin-img" loading="lazy">
+            </div>
+          </div>
+
+        </div><!-- end panels -->
+      </div><!-- end itin-layout -->
+    </div><!-- end itin-inner -->
+  </section>
+
+  <!-- ACCOMMODATION SUMMARY -->
+  <div class="accom-note">
+    <div class="reveal">
+      <p class="section-label">Where You'll Sleep</p>
+      <h2 class="section-title" style="text-align:center">Accommodation <em>Summary</em></h2>
+    </div>
+    <div class="accom-grid">
+      <div class="accom-card reveal">
+        <p class="accom-park">Day 1 · Nairobi</p>
+        <p class="accom-semi">Sarova Panafric Hotel</p>
+        <p class="accom-lux">— (same both tiers)</p>
+        <p class="accom-stars">★★★★</p>
+      </div>
+      <div class="accom-card reveal">
+        <p class="accom-park">Days 2–3 · Amboseli</p>
+        <p class="accom-semi">Amboseli Sopa Lodge</p>
+        <p class="accom-lux">Luxury: Oltukai Lodge</p>
+        <p class="accom-stars">★★★★ / ★★★★½</p>
+      </div>
+      <div class="accom-card reveal">
+        <p class="accom-park">Day 4 · Naivasha</p>
+        <p class="accom-semi">Naivasha Kongoni Lodge</p>
+        <p class="accom-lux">Luxury: Lake Naivasha Sopa Resort</p>
+        <p class="accom-stars">★★★★ / ★★★★½</p>
+      </div>
+      <div class="accom-card reveal">
+        <p class="accom-park">Day 5 · Nakuru</p>
+        <p class="accom-semi">Flamingo Hill Tented Camp</p>
+        <p class="accom-lux">Luxury: Sarova LionHill</p>
+        <p class="accom-stars">★★★★ / ★★★★½</p>
+      </div>
+      <div class="accom-card reveal" style="grid-column: 1 / -1; max-width: 380px; margin: 0 auto;">
+        <p class="accom-park">Days 6–7 · Masai Mara</p>
+        <p class="accom-semi">Enkorok Mara Camp</p>
+        <p class="accom-lux">Luxury: Sarova Mara Game Camp</p>
+        <p class="accom-stars">★★★★ / ★★★★½</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="background:var(--night); padding:5rem 4rem; text-align:center">
+    <p class="section-label reveal" style="text-align:center">Like What You See?</p>
+    <h2 class="section-title reveal" style="text-align:center; max-width:480px; margin: 0 auto 2rem">Compare Packages &amp; <em>Book Today</em></h2>
+    <div class="reveal" style="display:flex; gap:1.2rem; justify-content:center; flex-wrap:wrap">
+      <a href="pricing.html" class="btn-primary">View Pricing</a>
+      <a href="book.html"    class="btn-ghost">Request a Quote</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer-logo">Tamiron <em>Afrika</em> Adventures</div>
+      <div class="footer-copy">© 2026 Tamiron Afrika Adventures · Nairobi, Kenya · P.O. Box 00100</div>
+    </div>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="safaris.html">Safaris</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="book.html">Contact</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

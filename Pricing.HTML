@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing — Tamiron Afrika Adventures</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* ── PRICING SECTION ── */
+    #pricing {
+      background: var(--dusk);
+      padding: 7rem 4rem;
+    }
+
+    .pricing-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 4rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      padding: 3rem 2.5rem;
+      border: 1px solid rgba(212,184,150,0.15);
+      position: relative;
+      transition: border-color 0.3s;
+    }
+
+    .pricing-card:hover { border-color: rgba(212,184,150,0.4); }
+
+    .pricing-card.featured {
+      border-color: var(--gold);
+      background: rgba(191,155,77,0.04);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: -1px;
+      right: 2rem;
+      background: var(--gold);
+      color: var(--night);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+    }
+
+    .pricing-tier {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .pricing-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.2rem;
+      font-weight: 300;
+      color: var(--ivory);
+      line-height: 1;
+    }
+
+    .pricing-price sup { font-size: 1.4rem; vertical-align: super; }
+
+    .pricing-price small {
+      font-size: 0.8rem;
+      font-family: 'Josefin Sans', sans-serif;
+      color: var(--sand);
+      opacity: 0.7;
+      font-weight: 300;
+    }
+
+    .pricing-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(212,184,150,0.3);
+      margin: 1.4rem 0;
+    }
+
+    .pricing-accommodation {
+      font-size: 0.72rem;
+      color: var(--sand);
+      opacity: 0.7;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .pricing-includes {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-includes li {
+      font-size: 0.78rem;
+      line-height: 1.7;
+      color: var(--fog);
+      opacity: 0.75;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .pricing-includes li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.7rem;
+    }
+
+    .pricing-optional {
+      text-align: center;
+      margin-top: 1.8rem;
+      font-size: 0.72rem;
+      color: var(--sand);
+      opacity: 0.6;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── INCLUSIONS ── */
+    #inclusions {
+      background: var(--night);
+      padding: 7rem 4rem;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .incl-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 3.5rem;
+    }
+
+    .incl-group h3 {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.4rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 1px solid rgba(212,184,150,0.12);
+    }
+
+    .incl-list { list-style: none; }
+
+    .incl-list li {
+      font-size: 0.82rem;
+      line-height: 1.75;
+      color: var(--fog);
+      opacity: 0.78;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(212,184,150,0.06);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .incl-list li::before {
+      content: '✓';
+      color: var(--moss);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .excl-list li::before {
+      content: '✕';
+      color: var(--flame);
+      opacity: 0.6;
+    }
+
+    .good-to-know {
+      margin-top: 2.5rem;
+      padding: 2rem;
+      border: 1px solid rgba(212,184,150,0.12);
+    }
+
+    .good-to-know-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .good-to-know p {
+      font-size: 0.82rem;
+      line-height: 1.8;
+      color: var(--fog);
+      opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+      .pricing-grid  { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      #inclusions    { padding: 5rem 2rem; }
+      #pricing       { padding: 5rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CURSOR & NAV -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav id="navbar">
+    <a href="../index.html" class="nav-logo">Tamiron <span>Afrika</span></a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="safaris.html">Safaris</a></li>
+      <li><a href="pricing.html" class="active">Pricing</a></li>
+      <li><a href="book.html" class="nav-cta">Book Safari</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="about.html"        onclick="closeMobileNav()">About</a>
+    <a href="destinations.html" onclick="closeMobileNav()">Destinations</a>
+    <a href="safaris.html"      onclick="closeMobileNav()">Safaris</a>
+    <a href="pricing.html"      onclick="closeMobileNav()">Pricing</a>
+    <a href="book.html"         onclick="closeMobileNav()">Book Safari</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=1400&q=80');"></div>
+    <div class="page-hero-content">
+      <p class="page-hero-eyebrow">Investment</p>
+      <h1 class="page-hero-title">Safari <em>Packages</em></h1>
+    </div>
+  </div>
+
+  <!-- PRICING CARDS -->
+  <section id="pricing">
+    <div class="pricing-header reveal">
+      <p class="section-label">Two Tiers</p>
+      <h2 class="section-title">Choose Your <em>Experience</em></h2>
+      <p class="section-body" style="margin:0 auto; text-align:center">Same extraordinary wildlife, same private 4×4 Landcruiser — two levels of accommodation luxury.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Semi-Luxury -->
+      <div class="pricing-card reveal">
+        <p class="pricing-tier">Semi-Luxury</p>
+        <div class="pricing-price"><sup>USD</sup> 2,310 <small>/ person sharing</small></div>
+        <div class="pricing-divider"></div>
+        <p class="pricing-accommodation">
+          Sarova Panafric (Nairobi) · Amboseli Sopa Lodge ·
+          Naivasha Kongoni Lodge · Flamingo Hill Tented Camp ·
+          Enkorok Mara Camp
+        </p>
+        <ul class="pricing-includes">
+          <li>All National Park Entry Fees</li>
+          <li>Full Board on Safari / B&amp;B in Nairobi</li>
+          <li>Private 4×4 Landcruiser with pop-top roof</li>
+          <li>Professional English-speaking guide</li>
+          <li>Airport transfers &amp; meet/greet</li>
+          <li>Mineral water throughout</li>
+          <li>Carnivore Restaurant dinner (Day 8)</li>
+          <li>Hippo boat ride &amp; Crescent Island walk</li>
+        </ul>
+        <a href="book.html" class="btn-ghost" style="font-size:0.7rem; padding:0.85rem 2rem">Request This Package</a>
+      </div>
+
+      <!-- Luxury -->
+      <div class="pricing-card featured reveal">
+        <div class="featured-badge">Recommended</div>
+        <p class="pricing-tier">Luxury</p>
+        <div class="pricing-price"><sup>USD</sup> 2,990 <small>/ person sharing</small></div>
+        <div class="pricing-divider"></div>
+        <p class="pricing-accommodation">
+          Sarova Panafric (Nairobi) · Oltukai Lodge ·
+          Lake Naivasha Sopa Resort · Sarova LionHill ·
+          Sarova Mara Game Camp
+        </p>
+        <ul class="pricing-includes">
+          <li>All National Park Entry Fees</li>
+          <li>Full Board on Safari / B&amp;B in Nairobi</li>
+          <li>Private 4×4 Landcruiser with pop-top roof</li>
+          <li>Professional English-speaking guide</li>
+          <li>Airport transfers &amp; meet/greet</li>
+          <li>Mineral water throughout</li>
+          <li>Carnivore Restaurant dinner (Day 8)</li>
+          <li>Hippo boat ride &amp; Crescent Island walk</li>
+        </ul>
+        <a href="book.html" class="btn-primary" style="font-size:0.7rem; padding:0.85rem 2rem">Request This Package</a>
+      </div>
+    </div>
+
+    <p class="pricing-optional">Optional add-ons: Hot Air Balloon Ride USD 450 pp · Maasai Village Visit USD 30 pp</p>
+  </section>
+
+  <!-- INCLUSIONS & EXCLUSIONS -->
+  <section id="inclusions">
+    <div class="reveal">
+      <p class="section-label">What's Covered</p>
+      <h2 class="section-title">Inclusions &amp;<br><em>Exclusions</em></h2>
+    </div>
+    <div class="incl-layout">
+      <!-- Included -->
+      <div class="incl-group reveal">
+        <h3>Included in Your Safari</h3>
+        <ul class="incl-list">
+          <li>All National Park and Reserve entry fees</li>
+          <li>Full board accommodation while on safari</li>
+          <li>Bed &amp; Breakfast at Sarova Panafric, Nairobi</li>
+          <li>All meals throughout + picnic lunches</li>
+          <li>Bottled mineral water throughout</li>
+          <li>Airport transfers (arrival &amp; departure)</li>
+          <li>Private 4×4 Safari Landcruiser</li>
+          <li>Pop-up roof for unobstructed game viewing</li>
+          <li>Window seat guaranteed for all guests</li>
+          <li>Professional English-speaking safari guide</li>
+          <li>Daily safari &amp; wildlife briefings</li>
+          <li>Carnivore Restaurant dinner on final day</li>
+          <li>Hippo boat ride at Lake Naivasha</li>
+          <li>Crescent Island walking safari</li>
+          <li>All applicable government taxes</li>
+        </ul>
+      </div>
+
+      <!-- Excluded -->
+      <div class="incl-group reveal">
+        <h3>Not Included</h3>
+        <ul class="incl-list excl-list">
+          <li>Personal expenses &amp; souvenirs</li>
+          <li>Travel &amp; medical insurance</li>
+          <li>Passports and visa fees</li>
+          <li>Driver / guide gratuity and tips</li>
+          <li>Hot air balloon ride (USD 450 pp — optional)</li>
+          <li>Maasai village visit (USD 30 pp — optional)</li>
+          <li>Alcoholic beverages</li>
+          <li>International flights</li>
+        </ul>
+
+        <div class="good-to-know">
+          <p class="good-to-know-label">Good to Know</p>
+          <p>Safari dates span the festive season — 27th December 2026 to 3rd January 2027. The Mara wildebeest crossing is typically July–October; the Mara's wildlife is extraordinary year-round.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div style="background:var(--dusk); padding:5rem 4rem; text-align:center">
+    <p class="section-label reveal" style="text-align:center">Secure Your Spot</p>
+    <h2 class="section-title reveal" style="text-align:center; max-width:500px; margin: 0 auto 2rem">Ready to Start Your <em>Safari?</em></h2>
+    <div class="reveal" style="display:flex; gap:1.2rem; justify-content:center; flex-wrap:wrap">
+      <a href="book.html" class="btn-primary">Book Now</a>
+      <a href="safaris.html" class="btn-ghost">View Full Itinerary</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer-logo">Tamiron <em>Afrika</em> Adventures</div>
+      <div class="footer-copy">© 2026 Tamiron Afrika Adventures · Nairobi, Kenya · P.O. Box 00100</div>
+    </div>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="safaris.html">Safaris</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="book.html">Contact</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

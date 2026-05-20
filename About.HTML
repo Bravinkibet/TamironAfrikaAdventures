@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Tamiron Afrika Adventures</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* ── ABOUT LAYOUT ── */
+    #about {
+      background: var(--night);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 7rem 4rem;
+    }
+
+    .about-img-wrap { position: relative; }
+
+    .about-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+    }
+
+    .about-img-accent {
+      position: absolute;
+      bottom: -2rem;
+      right: -2rem;
+      width: 55%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border: 4px solid var(--night);
+    }
+
+    .about-badge {
+      position: absolute;
+      top: 2rem;
+      left: -2rem;
+      background: var(--flame);
+      padding: 1.4rem;
+      text-align: center;
+      width: 110px;
+    }
+
+    .about-badge strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--ivory);
+      display: block;
+    }
+
+    .about-badge span {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ivory);
+      opacity: 0.85;
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-top: 2.4rem;
+    }
+
+    .about-feature {
+      border-left: 2px solid var(--gold);
+      padding-left: 1rem;
+    }
+
+    .about-feature h4 {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sand);
+      margin-bottom: 0.3rem;
+    }
+
+    .about-feature p {
+      font-size: 0.8rem;
+      color: var(--fog);
+      opacity: 0.65;
+      line-height: 1.6;
+    }
+
+    /* ── VALUES STRIP ── */
+    .values {
+      background: var(--dusk);
+      padding: 5rem 4rem;
+      text-align: center;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      max-width: 1100px;
+      margin: 3rem auto 0;
+    }
+
+    .value-item { padding: 2rem; }
+
+    .value-icon {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .value-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sand);
+      margin-bottom: 0.8rem;
+    }
+
+    .value-body {
+      font-size: 0.82rem;
+      line-height: 1.8;
+      color: var(--fog);
+      opacity: 0.65;
+    }
+
+    @media (max-width: 900px) { .values-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- CURSOR & NAV -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav id="navbar">
+    <a href="../index.html" class="nav-logo">Tamiron <span>Afrika</span></a>
+    <ul class="nav-links">
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="safaris.html">Safaris</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="book.html" class="nav-cta">Book Safari</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="about.html"        onclick="closeMobileNav()">About</a>
+    <a href="destinations.html" onclick="closeMobileNav()">Destinations</a>
+    <a href="safaris.html"      onclick="closeMobileNav()">Safaris</a>
+    <a href="pricing.html"      onclick="closeMobileNav()">Pricing</a>
+    <a href="book.html"         onclick="closeMobileNav()">Book Safari</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('https://stevebrakerbooks.com/wp-content/uploads/2023/08/African-Safari.jpg');"></div>
+    <div class="page-hero-content">
+      <p class="page-hero-eyebrow">About Us</p>
+      <h1 class="page-hero-title">Your Journey,<br><em>Crafted for You</em></h1>
+    </div>
+  </div>
+
+  <!-- ABOUT MAIN -->
+  <section id="about">
+    <div class="about-img-wrap reveal">
+      <img src="https://stevebrakerbooks.com/wp-content/uploads/2023/08/African-Safari.jpg" alt="Safari guide" class="about-img">
+      <img src="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?w=500&q=80" alt="Elephants" class="about-img-accent">
+      <div class="about-badge">
+        <strong>100%</strong>
+        <span>Private Tours</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="section-label">Who We Are</p>
+      <h2 class="section-title">Nairobi-Based.<br><em>World-Class.</em></h2>
+      <p class="section-body">Tamiron Afrika Adventures is a Nairobi-based luxury safari operator dedicated to crafting exclusive, private wildlife experiences across Kenya's most extraordinary ecosystems. From the elephant-rich plains of Amboseli to the legendary savannahs of the Masai Mara, every detail is arranged for your comfort and wonder.</p>
+      <div class="about-features">
+        <div class="about-feature">
+          <h4>Private Transport</h4>
+          <p>Pop-top 4×4 Landcruiser — window seat guaranteed for every guest</p>
+        </div>
+        <div class="about-feature">
+          <h4>Expert Guides</h4>
+          <p>Professional English-speaking wildlife experts with deep field knowledge</p>
+        </div>
+        <div class="about-feature">
+          <h4>All-Inclusive</h4>
+          <p>Full board, park fees, transfers, mineral water &amp; more</p>
+        </div>
+        <div class="about-feature">
+          <h4>Luxury Stays</h4>
+          <p>4 &amp; 4.5-star lodges and tented camps across every park</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <div class="values">
+    <div class="reveal">
+      <p class="section-label">Our Promise</p>
+      <h2 class="section-title" style="text-align:center">Built on <em>Three Pillars</em></h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-item reveal">
+        <div class="value-icon">✦</div>
+        <h3 class="value-title">Exclusivity</h3>
+        <p class="value-body">Every safari is private — your group, your pace, your experience. No strangers, no compromises.</p>
+      </div>
+      <div class="value-item reveal">
+        <div class="value-icon">✦</div>
+        <h3 class="value-title">Authenticity</h3>
+        <p class="value-body">We connect you to real Kenya — its wildlife, its landscapes, and its people — in the most genuine way possible.</p>
+      </div>
+      <div class="value-item reveal">
+        <div class="value-icon">✦</div>
+        <h3 class="value-title">Excellence</h3>
+        <p class="value-body">From the first contact to your airport farewell, every detail is curated to exceed your expectations.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer-logo">Tamiron <em>Afrika</em> Adventures</div>
+      <div class="footer-copy">© 2026 Tamiron Afrika Adventures · Nairobi, Kenya · P.O. Box 00100</div>
+    </div>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="safaris.html">Safaris</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="book.html">Contact</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
