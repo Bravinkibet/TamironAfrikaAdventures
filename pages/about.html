@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Destinations — Tamiron Afrika Adventures</title>
+  <title>About — Tamiron Afrika Adventures</title>
   <style>
 /* ============================================================
    TAMIRON AFRIKA ADVENTURES — style.css
@@ -493,136 +493,128 @@ section {
 }
   </style>
   <style>
-    /* ── DESTINATIONS SECTION ── */
-    #destinations {
-      background: var(--dusk);
+    /* ── ABOUT LAYOUT ── */
+    #about {
+      background: var(--night);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      max-width: 1300px;
+      margin: 0 auto;
       padding: 7rem 4rem;
     }
 
-    .dest-header {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto 4rem;
-    }
+    .about-img-wrap { position: relative; }
 
-    .dest-header .section-body {
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .dest-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-
-    .dest-card {
-      position: relative;
-      overflow: hidden;
+    .about-img {
+      width: 100%;
       aspect-ratio: 3/4;
-      cursor: pointer;
-    }
-
-    .dest-card img {
-      width: 100%;
-      height: 100%;
       object-fit: cover;
-      transition: transform 0.6s ease;
     }
 
-    .dest-card:hover img { transform: scale(1.08); }
-
-    .dest-card-overlay {
+    .about-img-accent {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(15,10,5,0.92) 0%, rgba(15,10,5,0.2) 60%, transparent 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 1.8rem 1.5rem;
-    }
-
-    .dest-tag {
-      font-size: 0.6rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.4rem;
-    }
-
-    .dest-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: var(--ivory);
-      margin-bottom: 0.4rem;
-      line-height: 1.2;
-    }
-
-    .dest-detail {
-      font-size: 0.7rem;
-      color: var(--sand);
-      opacity: 0;
-      transform: translateY(10px);
-      transition: all 0.35s ease;
-    }
-
-    .dest-card:hover .dest-detail {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ── DESTINATION DETAIL STRIPS ── */
-    .dest-detail-section {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 6rem 4rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-
-    .dest-detail-section.reverse { direction: rtl; }
-    .dest-detail-section.reverse > * { direction: ltr; }
-
-    .dest-detail-section img {
-      width: 100%;
+      bottom: -2rem;
+      right: -2rem;
+      width: 55%;
       aspect-ratio: 4/3;
       object-fit: cover;
+      border: 4px solid var(--night);
     }
 
-    .dest-detail-section .section-body { max-width: 100%; }
-
-    .dest-fact {
-      display: flex;
-      gap: 2.5rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
+    .about-badge {
+      position: absolute;
+      top: 2rem;
+      left: -2rem;
+      background: var(--flame);
+      padding: 1.4rem;
+      text-align: center;
+      width: 110px;
     }
 
-    .dest-fact-item { }
-
-    .dest-fact-label {
-      font-size: 0.6rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.25rem;
-    }
-
-    .dest-fact-value {
+    .about-badge strong {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
+      font-size: 2rem;
       color: var(--ivory);
+      display: block;
     }
 
-    @media (max-width: 900px) {
-      .dest-detail-section { grid-template-columns: 1fr; gap: 2.5rem; }
-      .dest-detail-section.reverse { direction: ltr; }
+    .about-badge span {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ivory);
+      opacity: 0.85;
     }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-top: 2.4rem;
+    }
+
+    .about-feature {
+      border-left: 2px solid var(--gold);
+      padding-left: 1rem;
+    }
+
+    .about-feature h4 {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sand);
+      margin-bottom: 0.3rem;
+    }
+
+    .about-feature p {
+      font-size: 0.8rem;
+      color: var(--fog);
+      opacity: 0.65;
+      line-height: 1.6;
+    }
+
+    /* ── VALUES STRIP ── */
+    .values {
+      background: var(--dusk);
+      padding: 5rem 4rem;
+      text-align: center;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      max-width: 1100px;
+      margin: 3rem auto 0;
+    }
+
+    .value-item { padding: 2rem; }
+
+    .value-icon {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .value-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sand);
+      margin-bottom: 0.8rem;
+    }
+
+    .value-body {
+      font-size: 0.82rem;
+      line-height: 1.8;
+      color: var(--fog);
+      opacity: 0.65;
+    }
+
+    @media (max-width: 900px) { .values-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -634,8 +626,8 @@ section {
   <nav id="navbar">
     <a href="../index.html" class="nav-logo">Tamiron <span>Afrika Adventures</span></a>
     <ul class="nav-links">
-      <li><a href="about.html">About</a></li>
-      <li><a href="destinations.html" class="active">Destinations</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
       <li><a href="safaris.html">Safaris</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="book.html" class="nav-cta">Book Safari</a></li>
@@ -653,131 +645,70 @@ section {
 
   <!-- PAGE HERO -->
   <div class="page-hero">
-    <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=1400&q=80');"></div>
+    <div class="page-hero-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Masai_Mara_at_Sunset.jpg/1280px-Masai_Mara_at_Sunset.jpg');"></div>
     <div class="page-hero-content">
-      <p class="page-hero-eyebrow">Where We Go</p>
-      <h1 class="page-hero-title">Kenya's <em>Finest</em><br>Wilderness</h1>
+      <p class="page-hero-eyebrow">About Us</p>
+      <h1 class="page-hero-title">Your Journey,<br><em>Crafted for You</em></h1>
     </div>
   </div>
 
-  <!-- DESTINATION CARD GRID -->
-  <section id="destinations">
-    <div class="dest-header reveal">
-      <p class="section-label">Four Ecosystems</p>
-      <h2 class="section-title">Each Park,<br><em>Its Own Magic</em></h2>
-      <p class="section-body">Four extraordinary ecosystems, each with its own character, wildlife, and wonder.</p>
+  <!-- ABOUT MAIN -->
+  <section id="about">
+    <div class="about-img-wrap reveal">
+      <img src="https://storage.googleapis.com/roads_of_adventure_uploads/blogs/1759775992756-Best%20visit%20Guide%20to%20Amboseli%20national%20park%20on%20Kenya%20tour%20holiday.jpg" alt="Safari guide" class="about-img">
+      <img src="https://kenyamjusisafaris.com/wp-content/uploads/2025/06/Amboseli-Elephants.jpg" alt="Elephants" class="about-img-accent">
+      <div class="about-badge">
+        <strong>100%</strong>
+        <span>Private Tours</span>
+      </div>
     </div>
-    <div class="dest-grid">
-      <div class="dest-card reveal">
-        <img src="https://africangametreksafari.com/wp-content/uploads/2023/09/AMBOSELI-KENYA-WILDLIFE-SAFARI.jpg" alt="Amboseli" loading="lazy">
-        <div class="dest-card-overlay">
-          <span class="dest-tag">Days 2–3</span>
-          <h3 class="dest-name">Amboseli National Park</h3>
-          <p class="dest-detail">1,600+ free-roaming elephants with iconic Mt. Kilimanjaro views</p>
+    <div class="reveal">
+      <p class="section-label">Who We Are</p>
+      <h2 class="section-title">Nairobi-Based.<br><em>World-Class.</em></h2>
+      <p class="section-body">Tamiron Afrika Adventures is a Nairobi-based luxury safari operator dedicated to crafting exclusive, private wildlife experiences across Kenya's most extraordinary ecosystems. From the elephant-rich plains of Amboseli to the legendary savannahs of the Masai Mara, every detail is arranged for your comfort and wonder.</p>
+      <div class="about-features">
+        <div class="about-feature">
+          <h4>Private Transport</h4>
+          <p>Pop-top 4×4 Landcruiser — window seat guaranteed for every guest</p>
         </div>
-      </div>
-      <div class="dest-card reveal">
-        <img src="https://cdn.britannica.com/07/264207-050-194B7685/Hippopotamus-herd-South-Luangwa-River-Zambia.jpg" alt="Lake Naivasha" loading="lazy">
-        <div class="dest-card-overlay">
-          <span class="dest-tag">Day 4</span>
-          <h3 class="dest-name">Lake Naivasha</h3>
-          <p class="dest-detail">Hippo boat rides, Crescent Island walking safari &amp; rich birdlife</p>
+        <div class="about-feature">
+          <h4>Expert Guides</h4>
+          <p>Professional English-speaking wildlife experts with deep field knowledge</p>
         </div>
-      </div>
-      <div class="dest-card reveal">
-        <img src="https://www.maasaimarakenyapark.com/wp-content/uploads/2022/11/flamingos-lakes-great-rift-valley-1.jpg" alt="Lake Nakuru" loading="lazy">
-        <div class="dest-card-overlay">
-          <span class="dest-tag">Day 5</span>
-          <h3 class="dest-name">Lake Nakuru</h3>
-          <p class="dest-detail">Flamingo spectacles, endangered Rothschild giraffes &amp; rhinos</p>
+        <div class="about-feature">
+          <h4>All-Inclusive</h4>
+          <p>Full board, park fees, transfers, mineral water &amp; more</p>
         </div>
-      </div>
-      <div class="dest-card reveal">
-        <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=600&q=80" alt="Masai Mara" loading="lazy">
-        <div class="dest-card-overlay">
-          <span class="dest-tag">Days 6–7</span>
-          <h3 class="dest-name">Masai Mara</h3>
-          <p class="dest-detail">The Big Five, big cats &amp; Africa's greatest wildlife reserve</p>
+        <div class="about-feature">
+          <h4>Luxury Stays</h4>
+          <p>4 &amp; 4.5-star lodges and tented camps across every park</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DETAIL: AMBOSELI -->
-  <div style="background:var(--night)">
-    <div class="dest-detail-section reveal">
-      <img src="https://kenyamjusisafaris.com/wp-content/uploads/2025/06/Amboseli-Elephants.jpg" alt="Amboseli elephants" loading="lazy">
-      <div>
-        <p class="section-label">Days 2 &amp; 3</p>
-        <h2 class="section-title">Amboseli<br><em>National Park</em></h2>
-        <p class="section-body">The savannah grassland ecosystem spreads across the Kenya-Tanzania border. Amboseli is the best place in Africa to get close to over 1,600 free-ranging elephants, with the snowcapped summit of Mt. Kilimanjaro forming the backdrop for unforgettable photographs.</p>
-        <div class="dest-fact">
-          <div class="dest-fact-item"><p class="dest-fact-label">Drive from Nairobi</p><p class="dest-fact-value">250 km · ~4 hrs</p></div>
-          <div class="dest-fact-item"><p class="dest-fact-label">Key Wildlife</p><p class="dest-fact-value">Elephants, Lions, Cheetah</p></div>
-          <div class="dest-fact-item"><p class="dest-fact-label">Highlight</p><p class="dest-fact-value">Mt. Kilimanjaro Views</p></div>
-        </div>
-      </div>
+  <!-- VALUES -->
+  <div class="values">
+    <div class="reveal">
+      <p class="section-label">Our Promise</p>
+      <h2 class="section-title" style="text-align:center">Built on <em>Three Pillars</em></h2>
     </div>
-  </div>
-
-  <!-- DETAIL: NAIVASHA -->
-  <div style="background:var(--dusk)">
-    <div class="dest-detail-section reverse reveal">
-      <img src="https://cdn.britannica.com/07/264207-050-194B7685/Hippopotamus-herd-South-Luangwa-River-Zambia.jpg" alt="Lake Naivasha" loading="lazy">
-      <div>
-        <p class="section-label">Day 4</p>
-        <h2 class="section-title">Lake<br><em>Naivasha</em></h2>
-        <p class="section-body">One of Africa's most renowned freshwater lakes. A boat safari lets you spot hippos and hundreds of bird species. The shores host giraffe, zebra, waterbuck, and eland. Cap the afternoon with a walking safari at the peninsula-shaped Crescent Island — Naivasha's best-kept secret.</p>
-        <div class="dest-fact">
-          <div class="dest-fact-item"><p class="dest-fact-label">Drive from Amboseli</p><p class="dest-fact-value">350 km · ~6 hrs</p></div>
-          <div class="dest-fact-item"><p class="dest-fact-label">Key Activity</p><p class="dest-fact-value">Hippo Boat Ride</p></div>
-          <div class="dest-fact-item"><p class="dest-fact-label">Hidden Gem</p><p class="dest-fact-value">Crescent Island Walk</p></div>
-        </div>
+    <div class="values-grid">
+      <div class="value-item reveal">
+        <div class="value-icon">✦</div>
+        <h3 class="value-title">Exclusivity</h3>
+        <p class="value-body">Every safari is private — your group, your pace, your experience. No strangers, no compromises.</p>
       </div>
-    </div>
-  </div>
-
-  <!-- DETAIL: NAKURU -->
-  <div style="background:var(--night)">
-    <div class="dest-detail-section reveal">
-      <img src="https://www.aberdarenationalparks.com/wp-content/uploads/2023/11/Lake-Naivasha-1.jpg" alt="Lake Nakuru flamingos" loading="lazy">
-      <div>
-        <p class="section-label">Day 5</p>
-        <h2 class="section-title">Lake Nakuru<br><em>National Park</em></h2>
-        <p class="section-body">Famed for its extraordinary flamingo displays — sometimes millions at once — Lake Nakuru is also one of the few sanctuaries in Africa hosting both black and white rhinos. The endangered Rothschild's giraffe and the scenic Makalia Waterfall add to its remarkable appeal.</p>
-        <div class="dest-fact">
-          <div class="dest-fact-item"><p class="dest-fact-label">Drive from Naivasha</p><p class="dest-fact-value">100 km · ~1 hr</p></div>
-          <div class="dest-fact-item"><p class="dest-fact-label">Key Wildlife</p><p class="dest-fact-value">Flamingos, Rhinos, Giraffe</p></div>
-          <div class="dest-fact-item"><p class="dest-fact-label">Special Occasion</p><p class="dest-fact-value">New Year's Eve dinner</p></div>
-        </div>
+      <div class="value-item reveal">
+        <div class="value-icon">✦</div>
+        <h3 class="value-title">Authenticity</h3>
+        <p class="value-body">We connect you to real Kenya — its wildlife, its landscapes, and its people — in the most genuine way possible.</p>
       </div>
-    </div>
-  </div>
-
-  <!-- DETAIL: MASAI MARA -->
-  <div style="background:var(--dusk)">
-    <div class="dest-detail-section reverse reveal">
-      <img src="https://yellowzebrasafaris.com/media/46482/wildebeest-zebra-maasai-mara-national-reserve-kenya-africa.jpg?width=2048&height=1024&format=jpg&v=1da5e12de02d200" alt="Masai Mara hot air balloon" loading="lazy">
-      <div>
-        <p class="section-label">Days 6 &amp; 7</p>
-        <h2 class="section-title">Masai<br><em>Mara</em></h2>
-        <p class="section-body">The crown jewel of every Kenyan safari. The Masai Mara holds the highest concentration of wildlife in Kenya. All the Big Five roam here freely. Big cats — lion, leopard, cheetah — are spotted regularly. Optional hot air balloon rides at sunrise offer a perspective few ever experience.</p>
-        <div class="dest-fact">
-          <div class="dest-fact-item"><p class="dest-fact-label">Drive from Nakuru</p><p class="dest-fact-value">300 km · ~5 hrs</p></div>
-          <div class="dest-fact-item"><p class="dest-fact-label">Key Wildlife</p><p class="dest-fact-value">Big Five + Big Cats</p></div>
-          <div class="dest-fact-item"><p class="dest-fact-label">Optional Add-on</p><p class="dest-fact-value">Hot Air Balloon USD 450</p></div>
-        </div>
+      <div class="value-item reveal">
+        <div class="value-icon">✦</div>
+        <h3 class="value-title">Excellence</h3>
+        <p class="value-body">From the first contact to your airport farewell, every detail is curated to exceed your expectations.</p>
       </div>
-    </div>
-  </div>
-
-  <!-- CTA -->
-  <div style="background:var(--night); padding:5rem 4rem; text-align:center">
-    <p class="section-label reveal" style="text-align:center">Ready to Go?</p>
-    <h2 class="section-title reveal" style="text-align:center; max-width:500px; margin:0 auto 2rem">Start Planning Your <em>Adventure</em></h2>
-    <div class="reveal" style="display:flex; gap:1.2rem; justify-content:center; flex-wrap:wrap">
-      <a href="safaris.html"  class="btn-primary">View Full Itinerary</a>
-      <a href="book.html"     class="btn-ghost">Request a Quote</a>
     </div>
   </div>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — Tamiron Afrika Adventures</title>
+  <title>Book a Safari — Tamiron Afrika Adventures</title>
   <style>
 /* ============================================================
    TAMIRON AFRIKA ADVENTURES — style.css
@@ -493,128 +493,142 @@ section {
 }
   </style>
   <style>
-    /* ── ABOUT LAYOUT ── */
-    #about {
-      background: var(--night);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-      max-width: 1300px;
-      margin: 0 auto;
+    /* ── CONTACT SECTION ── */
+    #contact {
+      background: var(--dusk);
       padding: 7rem 4rem;
     }
 
-    .about-img-wrap { position: relative; }
-
-    .about-img {
-      width: 100%;
-      aspect-ratio: 3/4;
-      object-fit: cover;
+    .contact-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 6rem;
+      align-items: start;
     }
 
-    .about-img-accent {
-      position: absolute;
-      bottom: -2rem;
-      right: -2rem;
-      width: 55%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      border: 4px solid var(--night);
-    }
+    .contact-info { padding-top: 1rem; }
+    .contact-info .section-body { margin-bottom: 3rem; }
 
-    .about-badge {
-      position: absolute;
-      top: 2rem;
-      left: -2rem;
-      background: var(--flame);
-      padding: 1.4rem;
-      text-align: center;
-      width: 110px;
-    }
+    .contact-detail { margin-bottom: 2rem; }
 
-    .about-badge strong {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      color: var(--ivory);
-      display: block;
-    }
-
-    .about-badge span {
+    .contact-detail label {
       font-size: 0.6rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--ivory);
-      opacity: 0.85;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.4rem;
     }
 
-    .about-features {
+    .contact-detail a,
+    .contact-detail p {
+      font-size: 0.9rem;
+      color: var(--fog);
+      text-decoration: none;
+      opacity: 0.85;
+      transition: color 0.2s;
+      display: block;
+      line-height: 1.7;
+    }
+
+    .contact-detail a:hover { color: var(--gold); }
+
+    /* ── FORM ── */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-      margin-top: 2.4rem;
+      gap: 1rem;
     }
 
-    .about-feature {
-      border-left: 2px solid var(--gold);
-      padding-left: 1rem;
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
     }
 
-    .about-feature h4 {
+    .form-field label {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sand);
+      opacity: 0.8;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(212,184,150,0.15);
+      color: var(--fog);
+      padding: 0.9rem 1.1rem;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.25s;
+      width: 100%;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus { border-color: var(--gold); }
+
+    .form-field select { appearance: none; cursor: pointer; }
+    .form-field textarea { resize: vertical; min-height: 110px; }
+
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: var(--fog);
+      opacity: 0.3;
+    }
+
+    .form-submit { align-self: flex-start; margin-top: 0.6rem; }
+
+    #form-success {
+      display: none;
+      padding: 2rem;
+      border: 1px solid var(--moss);
+      margin-top: 1rem;
+    }
+
+    #form-success p {
+      color: var(--sand);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── CONTACT SOCIAL / WHATSAPP ── */
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #25D366;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      font-family: 'Josefin Sans', sans-serif;
       font-size: 0.72rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--sand);
-      margin-bottom: 0.3rem;
+      text-decoration: none;
+      margin-top: 1.5rem;
+      transition: background 0.25s, transform 0.2s;
     }
 
-    .about-feature p {
-      font-size: 0.8rem;
-      color: var(--fog);
-      opacity: 0.65;
-      line-height: 1.6;
+    .whatsapp-btn:hover { background: #1aad53; transform: translateY(-2px); }
+
+    @media (max-width: 900px) {
+      .contact-wrap { grid-template-columns: 1fr; gap: 3.5rem; }
+      #contact      { padding: 5rem 2rem; }
+      .form-row     { grid-template-columns: 1fr; }
     }
-
-    /* ── VALUES STRIP ── */
-    .values {
-      background: var(--dusk);
-      padding: 5rem 4rem;
-      text-align: center;
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
-      max-width: 1100px;
-      margin: 3rem auto 0;
-    }
-
-    .value-item { padding: 2rem; }
-
-    .value-icon {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.4rem;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    .value-title {
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--sand);
-      margin-bottom: 0.8rem;
-    }
-
-    .value-body {
-      font-size: 0.82rem;
-      line-height: 1.8;
-      color: var(--fog);
-      opacity: 0.65;
-    }
-
-    @media (max-width: 900px) { .values-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -626,11 +640,11 @@ section {
   <nav id="navbar">
     <a href="../index.html" class="nav-logo">Tamiron <span>Afrika Adventures</span></a>
     <ul class="nav-links">
-      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="destinations.html">Destinations</a></li>
       <li><a href="safaris.html">Safaris</a></li>
       <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="book.html" class="nav-cta">Book Safari</a></li>
+      <li><a href="book.html" class="nav-cta active">Book Safari</a></li>
     </ul>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </nav>
@@ -645,72 +659,116 @@ section {
 
   <!-- PAGE HERO -->
   <div class="page-hero">
-    <div class="page-hero-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Masai_Mara_at_Sunset.jpg/1280px-Masai_Mara_at_Sunset.jpg');"></div>
+    <div class="page-hero-bg" style="background-image: url('https://kenyamjusisafaris.com/wp-content/uploads/2025/06/Amboseli-Elephants.jpg');"></div>
     <div class="page-hero-content">
-      <p class="page-hero-eyebrow">About Us</p>
-      <h1 class="page-hero-title">Your Journey,<br><em>Crafted for You</em></h1>
+      <p class="page-hero-eyebrow">Get in Touch</p>
+      <h1 class="page-hero-title">Start Your <em>Adventure</em></h1>
     </div>
   </div>
 
-  <!-- ABOUT MAIN -->
-  <section id="about">
-    <div class="about-img-wrap reveal">
-      <img src="https://storage.googleapis.com/roads_of_adventure_uploads/blogs/1759775992756-Best%20visit%20Guide%20to%20Amboseli%20national%20park%20on%20Kenya%20tour%20holiday.jpg" alt="Safari guide" class="about-img">
-      <img src="https://kenyamjusisafaris.com/wp-content/uploads/2025/06/Amboseli-Elephants.jpg" alt="Elephants" class="about-img-accent">
-      <div class="about-badge">
-        <strong>100%</strong>
-        <span>Private Tours</span>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-wrap">
+
+      <!-- INFO -->
+      <div class="contact-info reveal">
+        <p class="section-label">Contact Us</p>
+        <h2 class="section-title">We'd Love to<br><em>Hear From You</em></h2>
+        <p class="section-body">Reach out to our team to book this itinerary, request a custom safari, or ask any questions about your Kenya experience. We respond within 24 hours.</p>
+
+        <div class="contact-detail" style="margin-top:2.5rem">
+          <label>Phone / WhatsApp</label>
+          <a href="tel:+254727356953">+254 727 356 953</a>
+          <a href="tel:+254707329653">+254 707 329 653</a>
+        </div>
+
+        <div class="contact-detail">
+          <label>Email</label>
+          <a href="mailto:tamironafrika@gmail.com">tamironafrika@gmail.com</a>
+        </div>
+
+        <div class="contact-detail">
+          <label>Address</label>
+          <p>P.O. Box 00100, Nairobi, Kenya</p>
+        </div>
+
+        <a href="https://wa.me/254727356953" target="_blank" rel="noopener" class="whatsapp-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.524 5.847L0 24l6.337-1.498A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.003-1.366l-.36-.213-3.726.88.947-3.637-.233-.374A9.818 9.818 0 1 1 12 21.818z"/>
+          </svg>
+          Chat on WhatsApp
+        </a>
       </div>
-    </div>
-    <div class="reveal">
-      <p class="section-label">Who We Are</p>
-      <h2 class="section-title">Nairobi-Based.<br><em>World-Class.</em></h2>
-      <p class="section-body">Tamiron Afrika Adventures is a Nairobi-based luxury safari operator dedicated to crafting exclusive, private wildlife experiences across Kenya's most extraordinary ecosystems. From the elephant-rich plains of Amboseli to the legendary savannahs of the Masai Mara, every detail is arranged for your comfort and wonder.</p>
-      <div class="about-features">
-        <div class="about-feature">
-          <h4>Private Transport</h4>
-          <p>Pop-top 4×4 Landcruiser — window seat guaranteed for every guest</p>
-        </div>
-        <div class="about-feature">
-          <h4>Expert Guides</h4>
-          <p>Professional English-speaking wildlife experts with deep field knowledge</p>
-        </div>
-        <div class="about-feature">
-          <h4>All-Inclusive</h4>
-          <p>Full board, park fees, transfers, mineral water &amp; more</p>
-        </div>
-        <div class="about-feature">
-          <h4>Luxury Stays</h4>
-          <p>4 &amp; 4.5-star lodges and tented camps across every park</p>
+
+      <!-- FORM -->
+      <div class="reveal">
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-field">
+              <label>First Name</label>
+              <input type="text" placeholder="James" required>
+            </div>
+            <div class="form-field">
+              <label>Last Name</label>
+              <input type="text" placeholder="Mwangi" required>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label>Email Address</label>
+            <input type="email" placeholder="james@example.com" required>
+          </div>
+
+          <div class="form-field">
+            <label>Phone / WhatsApp</label>
+            <input type="tel" placeholder="+1 555 000 0000">
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label>Number of Guests</label>
+              <select>
+                <option>0 Guests</option>
+                <option>1 Guest</option>
+                <option>2 Guests</option>
+                <option>3 Guests</option>
+                <option selected>4 Guests</option>
+                <option>5+ Guests</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>Package Preference</label>
+              <select>
+                <option>Semi-Luxury (USD 2,310)</option>
+                <option>Luxury (USD 2,990)</option>
+                <option>Undecided</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label>Preferred Travel Date</label>
+            <input type="text" placeholder="e.g. 27th December 2026">
+          </div>
+
+          <div class="form-field">
+            <label>Message / Special Requests</label>
+            <textarea placeholder="Tell us about your dream safari…"></textarea>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn-primary">Send Enquiry</button>
+          </div>
+        </form>
+
+        <div id="form-success">
+          <p>✓ &nbsp;Thank you! We'll be in touch within 24 hours to confirm your safari details.</p>
         </div>
       </div>
+
     </div>
   </section>
-
-  <!-- VALUES -->
-  <div class="values">
-    <div class="reveal">
-      <p class="section-label">Our Promise</p>
-      <h2 class="section-title" style="text-align:center">Built on <em>Three Pillars</em></h2>
-    </div>
-    <div class="values-grid">
-      <div class="value-item reveal">
-        <div class="value-icon">✦</div>
-        <h3 class="value-title">Exclusivity</h3>
-        <p class="value-body">Every safari is private — your group, your pace, your experience. No strangers, no compromises.</p>
-      </div>
-      <div class="value-item reveal">
-        <div class="value-icon">✦</div>
-        <h3 class="value-title">Authenticity</h3>
-        <p class="value-body">We connect you to real Kenya — its wildlife, its landscapes, and its people — in the most genuine way possible.</p>
-      </div>
-      <div class="value-item reveal">
-        <div class="value-icon">✦</div>
-        <h3 class="value-title">Excellence</h3>
-        <p class="value-body">From the first contact to your airport farewell, every detail is curated to exceed your expectations.</p>
-      </div>
-    </div>
-  </div>
 
   <!-- FOOTER -->
   <footer>

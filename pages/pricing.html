@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tamiron Afrika Adventures — Private Luxury Safaris in Kenya</title>
+  <title>Pricing — Tamiron Afrika Adventures</title>
   <style>
 /* ============================================================
    TAMIRON AFRIKA ADVENTURES — style.css
@@ -493,276 +493,357 @@ section {
 }
   </style>
   <style>
-    /* ── HERO ── */
-    #hero {
-      position: relative;
-      height: 100vh;
-      min-height: 680px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+    /* ── PRICING SECTION ── */
+    #pricing {
+      background: var(--dusk);
+      padding: 7rem 4rem;
     }
 
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse at 70% 60%, rgba(212,98,42,0.12) 0%, transparent 60%),
-        radial-gradient(ellipse at 20% 80%, rgba(74,92,58,0.18) 0%, transparent 50%),
-        linear-gradient(180deg, rgba(15,10,5,0.3) 0%, rgba(15,10,5,0.5) 50%, rgba(15,10,5,0.9) 100%),
-        url('https://www.awf.org/sites/default/files/2025-08/Ariel%20Gakunga_KE_Amboseli%20Recce_March_2025--2%20%281%29-2.jpg');
-      background-size: cover;
-      background-position: center bottom;
-      transform: scale(1.05);
-      transition: transform 8s ease-out;
-    }
-
-    #hero.loaded .hero-bg { transform: scale(1); }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
+    .pricing-header {
       text-align: center;
-      padding: 0 2rem;
+      max-width: 600px;
+      margin: 0 auto 4rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
       max-width: 900px;
+      margin: 0 auto;
     }
 
-    .hero-eyebrow {
-      font-size: 0.7rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.6rem;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 0.9s 0.3s forwards;
+    .pricing-card {
+      padding: 3rem 2.5rem;
+      border: 1px solid rgba(212,184,150,0.15);
+      position: relative;
+      transition: border-color 0.3s;
     }
 
-    .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.2rem, 7vw, 6.5rem);
-      font-weight: 300;
-      line-height: 1.05;
-      color: var(--ivory);
-      margin-bottom: 1.6rem;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp 1s 0.55s forwards;
+    .pricing-card:hover { border-color: rgba(212,184,150,0.4); }
+
+    .pricing-card.featured {
+      border-color: var(--gold);
+      background: rgba(191,155,77,0.04);
     }
 
-    .hero-title em { font-style: italic; color: var(--sand); }
-
-    .hero-sub {
-      font-size: 0.82rem;
-      letter-spacing: 0.15em;
-      color: var(--fog);
-      opacity: 0;
-      max-width: 520px;
-      margin: 0 auto 2.8rem;
-      animation: fadeUp 0.9s 0.8s forwards;
-      transform: translateY(20px);
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 1.2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp 0.9s 1.05s forwards;
-      transform: translateY(20px);
-    }
-
-    .hero-scroll {
+    .featured-badge {
       position: absolute;
-      bottom: 2.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      opacity: 0;
-      animation: fadeIn 1s 1.6s forwards;
+      top: -1px;
+      right: 2rem;
+      background: var(--gold);
+      color: var(--night);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
     }
 
-    .hero-scroll span {
-      font-size: 0.6rem;
+    .pricing-tier {
+      font-size: 0.65rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .pricing-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.2rem;
+      font-weight: 300;
+      color: var(--ivory);
+      line-height: 1;
+    }
+
+    .pricing-price sup { font-size: 1.4rem; vertical-align: super; }
+
+    .pricing-price small {
+      font-size: 0.8rem;
+      font-family: 'Josefin Sans', sans-serif;
       color: var(--sand);
+      opacity: 0.7;
+      font-weight: 300;
     }
 
-    .scroll-line {
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(var(--gold), transparent);
-      animation: scrollPulse 2s infinite;
+    .pricing-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(212,184,150,0.3);
+      margin: 1.4rem 0;
     }
 
-    /* ── QUICK LINKS GRID ── */
-    .quick-links {
-      background: var(--night);
-      padding: 6rem 4rem;
+    .pricing-accommodation {
+      font-size: 0.72rem;
+      color: var(--sand);
+      opacity: 0.7;
+      margin-bottom: 2rem;
+      line-height: 1.6;
     }
 
-    .quick-links-header {
+    .pricing-includes {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-includes li {
+      font-size: 0.78rem;
+      line-height: 1.7;
+      color: var(--fog);
+      opacity: 0.75;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .pricing-includes li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.7rem;
+    }
+
+    .pricing-optional {
       text-align: center;
-      margin-bottom: 3.5rem;
+      margin-top: 1.8rem;
+      font-size: 0.72rem;
+      color: var(--sand);
+      opacity: 0.6;
+      letter-spacing: 0.1em;
     }
 
-    .quick-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
+    /* ── INCLUSIONS ── */
+    #inclusions {
+      background: var(--night);
+      padding: 7rem 4rem;
       max-width: 1300px;
       margin: 0 auto;
     }
 
-    .quick-card {
-      border: 1px solid rgba(212,184,150,0.12);
-      padding: 2.4rem 2rem;
-      text-decoration: none;
-      display: block;
-      transition: border-color 0.3s, transform 0.3s;
-      position: relative;
-      overflow: hidden;
+    .incl-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 3.5rem;
     }
 
-    .quick-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(191,155,77,0.04);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .quick-card:hover { border-color: rgba(212,184,150,0.4); transform: translateY(-4px); }
-    .quick-card:hover::before { opacity: 1; }
-
-    .quick-card-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
-      color: var(--gold);
-      opacity: 0.25;
-      line-height: 1;
-      margin-bottom: 1.2rem;
-    }
-
-    .quick-card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      font-weight: 300;
-      color: var(--ivory);
-      margin-bottom: 0.6rem;
-    }
-
-    .quick-card-desc {
-      font-size: 0.78rem;
-      color: var(--fog);
-      opacity: 0.6;
-      line-height: 1.7;
-    }
-
-    .quick-card-arrow {
-      margin-top: 1.5rem;
+    .incl-group h3 {
       font-size: 0.65rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--gold);
+      margin-bottom: 1.4rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 1px solid rgba(212,184,150,0.12);
     }
 
-    @media (max-width: 900px) { .quick-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 500px) { .quick-grid { grid-template-columns: 1fr; } }
+    .incl-list { list-style: none; }
+
+    .incl-list li {
+      font-size: 0.82rem;
+      line-height: 1.75;
+      color: var(--fog);
+      opacity: 0.78;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(212,184,150,0.06);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .incl-list li::before {
+      content: '✓';
+      color: var(--moss);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .excl-list li::before {
+      content: '✕';
+      color: var(--flame);
+      opacity: 0.6;
+    }
+
+    .good-to-know {
+      margin-top: 2.5rem;
+      padding: 2rem;
+      border: 1px solid rgba(212,184,150,0.12);
+    }
+
+    .good-to-know-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .good-to-know p {
+      font-size: 0.82rem;
+      line-height: 1.8;
+      color: var(--fog);
+      opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+      .pricing-grid  { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      #inclusions    { padding: 5rem 2rem; }
+      #pricing       { padding: 5rem 2rem; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- CURSOR & NAV -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
   <nav id="navbar">
-    <a href="index.html" class="nav-logo">Tamiron <span>Afrika Adventures</span></a>
+    <a href="../index.html" class="nav-logo">Tamiron <span> Adventures</span></a>
     <ul class="nav-links">
-      <li><a href="pages/about.html">About</a></li>
-      <li><a href="pages/destinations.html">Destinations</a></li>
-      <li><a href="pages/safaris.html">Safaris</a></li>
-      <li><a href="pages/pricing.html">Pricing</a></li>
-      <li><a href="pages/book.html" class="nav-cta">Book Safari</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="safaris.html">Safaris</a></li>
+      <li><a href="pricing.html" class="active">Pricing</a></li>
+      <li><a href="book.html" class="nav-cta">Book Safari</a></li>
     </ul>
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </nav>
 
   <div class="mobile-nav" id="mobileNav">
-    <a href="pages/about.html"        onclick="closeMobileNav()">About</a>
-    <a href="pages/destinations.html" onclick="closeMobileNav()">Destinations</a>
-    <a href="pages/safaris.html"      onclick="closeMobileNav()">Safaris</a>
-    <a href="pages/pricing.html"      onclick="closeMobileNav()">Pricing</a>
-    <a href="pages/book.html"         onclick="closeMobileNav()">Book Safari</a>
+    <a href="about.html"        onclick="closeMobileNav()">About</a>
+    <a href="destinations.html" onclick="closeMobileNav()">Destinations</a>
+    <a href="safaris.html"      onclick="closeMobileNav()">Safaris</a>
+    <a href="pricing.html"      onclick="closeMobileNav()">Pricing</a>
+    <a href="book.html"         onclick="closeMobileNav()">Book Safari</a>
   </div>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">Nairobi, Kenya · Est. Private Luxury Safaris</p>
-      <h1 class="hero-title">Discover the <em>Wild Heart</em><br>of Africa</h1>
-      <p class="hero-sub">Private luxury safaris across Kenya's most breathtaking landscapes — Amboseli, Naivasha, Nakuru &amp; the Masai Mara.</p>
-      <div class="hero-actions">
-        <a href="pages/safaris.html"  class="btn-primary">Explore Safaris</a>
-        <a href="pages/book.html"     class="btn-ghost">Request a Quote</a>
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=1400&q=80');"></div>
+    <div class="page-hero-content">
+      <p class="page-hero-eyebrow">Investment</p>
+      <h1 class="page-hero-title">Safari <em>Packages</em></h1>
+    </div>
+  </div>
+
+  <!-- PRICING CARDS -->
+  <section id="pricing">
+    <div class="pricing-header reveal">
+      <p class="section-label">Two Tiers</p>
+      <h2 class="section-title">Choose Your <em>Experience</em></h2>
+      <p class="section-body" style="margin:0 auto; text-align:center">Same extraordinary wildlife, same private 4×4 Landcruiser — two levels of accommodation luxury.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Semi-Luxury -->
+      <div class="pricing-card reveal">
+        <p class="pricing-tier">Semi-Luxury</p>
+        <div class="pricing-price"><sup>USD</sup> 2,310 <small>/ person sharing</small></div>
+        <div class="pricing-divider"></div>
+        <p class="pricing-accommodation">
+          Sarova Panafric (Nairobi) · Amboseli Sopa Lodge ·
+          Naivasha Kongoni Lodge · Flamingo Hill Tented Camp ·
+          Enkorok Mara Camp
+        </p>
+        <ul class="pricing-includes">
+          <li>All National Park Entry Fees</li>
+          <li>Full Board on Safari / B&amp;B in Nairobi</li>
+          <li>Private 4×4 Landcruiser with pop-top roof</li>
+          <li>Professional English-speaking guide</li>
+          <li>Airport transfers &amp; meet/greet</li>
+          <li>Mineral water throughout</li>
+          <li>Carnivore Restaurant dinner (Day 8)</li>
+          <li>Hippo boat ride &amp; Crescent Island walk</li>
+        </ul>
+        <a href="book.html" class="btn-ghost" style="font-size:0.7rem; padding:0.85rem 2rem">Request This Package</a>
+      </div>
+
+      <!-- Luxury -->
+      <div class="pricing-card featured reveal">
+        <div class="featured-badge">Recommended</div>
+        <p class="pricing-tier">Luxury</p>
+        <div class="pricing-price"><sup>USD</sup> 2,990 <small>/ person sharing</small></div>
+        <div class="pricing-divider"></div>
+        <p class="pricing-accommodation">
+          Sarova Panafric (Nairobi) · Oltukai Lodge ·
+          Lake Naivasha Sopa Resort · Sarova LionHill ·
+          Sarova Mara Game Camp
+        </p>
+        <ul class="pricing-includes">
+          <li>All National Park Entry Fees</li>
+          <li>Full Board on Safari / B&amp;B in Nairobi</li>
+          <li>Private 4×4 Landcruiser with pop-top roof</li>
+          <li>Professional English-speaking guide</li>
+          <li>Airport transfers &amp; meet/greet</li>
+          <li>Mineral water throughout</li>
+          <li>Carnivore Restaurant dinner (Day 8)</li>
+          <li>Hippo boat ride &amp; Crescent Island walk</li>
+        </ul>
+        <a href="book.html" class="btn-primary" style="font-size:0.7rem; padding:0.85rem 2rem">Request This Package</a>
       </div>
     </div>
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
+
+    <p class="pricing-optional">Optional add-ons: Hot Air Balloon Ride USD 450 pp · Maasai Village Visit USD 30 pp</p>
+  </section>
+
+  <!-- INCLUSIONS & EXCLUSIONS -->
+  <section id="inclusions">
+    <div class="reveal">
+      <p class="section-label">What's Covered</p>
+      <h2 class="section-title">Inclusions &amp;<br><em>Exclusions</em></h2>
+    </div>
+    <div class="incl-layout">
+      <!-- Included -->
+      <div class="incl-group reveal">
+        <h3>Included in Your Safari</h3>
+        <ul class="incl-list">
+          <li>All National Park and Reserve entry fees</li>
+          <li>Full board accommodation while on safari</li>
+          <li>Bed &amp; Breakfast at Sarova Panafric, Nairobi</li>
+          <li>All meals throughout + picnic lunches</li>
+          <li>Bottled mineral water throughout</li>
+          <li>Airport transfers (arrival &amp; departure)</li>
+          <li>Private 4×4 Safari Landcruiser</li>
+          <li>Pop-up roof for unobstructed game viewing</li>
+          <li>Window seat guaranteed for all guests</li>
+          <li>Professional English-speaking safari guide</li>
+          <li>Daily safari &amp; wildlife briefings</li>
+          <li>Carnivore Restaurant dinner on final day</li>
+          <li>Hippo boat ride at Lake Naivasha</li>
+          <li>Crescent Island walking safari</li>
+          <li>All applicable government taxes</li>
+        </ul>
+      </div>
+
+      <!-- Excluded -->
+      <div class="incl-group reveal">
+        <h3>Not Included</h3>
+        <ul class="incl-list excl-list">
+          <li>Personal expenses &amp; souvenirs</li>
+          <li>Travel &amp; medical insurance</li>
+          <li>Passports and visa fees</li>
+          <li>Driver / guide gratuity and tips</li>
+          <li>Hot air balloon ride (USD 450 pp — optional)</li>
+          <li>Maasai village visit (USD 30 pp — optional)</li>
+          <li>Alcoholic beverages</li>
+          <li>International flights</li>
+        </ul>
+
+        <div class="good-to-know">
+          <p class="good-to-know-label">Good to Know</p>
+          <p>Safari dates span the festive season — 27th December 2026 to 3rd January 2027. The Mara wildebeest crossing is typically July–October; the Mara's wildlife is extraordinary year-round.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- STATS STRIP -->
-  <div class="stats-strip">
-    <div class="stat reveal"><span class="stat-num">8</span><span class="stat-label">Days of Adventure</span></div>
-    <div class="stat reveal"><span class="stat-num">4</span><span class="stat-label">Iconic Parks</span></div>
-    <div class="stat reveal"><span class="stat-num">4×4</span><span class="stat-label">Private Landcruiser</span></div>
-    <div class="stat reveal"><span class="stat-num">Big 5</span><span class="stat-label">Wildlife Encounters</span></div>
-  </div>
-
-  <!-- QUICK LINKS -->
-  <div class="quick-links">
-    <div class="quick-links-header reveal">
-      <p class="section-label">Explore the Site</p>
-      <h2 class="section-title" style="text-align:center">Everything You Need<br>to <em>Plan Your Safari</em></h2>
-    </div>
-    <div class="quick-grid">
-      <a href="pages/about.html" class="quick-card reveal">
-        <div class="quick-card-num">01</div>
-        <h3 class="quick-card-title">About Us</h3>
-        <p class="quick-card-desc">Learn who we are, our values, and why thousands of travellers trust Tamiron Afrika.</p>
-        <p class="quick-card-arrow">Learn More →</p>
-      </a>
-      <a href="pages/destinations.html" class="quick-card reveal">
-        <div class="quick-card-num">02</div>
-        <h3 class="quick-card-title">Destinations</h3>
-        <p class="quick-card-desc">Amboseli, Naivasha, Nakuru, and the legendary Masai Mara await.</p>
-        <p class="quick-card-arrow">Explore →</p>
-      </a>
-      <a href="pages/safaris.html" class="quick-card reveal">
-        <div class="quick-card-num">03</div>
-        <h3 class="quick-card-title">8-Day Itinerary</h3>
-        <p class="quick-card-desc">Day-by-day breakdown of your private Kenya luxury safari experience.</p>
-        <p class="quick-card-arrow">View Itinerary →</p>
-      </a>
-      <a href="pages/pricing.html" class="quick-card reveal">
-        <div class="quick-card-num">04</div>
-        <h3 class="quick-card-title">Pricing</h3>
-        <p class="quick-card-desc">Semi-Luxury from USD 2,310 · Luxury from USD 2,990 per person sharing.</p>
-        <p class="quick-card-arrow">See Packages →</p>
-      </a>
+  <!-- CTA -->
+  <div style="background:var(--dusk); padding:5rem 4rem; text-align:center">
+    <p class="section-label reveal" style="text-align:center">Secure Your Spot</p>
+    <h2 class="section-title reveal" style="text-align:center; max-width:500px; margin: 0 auto 2rem">Ready to Start Your <em>Safari?</em></h2>
+    <div class="reveal" style="display:flex; gap:1.2rem; justify-content:center; flex-wrap:wrap">
+      <a href="book.html" class="btn-primary">Book Now</a>
+      <a href="safaris.html" class="btn-ghost">View Full Itinerary</a>
     </div>
   </div>
 
@@ -773,11 +854,11 @@ section {
       <div class="footer-copy">© 2026 Tamiron Afrika Adventures · Nairobi, Kenya · P.O. Box 00100</div>
     </div>
     <div class="footer-links">
-      <a href="pages/about.html">About</a>
-      <a href="pages/destinations.html">Destinations</a>
-      <a href="pages/safaris.html">Safaris</a>
-      <a href="pages/pricing.html">Pricing</a>
-      <a href="pages/book.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="safaris.html">Safaris</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="book.html">Contact</a>
     </div>
   </footer>
 

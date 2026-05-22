@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book a Safari — Tamiron Afrika Adventures</title>
+  <title>Tamiron Afrika Adventures — Private Luxury Safaris in Kenya</title>
   <style>
 /* ============================================================
    TAMIRON AFRIKA ADVENTURES — style.css
@@ -493,282 +493,278 @@ section {
 }
   </style>
   <style>
-    /* ── CONTACT SECTION ── */
-    #contact {
-      background: var(--dusk);
-      padding: 7rem 4rem;
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
-    .contact-wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 6rem;
-      align-items: start;
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 70% 60%, rgba(212,98,42,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(74,92,58,0.18) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(15,10,5,0.3) 0%, rgba(15,10,5,0.5) 50%, rgba(15,10,5,0.9) 100%),
+        url('https://www.awf.org/sites/default/files/2025-08/Ariel%20Gakunga_KE_Amboseli%20Recce_March_2025--2%20%281%29-2.jpg');
+      background-size: cover;
+      background-position: center bottom;
+      transform: scale(1.05);
+      transition: transform 8s ease-out;
     }
 
-    .contact-info { padding-top: 1rem; }
-    .contact-info .section-body { margin-bottom: 3rem; }
+    #hero.loaded .hero-bg { transform: scale(1); }
 
-    .contact-detail { margin-bottom: 2rem; }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 2rem;
+      max-width: 900px;
+    }
 
-    .contact-detail label {
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.6rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.9s 0.3s forwards;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 7vw, 6.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--ivory);
+      margin-bottom: 1.6rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s 0.55s forwards;
+    }
+
+    .hero-title em { font-style: italic; color: var(--sand); }
+
+    .hero-sub {
+      font-size: 0.82rem;
+      letter-spacing: 0.15em;
+      color: var(--fog);
+      opacity: 0;
+      max-width: 520px;
+      margin: 0 auto 2.8rem;
+      animation: fadeUp 0.9s 0.8s forwards;
+      transform: translateY(20px);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.9s 1.05s forwards;
+      transform: translateY(20px);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeIn 1s 1.6s forwards;
+    }
+
+    .hero-scroll span {
       font-size: 0.6rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 0.4rem;
+      color: var(--sand);
     }
 
-    .contact-detail a,
-    .contact-detail p {
-      font-size: 0.9rem;
-      color: var(--fog);
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(var(--gold), transparent);
+      animation: scrollPulse 2s infinite;
+    }
+
+    /* ── QUICK LINKS GRID ── */
+    .quick-links {
+      background: var(--night);
+      padding: 6rem 4rem;
+    }
+
+    .quick-links-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .quick-card {
+      border: 1px solid rgba(212,184,150,0.12);
+      padding: 2.4rem 2rem;
       text-decoration: none;
-      opacity: 0.85;
-      transition: color 0.2s;
       display: block;
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quick-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(191,155,77,0.04);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .quick-card:hover { border-color: rgba(212,184,150,0.4); transform: translateY(-4px); }
+    .quick-card:hover::before { opacity: 1; }
+
+    .quick-card-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      color: var(--gold);
+      opacity: 0.25;
+      line-height: 1;
+      margin-bottom: 1.2rem;
+    }
+
+    .quick-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--ivory);
+      margin-bottom: 0.6rem;
+    }
+
+    .quick-card-desc {
+      font-size: 0.78rem;
+      color: var(--fog);
+      opacity: 0.6;
       line-height: 1.7;
     }
 
-    .contact-detail a:hover { color: var(--gold); }
-
-    /* ── FORM ── */
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .form-field label {
-      font-size: 0.62rem;
+    .quick-card-arrow {
+      margin-top: 1.5rem;
+      font-size: 0.65rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--sand);
-      opacity: 0.8;
+      color: var(--gold);
     }
 
-    .form-field input,
-    .form-field select,
-    .form-field textarea {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(212,184,150,0.15);
-      color: var(--fog);
-      padding: 0.9rem 1.1rem;
-      font-family: 'Josefin Sans', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 300;
-      outline: none;
-      transition: border-color 0.25s;
-      width: 100%;
-    }
-
-    .form-field input:focus,
-    .form-field select:focus,
-    .form-field textarea:focus { border-color: var(--gold); }
-
-    .form-field select { appearance: none; cursor: pointer; }
-    .form-field textarea { resize: vertical; min-height: 110px; }
-
-    .form-field input::placeholder,
-    .form-field textarea::placeholder {
-      color: var(--fog);
-      opacity: 0.3;
-    }
-
-    .form-submit { align-self: flex-start; margin-top: 0.6rem; }
-
-    #form-success {
-      display: none;
-      padding: 2rem;
-      border: 1px solid var(--moss);
-      margin-top: 1rem;
-    }
-
-    #form-success p {
-      color: var(--sand);
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-    }
-
-    /* ── CONTACT SOCIAL / WHATSAPP ── */
-    .whatsapp-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: #25D366;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      font-family: 'Josefin Sans', sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      text-decoration: none;
-      margin-top: 1.5rem;
-      transition: background 0.25s, transform 0.2s;
-    }
-
-    .whatsapp-btn:hover { background: #1aad53; transform: translateY(-2px); }
-
-    @media (max-width: 900px) {
-      .contact-wrap { grid-template-columns: 1fr; gap: 3.5rem; }
-      #contact      { padding: 5rem 2rem; }
-      .form-row     { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 900px) { .quick-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 500px) { .quick-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
-  <!-- CURSOR & NAV -->
+  <!-- NAV -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
   <nav id="navbar">
-    <a href="../index.html" class="nav-logo">Tamiron <span>Afrika Adventures</span></a>
+    <a href="index.html" class="nav-logo">Tamiron <span>Afrika Adventures</span></a>
     <ul class="nav-links">
-      <li><a href="about.html">About</a></li>
-      <li><a href="destinations.html">Destinations</a></li>
-      <li><a href="safaris.html">Safaris</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="book.html" class="nav-cta active">Book Safari</a></li>
+      <li><a href="pages/about.html">About</a></li>
+      <li><a href="pages/destinations.html">Destinations</a></li>
+      <li><a href="pages/safaris.html">Safaris</a></li>
+      <li><a href="pages/pricing.html">Pricing</a></li>
+      <li><a href="pages/book.html" class="nav-cta">Book Safari</a></li>
     </ul>
-    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
   </nav>
 
   <div class="mobile-nav" id="mobileNav">
-    <a href="about.html"        onclick="closeMobileNav()">About</a>
-    <a href="destinations.html" onclick="closeMobileNav()">Destinations</a>
-    <a href="safaris.html"      onclick="closeMobileNav()">Safaris</a>
-    <a href="pricing.html"      onclick="closeMobileNav()">Pricing</a>
-    <a href="book.html"         onclick="closeMobileNav()">Book Safari</a>
+    <a href="pages/about.html"        onclick="closeMobileNav()">About</a>
+    <a href="pages/destinations.html" onclick="closeMobileNav()">Destinations</a>
+    <a href="pages/safaris.html"      onclick="closeMobileNav()">Safaris</a>
+    <a href="pages/pricing.html"      onclick="closeMobileNav()">Pricing</a>
+    <a href="pages/book.html"         onclick="closeMobileNav()">Book Safari</a>
   </div>
 
-  <!-- PAGE HERO -->
-  <div class="page-hero">
-    <div class="page-hero-bg" style="background-image: url('https://kenyamjusisafaris.com/wp-content/uploads/2025/06/Amboseli-Elephants.jpg');"></div>
-    <div class="page-hero-content">
-      <p class="page-hero-eyebrow">Get in Touch</p>
-      <h1 class="page-hero-title">Start Your <em>Adventure</em></h1>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Nairobi, Kenya · Est. Private Luxury Safaris</p>
+      <h1 class="hero-title">Discover the <em>Wild Heart</em><br>of Africa</h1>
+      <p class="hero-sub">Private luxury safaris across Kenya's most breathtaking landscapes — Amboseli, Naivasha, Nakuru &amp; the Masai Mara.</p>
+      <div class="hero-actions">
+        <a href="pages/safaris.html"  class="btn-primary">Explore Safaris</a>
+        <a href="pages/book.html"     class="btn-ghost">Request a Quote</a>
+      </div>
     </div>
-  </div>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-wrap">
-
-      <!-- INFO -->
-      <div class="contact-info reveal">
-        <p class="section-label">Contact Us</p>
-        <h2 class="section-title">We'd Love to<br><em>Hear From You</em></h2>
-        <p class="section-body">Reach out to our team to book this itinerary, request a custom safari, or ask any questions about your Kenya experience. We respond within 24 hours.</p>
-
-        <div class="contact-detail" style="margin-top:2.5rem">
-          <label>Phone / WhatsApp</label>
-          <a href="tel:+254727356953">+254 727 356 953</a>
-          <a href="tel:+254707329653">+254 707 329 653</a>
-        </div>
-
-        <div class="contact-detail">
-          <label>Email</label>
-          <a href="mailto:tamironafrika@gmail.com">tamironafrika@gmail.com</a>
-        </div>
-
-        <div class="contact-detail">
-          <label>Address</label>
-          <p>P.O. Box 00100, Nairobi, Kenya</p>
-        </div>
-
-        <a href="https://wa.me/254727356953" target="_blank" rel="noopener" class="whatsapp-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.524 5.847L0 24l6.337-1.498A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.003-1.366l-.36-.213-3.726.88.947-3.637-.233-.374A9.818 9.818 0 1 1 12 21.818z"/>
-          </svg>
-          Chat on WhatsApp
-        </a>
-      </div>
-
-      <!-- FORM -->
-      <div class="reveal">
-        <form class="contact-form" onsubmit="handleSubmit(event)">
-          <div class="form-row">
-            <div class="form-field">
-              <label>First Name</label>
-              <input type="text" placeholder="James" required>
-            </div>
-            <div class="form-field">
-              <label>Last Name</label>
-              <input type="text" placeholder="Mwangi" required>
-            </div>
-          </div>
-
-          <div class="form-field">
-            <label>Email Address</label>
-            <input type="email" placeholder="james@example.com" required>
-          </div>
-
-          <div class="form-field">
-            <label>Phone / WhatsApp</label>
-            <input type="tel" placeholder="+1 555 000 0000">
-          </div>
-
-          <div class="form-row">
-            <div class="form-field">
-              <label>Number of Guests</label>
-              <select>
-                <option>0 Guests</option>
-                <option>1 Guest</option>
-                <option>2 Guests</option>
-                <option>3 Guests</option>
-                <option selected>4 Guests</option>
-                <option>5+ Guests</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label>Package Preference</label>
-              <select>
-                <option>Semi-Luxury (USD 2,310)</option>
-                <option>Luxury (USD 2,990)</option>
-                <option>Undecided</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-field">
-            <label>Preferred Travel Date</label>
-            <input type="text" placeholder="e.g. 27th December 2026">
-          </div>
-
-          <div class="form-field">
-            <label>Message / Special Requests</label>
-            <textarea placeholder="Tell us about your dream safari…"></textarea>
-          </div>
-
-          <div class="form-submit">
-            <button type="submit" class="btn-primary">Send Enquiry</button>
-          </div>
-        </form>
-
-        <div id="form-success">
-          <p>✓ &nbsp;Thank you! We'll be in touch within 24 hours to confirm your safari details.</p>
-        </div>
-      </div>
-
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
     </div>
   </section>
+
+  <!-- STATS STRIP -->
+  <div class="stats-strip">
+    <div class="stat reveal"><span class="stat-num">8</span><span class="stat-label">Days of Adventure</span></div>
+    <div class="stat reveal"><span class="stat-num">4</span><span class="stat-label">Iconic Parks</span></div>
+    <div class="stat reveal"><span class="stat-num">4×4</span><span class="stat-label">Private Landcruiser</span></div>
+    <div class="stat reveal"><span class="stat-num">Big 5</span><span class="stat-label">Wildlife Encounters</span></div>
+  </div>
+
+  <!-- QUICK LINKS -->
+  <div class="quick-links">
+    <div class="quick-links-header reveal">
+      <p class="section-label">Explore the Site</p>
+      <h2 class="section-title" style="text-align:center">Everything You Need<br>to <em>Plan Your Safari</em></h2>
+    </div>
+    <div class="quick-grid">
+      <a href="pages/about.html" class="quick-card reveal">
+        <div class="quick-card-num">01</div>
+        <h3 class="quick-card-title">About Us</h3>
+        <p class="quick-card-desc">Learn who we are, our values, and why thousands of travellers trust Tamiron Afrika.</p>
+        <p class="quick-card-arrow">Learn More →</p>
+      </a>
+      <a href="pages/destinations.html" class="quick-card reveal">
+        <div class="quick-card-num">02</div>
+        <h3 class="quick-card-title">Destinations</h3>
+        <p class="quick-card-desc">Amboseli, Naivasha, Nakuru, and the legendary Masai Mara await.</p>
+        <p class="quick-card-arrow">Explore →</p>
+      </a>
+      <a href="pages/safaris.html" class="quick-card reveal">
+        <div class="quick-card-num">03</div>
+        <h3 class="quick-card-title">8-Day Itinerary</h3>
+        <p class="quick-card-desc">Day-by-day breakdown of your private Kenya luxury safari experience.</p>
+        <p class="quick-card-arrow">View Itinerary →</p>
+      </a>
+      <a href="pages/pricing.html" class="quick-card reveal">
+        <div class="quick-card-num">04</div>
+        <h3 class="quick-card-title">Pricing</h3>
+        <p class="quick-card-desc">Semi-Luxury from USD 2,310 · Luxury from USD 2,990 per person sharing.</p>
+        <p class="quick-card-arrow">See Packages →</p>
+      </a>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer>
@@ -777,11 +773,11 @@ section {
       <div class="footer-copy">© 2026 Tamiron Afrika Adventures · Nairobi, Kenya · P.O. Box 00100</div>
     </div>
     <div class="footer-links">
-      <a href="about.html">About</a>
-      <a href="destinations.html">Destinations</a>
-      <a href="safaris.html">Safaris</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="book.html">Contact</a>
+      <a href="pages/about.html">About</a>
+      <a href="pages/destinations.html">Destinations</a>
+      <a href="pages/safaris.html">Safaris</a>
+      <a href="pages/pricing.html">Pricing</a>
+      <a href="pages/book.html">Contact</a>
     </div>
   </footer>
 

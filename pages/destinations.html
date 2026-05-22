@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pricing — Tamiron Afrika Adventures</title>
+  <title>Destinations — Tamiron Afrika Adventures</title>
   <style>
 /* ============================================================
    TAMIRON AFRIKA ADVENTURES — style.css
@@ -493,201 +493,135 @@ section {
 }
   </style>
   <style>
-    /* ── PRICING SECTION ── */
-    #pricing {
+    /* ── DESTINATIONS SECTION ── */
+    #destinations {
       background: var(--dusk);
       padding: 7rem 4rem;
     }
 
-    .pricing-header {
+    .dest-header {
       text-align: center;
       max-width: 600px;
       margin: 0 auto 4rem;
     }
 
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      max-width: 900px;
+    .dest-header .section-body {
       margin: 0 auto;
-    }
-
-    .pricing-card {
-      padding: 3rem 2.5rem;
-      border: 1px solid rgba(212,184,150,0.15);
-      position: relative;
-      transition: border-color 0.3s;
-    }
-
-    .pricing-card:hover { border-color: rgba(212,184,150,0.4); }
-
-    .pricing-card.featured {
-      border-color: var(--gold);
-      background: rgba(191,155,77,0.04);
-    }
-
-    .featured-badge {
-      position: absolute;
-      top: -1px;
-      right: 2rem;
-      background: var(--gold);
-      color: var(--night);
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.9rem;
-    }
-
-    .pricing-tier {
-      font-size: 0.65rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    .pricing-price {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3.2rem;
-      font-weight: 300;
-      color: var(--ivory);
-      line-height: 1;
-    }
-
-    .pricing-price sup { font-size: 1.4rem; vertical-align: super; }
-
-    .pricing-price small {
-      font-size: 0.8rem;
-      font-family: 'Josefin Sans', sans-serif;
-      color: var(--sand);
-      opacity: 0.7;
-      font-weight: 300;
-    }
-
-    .pricing-divider {
-      width: 40px;
-      height: 1px;
-      background: rgba(212,184,150,0.3);
-      margin: 1.4rem 0;
-    }
-
-    .pricing-accommodation {
-      font-size: 0.72rem;
-      color: var(--sand);
-      opacity: 0.7;
-      margin-bottom: 2rem;
-      line-height: 1.6;
-    }
-
-    .pricing-includes {
-      list-style: none;
-      margin-bottom: 2rem;
-    }
-
-    .pricing-includes li {
-      font-size: 0.78rem;
-      line-height: 1.7;
-      color: var(--fog);
-      opacity: 0.75;
-      padding-left: 1.2rem;
-      position: relative;
-    }
-
-    .pricing-includes li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--gold);
-      font-size: 0.7rem;
-    }
-
-    .pricing-optional {
       text-align: center;
-      margin-top: 1.8rem;
-      font-size: 0.72rem;
-      color: var(--sand);
-      opacity: 0.6;
-      letter-spacing: 0.1em;
     }
 
-    /* ── INCLUSIONS ── */
-    #inclusions {
-      background: var(--night);
-      padding: 7rem 4rem;
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
       max-width: 1300px;
       margin: 0 auto;
     }
 
-    .incl-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      margin-top: 3.5rem;
+    .dest-card {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      cursor: pointer;
     }
 
-    .incl-group h3 {
-      font-size: 0.65rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.4rem;
-      padding-bottom: 0.7rem;
-      border-bottom: 1px solid rgba(212,184,150,0.12);
+    .dest-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
     }
 
-    .incl-list { list-style: none; }
+    .dest-card:hover img { transform: scale(1.08); }
 
-    .incl-list li {
-      font-size: 0.82rem;
-      line-height: 1.75;
-      color: var(--fog);
-      opacity: 0.78;
-      padding: 0.55rem 0;
-      border-bottom: 1px solid rgba(212,184,150,0.06);
+    .dest-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15,10,5,0.92) 0%, rgba(15,10,5,0.2) 60%, transparent 100%);
       display: flex;
-      align-items: center;
-      gap: 0.75rem;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.8rem 1.5rem;
     }
 
-    .incl-list li::before {
-      content: '✓';
-      color: var(--moss);
-      font-size: 0.9rem;
-      flex-shrink: 0;
-    }
-
-    .excl-list li::before {
-      content: '✕';
-      color: var(--flame);
-      opacity: 0.6;
-    }
-
-    .good-to-know {
-      margin-top: 2.5rem;
-      padding: 2rem;
-      border: 1px solid rgba(212,184,150,0.12);
-    }
-
-    .good-to-know-label {
-      font-size: 0.65rem;
+    .dest-tag {
+      font-size: 0.6rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.4rem;
     }
 
-    .good-to-know p {
-      font-size: 0.82rem;
-      line-height: 1.8;
-      color: var(--fog);
-      opacity: 0.7;
+    .dest-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--ivory);
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
     }
 
-    @media (max-width: 768px) {
-      .pricing-grid  { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
-      #inclusions    { padding: 5rem 2rem; }
-      #pricing       { padding: 5rem 2rem; }
+    .dest-detail {
+      font-size: 0.7rem;
+      color: var(--sand);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.35s ease;
+    }
+
+    .dest-card:hover .dest-detail {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── DESTINATION DETAIL STRIPS ── */
+    .dest-detail-section {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 6rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .dest-detail-section.reverse { direction: rtl; }
+    .dest-detail-section.reverse > * { direction: ltr; }
+
+    .dest-detail-section img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+
+    .dest-detail-section .section-body { max-width: 100%; }
+
+    .dest-fact {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .dest-fact-item { }
+
+    .dest-fact-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
+    }
+
+    .dest-fact-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--ivory);
+    }
+
+    @media (max-width: 900px) {
+      .dest-detail-section { grid-template-columns: 1fr; gap: 2.5rem; }
+      .dest-detail-section.reverse { direction: ltr; }
     }
   </style>
 </head>
@@ -698,12 +632,12 @@ section {
   <div class="cursor-ring" id="cursorRing"></div>
 
   <nav id="navbar">
-    <a href="../index.html" class="nav-logo">Tamiron <span> Adventures</span></a>
+    <a href="../index.html" class="nav-logo">Tamiron <span>Afrika Adventures</span></a>
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
-      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="destinations.html" class="active">Destinations</a></li>
       <li><a href="safaris.html">Safaris</a></li>
-      <li><a href="pricing.html" class="active">Pricing</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
       <li><a href="book.html" class="nav-cta">Book Safari</a></li>
     </ul>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
@@ -721,129 +655,129 @@ section {
   <div class="page-hero">
     <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=1400&q=80');"></div>
     <div class="page-hero-content">
-      <p class="page-hero-eyebrow">Investment</p>
-      <h1 class="page-hero-title">Safari <em>Packages</em></h1>
+      <p class="page-hero-eyebrow">Where We Go</p>
+      <h1 class="page-hero-title">Kenya's <em>Finest</em><br>Wilderness</h1>
     </div>
   </div>
 
-  <!-- PRICING CARDS -->
-  <section id="pricing">
-    <div class="pricing-header reveal">
-      <p class="section-label">Two Tiers</p>
-      <h2 class="section-title">Choose Your <em>Experience</em></h2>
-      <p class="section-body" style="margin:0 auto; text-align:center">Same extraordinary wildlife, same private 4×4 Landcruiser — two levels of accommodation luxury.</p>
+  <!-- DESTINATION CARD GRID -->
+  <section id="destinations">
+    <div class="dest-header reveal">
+      <p class="section-label">Four Ecosystems</p>
+      <h2 class="section-title">Each Park,<br><em>Its Own Magic</em></h2>
+      <p class="section-body">Four extraordinary ecosystems, each with its own character, wildlife, and wonder.</p>
     </div>
-
-    <div class="pricing-grid">
-      <!-- Semi-Luxury -->
-      <div class="pricing-card reveal">
-        <p class="pricing-tier">Semi-Luxury</p>
-        <div class="pricing-price"><sup>USD</sup> 2,310 <small>/ person sharing</small></div>
-        <div class="pricing-divider"></div>
-        <p class="pricing-accommodation">
-          Sarova Panafric (Nairobi) · Amboseli Sopa Lodge ·
-          Naivasha Kongoni Lodge · Flamingo Hill Tented Camp ·
-          Enkorok Mara Camp
-        </p>
-        <ul class="pricing-includes">
-          <li>All National Park Entry Fees</li>
-          <li>Full Board on Safari / B&amp;B in Nairobi</li>
-          <li>Private 4×4 Landcruiser with pop-top roof</li>
-          <li>Professional English-speaking guide</li>
-          <li>Airport transfers &amp; meet/greet</li>
-          <li>Mineral water throughout</li>
-          <li>Carnivore Restaurant dinner (Day 8)</li>
-          <li>Hippo boat ride &amp; Crescent Island walk</li>
-        </ul>
-        <a href="book.html" class="btn-ghost" style="font-size:0.7rem; padding:0.85rem 2rem">Request This Package</a>
+    <div class="dest-grid">
+      <div class="dest-card reveal">
+        <img src="https://africangametreksafari.com/wp-content/uploads/2023/09/AMBOSELI-KENYA-WILDLIFE-SAFARI.jpg" alt="Amboseli" loading="lazy">
+        <div class="dest-card-overlay">
+          <span class="dest-tag">Days 2–3</span>
+          <h3 class="dest-name">Amboseli National Park</h3>
+          <p class="dest-detail">1,600+ free-roaming elephants with iconic Mt. Kilimanjaro views</p>
+        </div>
       </div>
-
-      <!-- Luxury -->
-      <div class="pricing-card featured reveal">
-        <div class="featured-badge">Recommended</div>
-        <p class="pricing-tier">Luxury</p>
-        <div class="pricing-price"><sup>USD</sup> 2,990 <small>/ person sharing</small></div>
-        <div class="pricing-divider"></div>
-        <p class="pricing-accommodation">
-          Sarova Panafric (Nairobi) · Oltukai Lodge ·
-          Lake Naivasha Sopa Resort · Sarova LionHill ·
-          Sarova Mara Game Camp
-        </p>
-        <ul class="pricing-includes">
-          <li>All National Park Entry Fees</li>
-          <li>Full Board on Safari / B&amp;B in Nairobi</li>
-          <li>Private 4×4 Landcruiser with pop-top roof</li>
-          <li>Professional English-speaking guide</li>
-          <li>Airport transfers &amp; meet/greet</li>
-          <li>Mineral water throughout</li>
-          <li>Carnivore Restaurant dinner (Day 8)</li>
-          <li>Hippo boat ride &amp; Crescent Island walk</li>
-        </ul>
-        <a href="book.html" class="btn-primary" style="font-size:0.7rem; padding:0.85rem 2rem">Request This Package</a>
+      <div class="dest-card reveal">
+        <img src="https://cdn.britannica.com/07/264207-050-194B7685/Hippopotamus-herd-South-Luangwa-River-Zambia.jpg" alt="Lake Naivasha" loading="lazy">
+        <div class="dest-card-overlay">
+          <span class="dest-tag">Day 4</span>
+          <h3 class="dest-name">Lake Naivasha</h3>
+          <p class="dest-detail">Hippo boat rides, Crescent Island walking safari &amp; rich birdlife</p>
+        </div>
       </div>
-    </div>
-
-    <p class="pricing-optional">Optional add-ons: Hot Air Balloon Ride USD 450 pp · Maasai Village Visit USD 30 pp</p>
-  </section>
-
-  <!-- INCLUSIONS & EXCLUSIONS -->
-  <section id="inclusions">
-    <div class="reveal">
-      <p class="section-label">What's Covered</p>
-      <h2 class="section-title">Inclusions &amp;<br><em>Exclusions</em></h2>
-    </div>
-    <div class="incl-layout">
-      <!-- Included -->
-      <div class="incl-group reveal">
-        <h3>Included in Your Safari</h3>
-        <ul class="incl-list">
-          <li>All National Park and Reserve entry fees</li>
-          <li>Full board accommodation while on safari</li>
-          <li>Bed &amp; Breakfast at Sarova Panafric, Nairobi</li>
-          <li>All meals throughout + picnic lunches</li>
-          <li>Bottled mineral water throughout</li>
-          <li>Airport transfers (arrival &amp; departure)</li>
-          <li>Private 4×4 Safari Landcruiser</li>
-          <li>Pop-up roof for unobstructed game viewing</li>
-          <li>Window seat guaranteed for all guests</li>
-          <li>Professional English-speaking safari guide</li>
-          <li>Daily safari &amp; wildlife briefings</li>
-          <li>Carnivore Restaurant dinner on final day</li>
-          <li>Hippo boat ride at Lake Naivasha</li>
-          <li>Crescent Island walking safari</li>
-          <li>All applicable government taxes</li>
-        </ul>
+      <div class="dest-card reveal">
+        <img src="https://www.maasaimarakenyapark.com/wp-content/uploads/2022/11/flamingos-lakes-great-rift-valley-1.jpg" alt="Lake Nakuru" loading="lazy">
+        <div class="dest-card-overlay">
+          <span class="dest-tag">Day 5</span>
+          <h3 class="dest-name">Lake Nakuru</h3>
+          <p class="dest-detail">Flamingo spectacles, endangered Rothschild giraffes &amp; rhinos</p>
+        </div>
       </div>
-
-      <!-- Excluded -->
-      <div class="incl-group reveal">
-        <h3>Not Included</h3>
-        <ul class="incl-list excl-list">
-          <li>Personal expenses &amp; souvenirs</li>
-          <li>Travel &amp; medical insurance</li>
-          <li>Passports and visa fees</li>
-          <li>Driver / guide gratuity and tips</li>
-          <li>Hot air balloon ride (USD 450 pp — optional)</li>
-          <li>Maasai village visit (USD 30 pp — optional)</li>
-          <li>Alcoholic beverages</li>
-          <li>International flights</li>
-        </ul>
-
-        <div class="good-to-know">
-          <p class="good-to-know-label">Good to Know</p>
-          <p>Safari dates span the festive season — 27th December 2026 to 3rd January 2027. The Mara wildebeest crossing is typically July–October; the Mara's wildlife is extraordinary year-round.</p>
+      <div class="dest-card reveal">
+        <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=600&q=80" alt="Masai Mara" loading="lazy">
+        <div class="dest-card-overlay">
+          <span class="dest-tag">Days 6–7</span>
+          <h3 class="dest-name">Masai Mara</h3>
+          <p class="dest-detail">The Big Five, big cats &amp; Africa's greatest wildlife reserve</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- DETAIL: AMBOSELI -->
+  <div style="background:var(--night)">
+    <div class="dest-detail-section reveal">
+      <img src="https://kenyamjusisafaris.com/wp-content/uploads/2025/06/Amboseli-Elephants.jpg" alt="Amboseli elephants" loading="lazy">
+      <div>
+        <p class="section-label">Days 2 &amp; 3</p>
+        <h2 class="section-title">Amboseli<br><em>National Park</em></h2>
+        <p class="section-body">The savannah grassland ecosystem spreads across the Kenya-Tanzania border. Amboseli is the best place in Africa to get close to over 1,600 free-ranging elephants, with the snowcapped summit of Mt. Kilimanjaro forming the backdrop for unforgettable photographs.</p>
+        <div class="dest-fact">
+          <div class="dest-fact-item"><p class="dest-fact-label">Drive from Nairobi</p><p class="dest-fact-value">250 km · ~4 hrs</p></div>
+          <div class="dest-fact-item"><p class="dest-fact-label">Key Wildlife</p><p class="dest-fact-value">Elephants, Lions, Cheetah</p></div>
+          <div class="dest-fact-item"><p class="dest-fact-label">Highlight</p><p class="dest-fact-value">Mt. Kilimanjaro Views</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAIL: NAIVASHA -->
+  <div style="background:var(--dusk)">
+    <div class="dest-detail-section reverse reveal">
+      <img src="https://cdn.britannica.com/07/264207-050-194B7685/Hippopotamus-herd-South-Luangwa-River-Zambia.jpg" alt="Lake Naivasha" loading="lazy">
+      <div>
+        <p class="section-label">Day 4</p>
+        <h2 class="section-title">Lake<br><em>Naivasha</em></h2>
+        <p class="section-body">One of Africa's most renowned freshwater lakes. A boat safari lets you spot hippos and hundreds of bird species. The shores host giraffe, zebra, waterbuck, and eland. Cap the afternoon with a walking safari at the peninsula-shaped Crescent Island — Naivasha's best-kept secret.</p>
+        <div class="dest-fact">
+          <div class="dest-fact-item"><p class="dest-fact-label">Drive from Amboseli</p><p class="dest-fact-value">350 km · ~6 hrs</p></div>
+          <div class="dest-fact-item"><p class="dest-fact-label">Key Activity</p><p class="dest-fact-value">Hippo Boat Ride</p></div>
+          <div class="dest-fact-item"><p class="dest-fact-label">Hidden Gem</p><p class="dest-fact-value">Crescent Island Walk</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAIL: NAKURU -->
+  <div style="background:var(--night)">
+    <div class="dest-detail-section reveal">
+      <img src="https://www.aberdarenationalparks.com/wp-content/uploads/2023/11/Lake-Naivasha-1.jpg" alt="Lake Nakuru flamingos" loading="lazy">
+      <div>
+        <p class="section-label">Day 5</p>
+        <h2 class="section-title">Lake Nakuru<br><em>National Park</em></h2>
+        <p class="section-body">Famed for its extraordinary flamingo displays — sometimes millions at once — Lake Nakuru is also one of the few sanctuaries in Africa hosting both black and white rhinos. The endangered Rothschild's giraffe and the scenic Makalia Waterfall add to its remarkable appeal.</p>
+        <div class="dest-fact">
+          <div class="dest-fact-item"><p class="dest-fact-label">Drive from Naivasha</p><p class="dest-fact-value">100 km · ~1 hr</p></div>
+          <div class="dest-fact-item"><p class="dest-fact-label">Key Wildlife</p><p class="dest-fact-value">Flamingos, Rhinos, Giraffe</p></div>
+          <div class="dest-fact-item"><p class="dest-fact-label">Special Occasion</p><p class="dest-fact-value">New Year's Eve dinner</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAIL: MASAI MARA -->
+  <div style="background:var(--dusk)">
+    <div class="dest-detail-section reverse reveal">
+      <img src="https://yellowzebrasafaris.com/media/46482/wildebeest-zebra-maasai-mara-national-reserve-kenya-africa.jpg?width=2048&height=1024&format=jpg&v=1da5e12de02d200" alt="Masai Mara hot air balloon" loading="lazy">
+      <div>
+        <p class="section-label">Days 6 &amp; 7</p>
+        <h2 class="section-title">Masai<br><em>Mara</em></h2>
+        <p class="section-body">The crown jewel of every Kenyan safari. The Masai Mara holds the highest concentration of wildlife in Kenya. All the Big Five roam here freely. Big cats — lion, leopard, cheetah — are spotted regularly. Optional hot air balloon rides at sunrise offer a perspective few ever experience.</p>
+        <div class="dest-fact">
+          <div class="dest-fact-item"><p class="dest-fact-label">Drive from Nakuru</p><p class="dest-fact-value">300 km · ~5 hrs</p></div>
+          <div class="dest-fact-item"><p class="dest-fact-label">Key Wildlife</p><p class="dest-fact-value">Big Five + Big Cats</p></div>
+          <div class="dest-fact-item"><p class="dest-fact-label">Optional Add-on</p><p class="dest-fact-value">Hot Air Balloon USD 450</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- CTA -->
-  <div style="background:var(--dusk); padding:5rem 4rem; text-align:center">
-    <p class="section-label reveal" style="text-align:center">Secure Your Spot</p>
-    <h2 class="section-title reveal" style="text-align:center; max-width:500px; margin: 0 auto 2rem">Ready to Start Your <em>Safari?</em></h2>
+  <div style="background:var(--night); padding:5rem 4rem; text-align:center">
+    <p class="section-label reveal" style="text-align:center">Ready to Go?</p>
+    <h2 class="section-title reveal" style="text-align:center; max-width:500px; margin:0 auto 2rem">Start Planning Your <em>Adventure</em></h2>
     <div class="reveal" style="display:flex; gap:1.2rem; justify-content:center; flex-wrap:wrap">
-      <a href="book.html" class="btn-primary">Book Now</a>
-      <a href="safaris.html" class="btn-ghost">View Full Itinerary</a>
+      <a href="safaris.html"  class="btn-primary">View Full Itinerary</a>
+      <a href="book.html"     class="btn-ghost">Request a Quote</a>
     </div>
   </div>
 
