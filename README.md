@@ -132,6 +132,6 @@ The `css/` and `js/` source files are kept for reference and future maintenance.
 ## Contact
 
 **Tamiron Afrika Adventures**  
-P.O. Box 00100, Nairobi, Kenya.  
+P.O. Box 00100, Nairobi, Kenya  
 📧 tamironafrika@gmail.com  
 📞 +254 727 356 953 / +254 707 329 653
