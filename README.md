@@ -14,7 +14,7 @@ tamiron-afrika/
 │   ├── about.html          # About the company + values section
 │   ├── destinations.html   # 4-park card grid + detailed per-park strips
 │   ├── safaris.html        # Full 8-day tabbed itinerary + accommodation summary
-│   ├── pricing.html        # Package cards + inclusions/exclusions
+│   ├── Extras.html         # From honeymoons to visa assistance.
 │   ├── book.html           # Contact form + WhatsApp button + address
 │   ├── _nav.html           # Nav partial (reference snippet — not a live include)
 │   └── _footer.html        # Footer partial (reference snippet — not a live include)
@@ -36,7 +36,7 @@ tamiron-afrika/
 | `pages/about.html` | `/pages/about.html` | Company story, features, three-pillar values |
 | `pages/destinations.html` | `/pages/destinations.html` | All four parks with card grid and detailed content strips |
 | `pages/safaris.html` | `/pages/safaris.html` | Day-by-day tabbed itinerary, accommodation summary table |
-| `pages/pricing.html` | `/pages/pricing.html` | Semi-Luxury vs Luxury packages, inclusions, exclusions |
+| `pages/Extras.html` | `/pages/Extras.html` | From honeymoons to visa assistance — we handle every detail so all you carry is wonder. |
 | `pages/book.html` | `/pages/book.html` | Enquiry form, contact details, WhatsApp CTA |
 
 ---
@@ -123,9 +123,6 @@ The `css/` and `js/` source files are kept for reference and future maintenance.
 | 5 | 31 Dec | Lake Nakuru National Park | 100 km / ~1 hr |
 | 6–7 | 1–2 Jan 2027 | Masai Mara National Reserve | 300 km / ~5 hrs |
 | 8 | 3 Jan 2027 | Nairobi (departure) | 350 km / ~6 hrs |
-
-**Pricing:** USD 2,310 pp (Semi-Luxury) · USD 2,990 pp (Luxury)  
-**Optional add-ons:** Hot Air Balloon USD 450 pp · Maasai Village USD 30 pp
 
 ---
 

@@ -5,10 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Extras — Tamiron Afrika Adventures</title>
   <style>
-/* ============================================================
-   TAMIRON AFRIKA ADVENTURES — style.css
-   ============================================================ */
-
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@200;300;400;600&display=swap');
 
 :root {
@@ -88,10 +84,8 @@ nav.scrolled {
   transition:background 0.25s, color 0.25s !important;
 }
 .nav-cta:hover { background:var(--gold) !important; color:var(--night) !important; }
-
 .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
 .hamburger span { width:24px; height:1px; background:var(--fog); transition:all 0.3s; }
-
 .mobile-nav {
   display:none; position:fixed; inset:0; z-index:90;
   background:rgba(15,10,5,0.98);
@@ -104,23 +98,6 @@ nav.scrolled {
   letter-spacing:0.08em; transition:color 0.2s;
 }
 .mobile-nav a:hover { color:var(--gold); }
-
-/* ── SHARED SECTION BASE ── */
-section { padding:7rem 4rem; }
-.section-label {
-  font-size:0.65rem; letter-spacing:0.35em;
-  text-transform:uppercase; color:var(--gold); margin-bottom:1rem;
-}
-.section-title {
-  font-family:'Cormorant Garamond', serif;
-  font-size:clamp(2.2rem,4vw,3.4rem); font-weight:300;
-  line-height:1.15; color:var(--ivory); margin-bottom:1.5rem;
-}
-.section-title em { font-style:italic; color:var(--sand); }
-.section-body {
-  font-size:0.88rem; line-height:1.9;
-  color:var(--fog); opacity:0.8; max-width:540px;
-}
 
 /* ── BUTTONS ── */
 .btn-primary {
@@ -143,25 +120,25 @@ section { padding:7rem 4rem; }
 
 /* ── SCROLL REVEAL ── */
 .reveal {
-  opacity:0; transform:translateY(30px);
-  transition:opacity 0.7s ease, transform 0.7s ease;
+  opacity:0; transform:translateY(28px);
+  transition:opacity 0.75s ease, transform 0.75s ease;
 }
 .reveal.visible { opacity:1; transform:none; }
 
 /* ── PAGE HERO ── */
 .page-hero {
-  position:relative; height:48vh; min-height:320px;
+  position:relative; height:52vh; min-height:340px;
   display:flex; align-items:flex-end; justify-content:flex-start;
   overflow:hidden; padding:3.5rem 4rem;
 }
 .page-hero-bg {
   position:absolute; inset:0;
   background-size:cover; background-position:center;
-  transform:scale(1.04); transition:transform 8s ease-out;
+  transform:scale(1.05); transition:transform 8s ease-out;
 }
 .page-hero-bg::after {
   content:''; position:absolute; inset:0;
-  background:linear-gradient(to bottom, rgba(15,10,5,0.3) 0%, rgba(15,10,5,0.82) 100%);
+  background:linear-gradient(to bottom, rgba(15,10,5,0.25) 0%, rgba(15,10,5,0.80) 100%);
 }
 .page-hero.loaded .page-hero-bg { transform:scale(1); }
 .page-hero-content { position:relative; z-index:2; }
@@ -171,158 +148,161 @@ section { padding:7rem 4rem; }
 }
 .page-hero-title {
   font-family:'Cormorant Garamond', serif;
-  font-size:clamp(2.4rem,5vw,4.8rem); font-weight:300;
+  font-size:clamp(2.6rem,5.5vw,5rem); font-weight:300;
   color:var(--ivory); line-height:1.05;
 }
 .page-hero-title em { color:var(--sand); font-style:italic; }
 .page-hero-sub {
-  margin-top:0.8rem; font-size:0.82rem; letter-spacing:0.15em;
-  color:var(--fog); opacity:0.65; max-width:480px; line-height:1.7;
+  margin-top:0.9rem; font-size:0.82rem; letter-spacing:0.12em;
+  color:var(--fog); opacity:0.65; max-width:500px; line-height:1.75;
 }
 
-/* ── EXTRAS INTRO ── */
+/* ── SECTION SHARED ── */
+.section-label {
+  font-size:0.65rem; letter-spacing:0.35em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:1rem;
+}
+.section-title {
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(2.2rem,4vw,3.4rem); font-weight:300;
+  line-height:1.15; color:var(--ivory); margin-bottom:1.5rem;
+}
+.section-title em { font-style:italic; color:var(--sand); }
+
+/* ── INTRO BAND ── */
 #extras-intro {
   background:var(--dusk);
-  padding:5rem 4rem 3rem;
+  padding:4.5rem 4rem 3.5rem;
   text-align:center;
   border-bottom:1px solid rgba(212,184,150,0.08);
 }
-#extras-intro .section-body {
-  margin:0 auto;
-  text-align:center;
-  max-width:600px;
+.intro-body {
+  font-size:0.9rem; line-height:1.95;
+  color:var(--fog); opacity:0.75;
+  max-width:620px; margin:0 auto;
+}
+.gold-line {
+  width:50px; height:1px;
+  background:linear-gradient(to right,var(--gold),transparent);
+  margin:1.6rem auto 0;
 }
 
-/* ── EXTRAS GRID ── */
+/* ================================================================
+   EXTRAS CARDS — new layout: image on top, text below, always visible
+   ================================================================ */
 #extras {
   background:var(--night);
-  padding:5rem 4rem 8rem;
+  padding:6rem 4rem 8rem;
 }
 
 .extras-grid {
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:0;
-  max-width:1300px;
+  grid-template-columns: repeat(3, 1fr);
+  gap:2.5rem;
+  max-width:1280px;
   margin:0 auto;
-  border:1px solid rgba(212,184,150,0.1);
 }
 
+/* ---- individual card ---- */
 .extra-card {
-  position:relative;
+  display:flex;
+  flex-direction:column;
+  background:var(--dusk);
+  border:1px solid rgba(212,184,150,0.1);
   overflow:hidden;
-  aspect-ratio:4/5;
-  cursor:pointer;
-  border:1px solid rgba(212,184,150,0.08);
+  transition:border-color 0.35s ease, transform 0.4s ease, box-shadow 0.4s ease;
+  position:relative;
+}
+.extra-card:hover {
+  border-color:rgba(191,155,77,0.45);
+  transform:translateY(-6px);
+  box-shadow:0 24px 60px rgba(0,0,0,0.55);
 }
 
-/* Image layer */
-.extra-card-img {
-  position:absolute; inset:0;
-  background-size:cover; background-position:center;
-  transform:scale(1.06);
-  transition:transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94);
+/* ---- image wrapper ---- */
+.extra-card-img-wrap {
+  position:relative;
+  width:100%;
+  height:260px;
+  overflow:hidden;
+  flex-shrink:0;
+}
+.extra-card-img-wrap img {
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform 0.75s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.extra-card:hover .extra-card-img-wrap img {
+  transform:scale(1.07);
 }
 
-/* Gradient overlay — always present */
-.extra-card::before {
-  content:'';
-  position:absolute; inset:0; z-index:1;
-  background:linear-gradient(
-    to bottom,
-    rgba(15,10,5,0.1) 0%,
-    rgba(15,10,5,0.55) 50%,
-    rgba(15,10,5,0.92) 100%
-  );
-  transition:opacity 0.5s ease;
-}
-
-/* Hover overlay */
-.extra-card::after {
-  content:'';
-  position:absolute; inset:0; z-index:1;
-  background:rgba(191,155,77,0.07);
-  opacity:0; transition:opacity 0.5s ease;
-}
-
-.extra-card:hover .extra-card-img { transform:scale(1); }
-.extra-card:hover::after { opacity:1; }
-
-/* Content */
-.extra-card-body {
-  position:absolute; bottom:0; left:0; right:0;
+/* category badge over image */
+.extra-card-badge {
+  position:absolute;
+  top:1.1rem; left:1.1rem;
+  background:rgba(15,10,5,0.72);
+  backdrop-filter:blur(6px);
+  border:1px solid rgba(191,155,77,0.3);
+  color:var(--gold);
+  font-size:0.58rem; letter-spacing:0.28em;
+  text-transform:uppercase;
+  padding:0.28rem 0.7rem;
   z-index:2;
-  padding:2.2rem 2rem 2rem;
-  transform:translateY(3.5rem);
-  transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
 }
 
-.extra-card:hover .extra-card-body {
-  transform:translateY(0);
+/* gold line accent at bottom of image */
+.extra-card-img-wrap::after {
+  content:'';
+  position:absolute; bottom:0; left:0; right:0;
+  height:3px;
+  background:linear-gradient(to right, var(--gold), transparent 70%);
+  opacity:0;
+  transition:opacity 0.35s ease;
+}
+.extra-card:hover .extra-card-img-wrap::after { opacity:1; }
+
+/* ---- text body ---- */
+.extra-card-body {
+  padding:1.8rem 1.8rem 2rem;
+  display:flex;
+  flex-direction:column;
+  flex:1;
 }
 
-.extra-card-number {
-  font-size:0.58rem; letter-spacing:0.35em;
+.extra-card-num {
+  font-size:0.56rem; letter-spacing:0.3em;
   text-transform:uppercase; color:var(--gold);
-  margin-bottom:0.4rem; opacity:0.85;
+  opacity:0.7; margin-bottom:0.5rem;
 }
 
 .extra-card-title {
   font-family:'Cormorant Garamond', serif;
-  font-size:1.75rem; font-weight:300;
-  color:var(--ivory); line-height:1.15;
+  font-size:1.55rem; font-weight:300;
+  color:var(--ivory); line-height:1.2;
   margin-bottom:0.9rem;
 }
 
 .extra-card-desc {
-  font-size:0.76rem; line-height:1.8;
-  color:var(--fog); opacity:0;
-  max-height:0; overflow:hidden;
-  transition:opacity 0.45s ease 0.1s, max-height 0.5s ease;
+  font-size:0.78rem; line-height:1.85;
+  color:var(--fog); opacity:0.7;
+  flex:1;
+  margin-bottom:1.5rem;
 }
 
-.extra-card:hover .extra-card-desc {
-  opacity:0.78;
-  max-height:120px;
-}
-
-.extra-card-cta {
-  display:inline-flex; align-items:center; gap:0.5rem;
-  margin-top:1.1rem;
-  font-size:0.65rem; letter-spacing:0.25em;
+.extra-card-link {
+  display:inline-flex; align-items:center; gap:0.45rem;
+  font-size:0.66rem; letter-spacing:0.22em;
   text-transform:uppercase; color:var(--gold);
-  opacity:0; transition:opacity 0.4s ease 0.15s;
+  font-weight:400;
+  align-self:flex-start;
+  transition:gap 0.25s ease;
 }
+.extra-card-link::after { content:'→'; transition:transform 0.25s ease; }
+.extra-card:hover .extra-card-link { gap:0.7rem; }
+.extra-card:hover .extra-card-link::after { transform:translateX(3px); }
 
-.extra-card:hover .extra-card-cta { opacity:1; }
-
-.extra-card-cta::after {
-  content:'→';
-  transition:transform 0.25s ease;
-}
-.extra-card:hover .extra-card-cta::after {
-  transform:translateX(4px);
-}
-
-/* Top label (always visible) */
-.extra-card-label {
-  position:absolute; top:1.5rem; left:2rem; z-index:3;
-  font-size:0.58rem; letter-spacing:0.3em;
-  text-transform:uppercase; color:var(--gold);
-  background:rgba(15,10,5,0.55);
-  padding:0.3rem 0.75rem;
-  backdrop-filter:blur(4px);
-  border:1px solid rgba(191,155,77,0.25);
-}
-
-/* ── ACCENT DIVIDER ── */
-.gold-divider {
-  width:60px; height:1px;
-  background:linear-gradient(to right, var(--gold), transparent);
-  margin:1.5rem auto 0;
-}
-
-/* ── STATS STRIP ── */
+/* ── STATS ── */
 .stats-strip {
   background:var(--dusk);
   border-top:1px solid rgba(212,184,150,0.12);
@@ -361,23 +341,18 @@ footer {
 }
 .footer-links a:hover { opacity:0.9; }
 
-/* ── KEYFRAMES ── */
-@keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
-
 /* ── RESPONSIVE ── */
 @media (max-width:1050px) {
-  .extras-grid { grid-template-columns:repeat(2,1fr); }
+  .extras-grid { grid-template-columns:repeat(2,1fr); gap:2rem; }
 }
 @media (max-width:768px) {
   nav, nav.scrolled { padding:1.2rem 2rem; }
   .nav-links { display:none; }
   .hamburger { display:flex; }
-  section, #extras, #extras-intro { padding:4rem 1.5rem; }
-  .extras-grid { grid-template-columns:1fr; }
-  .extra-card { aspect-ratio:3/2; }
-  .extra-card-body { transform:translateY(0); }
-  .extra-card-desc { opacity:0.72; max-height:200px; }
-  .extra-card-cta  { opacity:1; }
+  #extras { padding:4rem 1.5rem 5rem; }
+  #extras-intro { padding:4rem 2rem 3rem; }
+  .extras-grid { grid-template-columns:1fr; gap:1.8rem; }
+  .extra-card-img-wrap { height:220px; }
   footer { grid-template-columns:1fr; gap:1.5rem; }
   .footer-links { flex-wrap:wrap; gap:1.2rem; }
   .page-hero { padding:2.5rem 2rem; }
@@ -390,7 +365,7 @@ footer {
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
-  <!-- ── NAV ── -->
+  <!-- NAV -->
   <nav id="navbar">
     <a href="../index.html" class="nav-logo">Tamiron <span>Adventures</span></a>
     <ul class="nav-links">
@@ -411,7 +386,7 @@ footer {
     <a href="book.html"         onclick="closeMobileNav()">Book Safari</a>
   </div>
 
-  <!-- ── PAGE HERO ── -->
+  <!-- PAGE HERO -->
   <div class="page-hero">
     <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1600&q=80');"></div>
     <div class="page-hero-content">
@@ -421,98 +396,128 @@ footer {
     </div>
   </div>
 
-  <!-- ── INTRO ── -->
+  <!-- INTRO -->
   <section id="extras-intro">
     <div class="reveal">
-      <p class="section-label">Full-Service Travel</p>
-      <h2 class="section-title" style="margin-bottom:1rem">Everything You <em>Need</em></h2>
-      <div class="gold-divider"></div>
+      <p class="section-label" style="text-align:center">Full-Service Travel</p>
+      <h2 class="section-title" style="text-align:center; margin-bottom:1rem">Everything You <em>Need</em></h2>
     </div>
-    <p class="section-body reveal" style="margin-top:2rem; text-align:center">
-      We are more than a safari company. Whether you are celebrating love, building your team, chasing a dream destination, or simply need your paperwork sorted — Tamiron Afrika Adventures is your one stop travel partner.
+    <p class="intro-body reveal" style="margin-top:1.5rem">
+      We are more than a safari company. Whether you are celebrating love, energising your team, chasing a dream destination, or simply need your paperwork sorted — Tamiron Afrika Adventures is your one-stop travel partner.
     </p>
+    <div class="gold-line reveal"></div>
   </section>
 
-  <!-- ── EXTRAS GRID ── -->
-  <section id="extras" style="padding-top:3rem;">
+  <!-- EXTRAS CARDS -->
+  <section id="extras">
     <div class="extras-grid">
 
       <!-- 1. Honeymoon -->
       <div class="extra-card reveal">
-        <div class="extra-card-img" style="background-image:url('https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=900&q=80');"></div>
-        <span class="extra-card-label">Romance</span>
+        <div class="extra-card-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80"
+            alt="Romantic honeymoon sunset over the savannah"
+            loading="lazy">
+          <span class="extra-card-badge">Romance</span>
+        </div>
         <div class="extra-card-body">
-          <p class="extra-card-number">01</p>
-          <h3 class="extra-card-title">Honeymoon<br>Escapes</h3>
-          <p class="extra-card-desc">Celebrate your love story against the world's most breathtaking backdrops. Private tented suites, candlelit bush dinners, rose-petal surprises, and exclusive sunrise drives — all curated entirely for two. Let Africa write the most romantic chapter of your lives.</p>
-          <a href="book.html" class="extra-card-cta">Enquire Now</a>
+          <p class="extra-card-num">01 / 06</p>
+          <h3 class="extra-card-title">Honeymoon Escapes</h3>
+          <p class="extra-card-desc">Celebrate your love story against the world's most breathtaking backdrops. Private tented suites, candlelit bush dinners, rose-petal surprises, and exclusive sunrise drives — curated entirely for two. Let Africa write the most romantic chapter of your lives.</p>
+          <a href="book.html" class="extra-card-link">Enquire Now</a>
         </div>
       </div>
 
       <!-- 2. Team Building -->
-      <div class="extra-card reveal" style="transition-delay:0.1s">
-        <div class="extra-card-img" style="background-image:url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=900&q=80');"></div>
-        <span class="extra-card-label">Corporate</span>
+      <div class="extra-card reveal" style="transition-delay:0.08s">
+        <div class="extra-card-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
+            alt="Corporate team celebrating outdoors"
+            loading="lazy">
+          <span class="extra-card-badge">Corporate</span>
+        </div>
         <div class="extra-card-body">
-          <p class="extra-card-number">02</p>
-          <h3 class="extra-card-title">Team<br>Building</h3>
-          <p class="extra-card-desc">Take your team out of the boardroom and into the wild. Nature has a remarkable way of unlocking collaboration, trust, and energy. We design bespoke corporate retreats — from game-reserve experiences to guided wilderness challenges — that your team will talk about for years.</p>
-          <a href="book.html" class="extra-card-cta">Enquire Now</a>
+          <p class="extra-card-num">02 / 06</p>
+          <h3 class="extra-card-title">Team Building</h3>
+          <p class="extra-card-desc">Take your team out of the boardroom and into the wild. Nature has a remarkable way of unlocking collaboration, trust, and energy. We design bespoke corporate retreats — game-reserve experiences, guided challenges — that your team will talk about for years.</p>
+          <a href="book.html" class="extra-card-link">Enquire Now</a>
         </div>
       </div>
 
       <!-- 3. Vacations -->
-      <div class="extra-card reveal" style="transition-delay:0.2s">
-        <div class="extra-card-img" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=80');"></div>
-        <span class="extra-card-label">Leisure</span>
+      <div class="extra-card reveal" style="transition-delay:0.16s">
+        <div class="extra-card-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+            alt="Tropical beach vacation with turquoise water"
+            loading="lazy">
+          <span class="extra-card-badge">Leisure</span>
+        </div>
         <div class="extra-card-body">
-          <p class="extra-card-number">03</p>
-          <h3 class="extra-card-title">Vacation<br>Packages</h3>
-          <p class="extra-card-desc">Sun-kissed beaches, island escapes, mountain retreats — wherever your soul is calling you, we'll get you there seamlessly. Our tailor-made vacation packages blend comfort, culture, and adventure for the perfect getaway, whether solo, with family, or with friends.</p>
-          <a href="book.html" class="extra-card-cta">Enquire Now</a>
+          <p class="extra-card-num">03 / 06</p>
+          <h3 class="extra-card-title">Vacation Packages</h3>
+          <p class="extra-card-desc">Sun-kissed beaches, island escapes, mountain retreats — wherever your soul is calling, we'll get you there seamlessly. Our tailor-made packages blend comfort, culture, and adventure for the perfect getaway, whether solo, with family, or friends.</p>
+          <a href="book.html" class="extra-card-link">Enquire Now</a>
         </div>
       </div>
 
       <!-- 4. Visa Applications -->
-      <div class="extra-card reveal" style="transition-delay:0.05s">
-        <div class="extra-card-img" style="background-image:url('https://images.unsplash.com/photo-1569982175971-d92b01cf8694?w=900&q=80');"></div>
-        <span class="extra-card-label">Documentation</span>
+      <div class="extra-card reveal" style="transition-delay:0.04s">
+        <div class="extra-card-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1588007375246-3ee823ef4851?w=800&q=80"
+            alt="Passport and travel documents for visa application"
+            loading="lazy">
+          <span class="extra-card-badge">Documentation</span>
+        </div>
         <div class="extra-card-body">
-          <p class="extra-card-number">04</p>
-          <h3 class="extra-card-title">Visa<br>Applications</h3>
+          <p class="extra-card-num">04 / 06</p>
+          <h3 class="extra-card-title">Visa Applications</h3>
           <p class="extra-card-desc">Paperwork should never stand between you and your adventure. Our experienced consultants guide you through every visa category — tourist, transit, business, and more — with precision and efficiency. We've helped hundreds of travellers secure clearance without the stress.</p>
-          <a href="book.html" class="extra-card-cta">Enquire Now</a>
+          <a href="book.html" class="extra-card-link">Enquire Now</a>
         </div>
       </div>
 
       <!-- 5. Flight Booking -->
-      <div class="extra-card reveal" style="transition-delay:0.15s">
-        <div class="extra-card-img" style="background-image:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&q=80');"></div>
-        <span class="extra-card-label">Air Travel</span>
+      <div class="extra-card reveal" style="transition-delay:0.12s">
+        <div class="extra-card-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80"
+            alt="Airplane wing above clouds at golden hour"
+            loading="lazy">
+          <span class="extra-card-badge">Air Travel</span>
+        </div>
         <div class="extra-card-body">
-          <p class="extra-card-number">05</p>
-          <h3 class="extra-card-title">Flight<br>Booking</h3>
-          <p class="extra-card-desc">International connections, domestic hops, or bush-plane transfers — we source the best fares across all major airlines and handle the ticketing from start to finish. Enjoy peace of mind knowing your air itinerary is perfectly aligned with your on-ground schedule.</p>
-          <a href="book.html" class="extra-card-cta">Enquire Now</a>
+          <p class="extra-card-num">05 / 06</p>
+          <h3 class="extra-card-title">Flight Booking</h3>
+          <p class="extra-card-desc">International connections, domestic hops, or bush-plane transfers — we source the best fares across all major airlines and handle the ticketing end to end. Your air itinerary will be perfectly synced with your on-ground schedule.</p>
+          <a href="book.html" class="extra-card-link">Enquire Now</a>
         </div>
       </div>
 
       <!-- 6. Accommodation -->
-      <div class="extra-card reveal" style="transition-delay:0.25s">
-        <div class="extra-card-img" style="background-image:url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=900&q=80');"></div>
-        <span class="extra-card-label">Stays</span>
+      <div class="extra-card reveal" style="transition-delay:0.2s">
+        <div class="extra-card-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1518733057094-95b53143d2a7?w=800&q=80"
+            alt="Luxury tented safari lodge at sunset"
+            loading="lazy">
+          <span class="extra-card-badge">Stays</span>
+        </div>
         <div class="extra-card-body">
-          <p class="extra-card-number">06</p>
-          <h3 class="extra-card-title">Accommodation<br>Arrangements</h3>
-          <p class="extra-card-desc">From luxury tented camps under the African stars to city-centre hotels in Nairobi's finest addresses — we match every budget and taste with the perfect property. Our vetted network spans lodges, boutique guesthouses, beach resorts, and private villas across East Africa and beyond.</p>
-          <a href="book.html" class="extra-card-cta">Enquire Now</a>
+          <p class="extra-card-num">06 / 06</p>
+          <h3 class="extra-card-title">Accommodation</h3>
+          <p class="extra-card-desc">From luxury tented camps under the African stars to city-centre hotels in Nairobi's finest addresses — we match every budget and taste with the perfect property. Lodges, boutique guesthouses, beach resorts, and private villas across East Africa and beyond.</p>
+          <a href="book.html" class="extra-card-link">Enquire Now</a>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ── STATS STRIP ── -->
+  <!-- STATS -->
   <div class="stats-strip">
     <div class="stat reveal">
       <span class="stat-num">500+</span>
@@ -532,7 +537,7 @@ footer {
     </div>
   </div>
 
-  <!-- ── CTA ── -->
+  <!-- CTA -->
   <div style="background:var(--dusk); padding:5rem 4rem; text-align:center">
     <p class="section-label reveal" style="text-align:center">Secure Your Spot</p>
     <h2 class="section-title reveal" style="text-align:center; max-width:500px; margin:0 auto 2rem">Ready to Start Your <em>Safari?</em></h2>
@@ -542,7 +547,7 @@ footer {
     </div>
   </div>
 
-  <!-- ── FOOTER ── -->
+  <!-- FOOTER -->
   <footer>
     <div>
       <div class="footer-logo">Tamiron <em>Afrika</em> Adventures</div>
@@ -558,61 +563,58 @@ footer {
   </footer>
 
   <script>
-/* ── CUSTOM CURSOR ── */
-(function() {
-  const cursor = document.getElementById('cursor');
-  const ring   = document.getElementById('cursorRing');
-  if (!cursor || !ring) return;
+/* CURSOR */
+(function(){
+  const cursor=document.getElementById('cursor');
+  const ring=document.getElementById('cursorRing');
+  if(!cursor||!ring)return;
   let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove', e => {
-    mx=e.clientX; my=e.clientY;
-    cursor.style.left = mx-5+'px';
-    cursor.style.top  = my-5+'px';
+  document.addEventListener('mousemove',e=>{
+    mx=e.clientX;my=e.clientY;
+    cursor.style.left=mx-5+'px';cursor.style.top=my-5+'px';
   });
-  (function animateRing(){
-    rx += (mx-rx-18)*0.18;
-    ry += (my-ry-18)*0.18;
-    ring.style.left = rx+'px';
-    ring.style.top  = ry+'px';
-    requestAnimationFrame(animateRing);
+  (function loop(){
+    rx+=(mx-rx-18)*0.18;ry+=(my-ry-18)*0.18;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';
+    requestAnimationFrame(loop);
   })();
   document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{ cursor.style.transform='scale(2)'; ring.style.transform='scale(1.5)'; });
-    el.addEventListener('mouseleave',()=>{ cursor.style.transform='scale(1)'; ring.style.transform='scale(1)'; });
+    el.addEventListener('mouseenter',()=>{cursor.style.transform='scale(2)';ring.style.transform='scale(1.5)';});
+    el.addEventListener('mouseleave',()=>{cursor.style.transform='scale(1)';ring.style.transform='scale(1)';});
   });
 })();
 
-/* ── NAV SCROLL ── */
+/* NAV SCROLL */
 (function(){
-  const navbar=document.getElementById('navbar');
-  if(!navbar)return;
-  window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60));
+  const n=document.getElementById('navbar');
+  if(!n)return;
+  window.addEventListener('scroll',()=>n.classList.toggle('scrolled',window.scrollY>60));
 })();
 
-/* ── PAGE HERO KEN BURNS ── */
+/* PAGE HERO */
 (function(){
   const ph=document.querySelector('.page-hero');
   if(!ph)return;
   window.addEventListener('load',()=>ph.classList.add('loaded'));
 })();
 
-/* ── HAMBURGER ── */
+/* HAMBURGER */
 (function(){
-  const hamburger=document.getElementById('hamburger');
-  const mobileNav=document.getElementById('mobileNav');
-  if(!hamburger||!mobileNav)return;
-  hamburger.addEventListener('click',()=>mobileNav.classList.toggle('open'));
-  window.closeMobileNav=()=>mobileNav.classList.remove('open');
+  const h=document.getElementById('hamburger');
+  const m=document.getElementById('mobileNav');
+  if(!h||!m)return;
+  h.addEventListener('click',()=>m.classList.toggle('open'));
+  window.closeMobileNav=()=>m.classList.remove('open');
 })();
 
-/* ── SCROLL REVEAL ── */
+/* SCROLL REVEAL */
 (function(){
-  const observer=new IntersectionObserver(entries=>{
+  const obs=new IntersectionObserver(entries=>{
     entries.forEach(e=>{
-      if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
     });
-  },{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  },{threshold:0.07,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 })();
   </script>
 </body>
