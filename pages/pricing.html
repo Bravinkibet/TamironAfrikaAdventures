@@ -3,17 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pricing — Tamiron Afrika Adventures</title>
+  <title>Extras — Tamiron Afrika Adventures</title>
   <style>
 /* ============================================================
    TAMIRON AFRIKA ADVENTURES — style.css
-   Shared stylesheet for all pages
    ============================================================ */
 
-/* ── GOOGLE FONTS ── */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@200;300;400;600&display=swap');
 
-/* ── DESIGN TOKENS ── */
 :root {
   --sand:     #D4B896;
   --earth:    #8B5E3C;
@@ -27,18 +24,8 @@
   --gold:     #BF9B4D;
 }
 
-/* ── RESET ── */
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
-
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
 body {
   background: var(--night);
   color: var(--fog);
@@ -47,663 +34,370 @@ body {
   overflow-x: hidden;
   cursor: none;
 }
+img { display:block; max-width:100%; }
+a   { color:inherit; text-decoration:none; }
 
-img {
-  display: block;
-  max-width: 100%;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* ── CUSTOM CURSOR ── */
+/* ── CURSOR ── */
 .cursor {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  background: var(--gold);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transition: transform 0.1s ease;
-  mix-blend-mode: difference;
+  position:fixed; width:10px; height:10px;
+  background:var(--gold); border-radius:50%;
+  pointer-events:none; z-index:9999;
+  transition:transform 0.1s ease;
+  mix-blend-mode:difference;
 }
-
 .cursor-ring {
-  position: fixed;
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--sand);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transition: all 0.18s ease;
-  mix-blend-mode: difference;
+  position:fixed; width:36px; height:36px;
+  border:1px solid var(--sand); border-radius:50%;
+  pointer-events:none; z-index:9998;
+  transition:all 0.18s ease;
+  mix-blend-mode:difference;
 }
 
-/* ── NAVIGATION ── */
+/* ── NAV ── */
 nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  padding: 1.4rem 4rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: background 0.4s ease, padding 0.3s ease;
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  padding:1.4rem 4rem;
+  display:flex; justify-content:space-between; align-items:center;
+  transition:background 0.4s ease, padding 0.3s ease;
 }
-
 nav.scrolled {
-  background: rgba(92, 61, 30, 0.95);
-  backdrop-filter: blur(12px);
-  padding: 1rem 4rem;
-  border-bottom: 1px solid rgba(212, 184, 150, 0.15);
+  background:rgba(92,61,30,0.95);
+  backdrop-filter:blur(12px);
+  padding:1rem 4rem;
+  border-bottom:1px solid rgba(212,184,150,0.15);
 }
-
 .nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem;
-  letter-spacing: 0.12em;
-  color: var(--ivory);
-  text-decoration: none;
-  font-weight: 400;
+  font-family:'Cormorant Garamond', serif;
+  font-size:1.25rem; letter-spacing:0.12em;
+  color:var(--ivory); font-weight:400;
 }
-
-.nav-logo span {
-  color: var(--gold);
-  font-style: italic;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2.4rem;
-  list-style: none;
-}
-
+.nav-logo span { color:var(--gold); font-style:italic; }
+.nav-links { display:flex; gap:2.4rem; list-style:none; }
 .nav-links a {
-  color: var(--fog);
-  text-decoration: none;
-  font-size: 0.92rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  opacity: 0.75;
-  font-weight: 400;
-  transition: opacity 0.2s, color 0.2s;
+  color:var(--fog); font-size:0.92rem;
+  letter-spacing:0.2em; text-transform:uppercase;
+  opacity:0.75; font-weight:400;
+  transition:opacity 0.2s, color 0.2s;
 }
-
-.nav-links a:hover {
-  opacity: 1;
-  color: var(--gold);
-}
-
-.nav-links a.active {
-  opacity: 1;
-  color: var(--gold);
-}
-
+.nav-links a:hover { opacity:1; color:var(--gold); }
+.nav-links a.active { opacity:1; color:var(--gold); }
 .nav-cta {
-  background: transparent;
-  border: 1px solid var(--gold);
-  color: var(--gold) !important;
-  padding: 0.55rem 1.4rem !important;
-  opacity: 1 !important;
-  transition: background 0.25s, color 0.25s !important;
+  background:transparent; border:1px solid var(--gold);
+  color:var(--gold) !important; padding:0.55rem 1.4rem !important;
+  opacity:1 !important;
+  transition:background 0.25s, color 0.25s !important;
 }
+.nav-cta:hover { background:var(--gold) !important; color:var(--night) !important; }
 
-.nav-cta:hover {
-  background: var(--gold) !important;
-  color: var(--night) !important;
-}
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+.hamburger span { width:24px; height:1px; background:var(--fog); transition:all 0.3s; }
 
-/* Hamburger */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.hamburger span {
-  width: 24px;
-  height: 1px;
-  background: var(--fog);
-  transition: all 0.3s;
-}
-
-/* ── MOBILE NAV OVERLAY ── */
 .mobile-nav {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 90;
-  background: rgba(15, 10, 5, 0.98);
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2.5rem;
+  display:none; position:fixed; inset:0; z-index:90;
+  background:rgba(15,10,5,0.98);
+  flex-direction:column; align-items:center; justify-content:center; gap:2.5rem;
 }
-
-.mobile-nav.open {
-  display: flex;
-}
-
+.mobile-nav.open { display:flex; }
 .mobile-nav a {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem;
-  font-weight: 300;
-  color: var(--fog);
-  text-decoration: none;
-  letter-spacing: 0.08em;
-  transition: color 0.2s;
+  font-family:'Cormorant Garamond', serif;
+  font-size:2rem; font-weight:300; color:var(--fog);
+  letter-spacing:0.08em; transition:color 0.2s;
 }
-
-.mobile-nav a:hover {
-  color: var(--gold);
-}
-
-/* ── FOOTER ── */
-footer {
-  background: var(--night);
-  border-top: 1px solid rgba(212, 184, 150, 0.1);
-  padding: 3.5rem 4rem;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 2rem;
-}
-
-.footer-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  color: var(--sand);
-  letter-spacing: 0.1em;
-  margin-bottom: 0.5rem;
-}
-
-.footer-logo em {
-  color: var(--gold);
-  font-style: italic;
-}
-
-.footer-copy {
-  font-size: 0.7rem;
-  color: var(--fog);
-  opacity: 0.35;
-  letter-spacing: 0.1em;
-}
-
-.footer-links {
-  display: flex;
-  gap: 2rem;
-}
-
-.footer-links a {
-  font-size: 0.68rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--fog);
-  opacity: 0.45;
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-
-.footer-links a:hover {
-  opacity: 0.9;
-}
+.mobile-nav a:hover { color:var(--gold); }
 
 /* ── SHARED SECTION BASE ── */
-section {
-  padding: 7rem 4rem;
-}
-
+section { padding:7rem 4rem; }
 .section-label {
-  font-size: 0.65rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1rem;
+  font-size:0.65rem; letter-spacing:0.35em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:1rem;
 }
-
 .section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
-  font-weight: 300;
-  line-height: 1.15;
-  color: var(--ivory);
-  margin-bottom: 1.5rem;
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(2.2rem,4vw,3.4rem); font-weight:300;
+  line-height:1.15; color:var(--ivory); margin-bottom:1.5rem;
 }
-
-.section-title em {
-  font-style: italic;
-  color: var(--sand);
-}
-
+.section-title em { font-style:italic; color:var(--sand); }
 .section-body {
-  font-size: 0.88rem;
-  line-height: 1.9;
-  color: var(--fog);
-  opacity: 0.8;
-  max-width: 540px;
+  font-size:0.88rem; line-height:1.9;
+  color:var(--fog); opacity:0.8; max-width:540px;
 }
 
 /* ── BUTTONS ── */
 .btn-primary {
-  background: var(--flame);
-  color: var(--ivory);
-  padding: 1rem 2.6rem;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.25s, transform 0.2s;
-  display: inline-block;
+  background:var(--flame); color:var(--ivory);
+  padding:1rem 2.6rem; font-family:'Josefin Sans', sans-serif;
+  font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase;
+  border:none; cursor:pointer; display:inline-block;
+  transition:background 0.25s, transform 0.2s;
 }
-
-.btn-primary:hover {
-  background: var(--earth);
-  transform: translateY(-2px);
-}
-
+.btn-primary:hover { background:var(--earth); transform:translateY(-2px); }
 .btn-ghost {
-  background: transparent;
-  color: var(--sand);
-  border: 1px solid rgba(212, 184, 150, 0.5);
-  padding: 1rem 2.6rem;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  cursor: pointer;
-  text-decoration: none;
-  transition: border-color 0.25s, color 0.25s, transform 0.2s;
-  display: inline-block;
+  background:transparent; color:var(--sand);
+  border:1px solid rgba(212,184,150,0.5);
+  padding:1rem 2.6rem; font-family:'Josefin Sans', sans-serif;
+  font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase;
+  cursor:pointer; display:inline-block;
+  transition:border-color 0.25s, color 0.25s, transform 0.2s;
 }
-
-.btn-ghost:hover {
-  border-color: var(--sand);
-  color: var(--ivory);
-  transform: translateY(-2px);
-}
+.btn-ghost:hover { border-color:var(--sand); color:var(--ivory); transform:translateY(-2px); }
 
 /* ── SCROLL REVEAL ── */
 .reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  opacity:0; transform:translateY(30px);
+  transition:opacity 0.7s ease, transform 0.7s ease;
 }
+.reveal.visible { opacity:1; transform:none; }
 
-.reveal.visible {
-  opacity: 1;
-  transform: none;
-}
-
-/* ── PAGE HERO (inner pages) ── */
+/* ── PAGE HERO ── */
 .page-hero {
-  position: relative;
-  height: 38vh;
-  min-height: 280px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  overflow: hidden;
-  padding: 3.5rem 4rem;
+  position:relative; height:48vh; min-height:320px;
+  display:flex; align-items:flex-end; justify-content:flex-start;
+  overflow:hidden; padding:3.5rem 4rem;
 }
-
 .page-hero-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  transform: scale(1.04);
-  transition: transform 8s ease-out;
+  position:absolute; inset:0;
+  background-size:cover; background-position:center;
+  transform:scale(1.04); transition:transform 8s ease-out;
 }
-
 .page-hero-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(15, 10, 5, 0.4) 0%,
-    rgba(15, 10, 5, 0.75) 100%
-  );
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to bottom, rgba(15,10,5,0.3) 0%, rgba(15,10,5,0.82) 100%);
 }
-
-.page-hero.loaded .page-hero-bg {
-  transform: scale(1);
-}
-
-.page-hero-content {
-  position: relative;
-  z-index: 2;
-}
-
+.page-hero.loaded .page-hero-bg { transform:scale(1); }
+.page-hero-content { position:relative; z-index:2; }
 .page-hero-eyebrow {
-  font-size: 0.65rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.6rem;
+  font-size:0.65rem; letter-spacing:0.35em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:0.6rem;
 }
-
 .page-hero-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.4rem, 5vw, 4.2rem);
-  font-weight: 300;
-  color: var(--ivory);
-  line-height: 1.05;
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(2.4rem,5vw,4.8rem); font-weight:300;
+  color:var(--ivory); line-height:1.05;
+}
+.page-hero-title em { color:var(--sand); font-style:italic; }
+.page-hero-sub {
+  margin-top:0.8rem; font-size:0.82rem; letter-spacing:0.15em;
+  color:var(--fog); opacity:0.65; max-width:480px; line-height:1.7;
 }
 
-.page-hero-title em {
-  color: var(--sand);
-  font-style: italic;
+/* ── EXTRAS INTRO ── */
+#extras-intro {
+  background:var(--dusk);
+  padding:5rem 4rem 3rem;
+  text-align:center;
+  border-bottom:1px solid rgba(212,184,150,0.08);
+}
+#extras-intro .section-body {
+  margin:0 auto;
+  text-align:center;
+  max-width:600px;
 }
 
-/* ── KEYFRAMES ── */
-@keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
+/* ── EXTRAS GRID ── */
+#extras {
+  background:var(--night);
+  padding:5rem 4rem 8rem;
 }
 
-@keyframes fadeIn {
-  to { opacity: 0.7; }
+.extras-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  max-width:1300px;
+  margin:0 auto;
+  border:1px solid rgba(212,184,150,0.1);
 }
 
-@keyframes scrollPulse {
-  0%, 100% { opacity: 1; transform: scaleY(1); }
-  50%       { opacity: 0.4; transform: scaleY(0.7); }
+.extra-card {
+  position:relative;
+  overflow:hidden;
+  aspect-ratio:4/5;
+  cursor:pointer;
+  border:1px solid rgba(212,184,150,0.08);
+}
+
+/* Image layer */
+.extra-card-img {
+  position:absolute; inset:0;
+  background-size:cover; background-position:center;
+  transform:scale(1.06);
+  transition:transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+/* Gradient overlay — always present */
+.extra-card::before {
+  content:'';
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(
+    to bottom,
+    rgba(15,10,5,0.1) 0%,
+    rgba(15,10,5,0.55) 50%,
+    rgba(15,10,5,0.92) 100%
+  );
+  transition:opacity 0.5s ease;
+}
+
+/* Hover overlay */
+.extra-card::after {
+  content:'';
+  position:absolute; inset:0; z-index:1;
+  background:rgba(191,155,77,0.07);
+  opacity:0; transition:opacity 0.5s ease;
+}
+
+.extra-card:hover .extra-card-img { transform:scale(1); }
+.extra-card:hover::after { opacity:1; }
+
+/* Content */
+.extra-card-body {
+  position:absolute; bottom:0; left:0; right:0;
+  z-index:2;
+  padding:2.2rem 2rem 2rem;
+  transform:translateY(3.5rem);
+  transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.extra-card:hover .extra-card-body {
+  transform:translateY(0);
+}
+
+.extra-card-number {
+  font-size:0.58rem; letter-spacing:0.35em;
+  text-transform:uppercase; color:var(--gold);
+  margin-bottom:0.4rem; opacity:0.85;
+}
+
+.extra-card-title {
+  font-family:'Cormorant Garamond', serif;
+  font-size:1.75rem; font-weight:300;
+  color:var(--ivory); line-height:1.15;
+  margin-bottom:0.9rem;
+}
+
+.extra-card-desc {
+  font-size:0.76rem; line-height:1.8;
+  color:var(--fog); opacity:0;
+  max-height:0; overflow:hidden;
+  transition:opacity 0.45s ease 0.1s, max-height 0.5s ease;
+}
+
+.extra-card:hover .extra-card-desc {
+  opacity:0.78;
+  max-height:120px;
+}
+
+.extra-card-cta {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  margin-top:1.1rem;
+  font-size:0.65rem; letter-spacing:0.25em;
+  text-transform:uppercase; color:var(--gold);
+  opacity:0; transition:opacity 0.4s ease 0.15s;
+}
+
+.extra-card:hover .extra-card-cta { opacity:1; }
+
+.extra-card-cta::after {
+  content:'→';
+  transition:transform 0.25s ease;
+}
+.extra-card:hover .extra-card-cta::after {
+  transform:translateX(4px);
+}
+
+/* Top label (always visible) */
+.extra-card-label {
+  position:absolute; top:1.5rem; left:2rem; z-index:3;
+  font-size:0.58rem; letter-spacing:0.3em;
+  text-transform:uppercase; color:var(--gold);
+  background:rgba(15,10,5,0.55);
+  padding:0.3rem 0.75rem;
+  backdrop-filter:blur(4px);
+  border:1px solid rgba(191,155,77,0.25);
+}
+
+/* ── ACCENT DIVIDER ── */
+.gold-divider {
+  width:60px; height:1px;
+  background:linear-gradient(to right, var(--gold), transparent);
+  margin:1.5rem auto 0;
 }
 
 /* ── STATS STRIP ── */
 .stats-strip {
-  background: var(--dusk);
-  border-top: 1px solid rgba(212, 184, 150, 0.12);
-  border-bottom: 1px solid rgba(212, 184, 150, 0.12);
-  padding: 2.4rem 4rem;
-  display: flex;
-  justify-content: center;
-  gap: 5rem;
-  flex-wrap: wrap;
+  background:var(--dusk);
+  border-top:1px solid rgba(212,184,150,0.12);
+  border-bottom:1px solid rgba(212,184,150,0.12);
+  padding:2.4rem 4rem;
+  display:flex; justify-content:center; gap:5rem; flex-wrap:wrap;
 }
-
-.stat {
-  text-align: center;
-}
-
+.stat { text-align:center; }
 .stat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.6rem;
-  font-weight: 300;
-  color: var(--gold);
-  display: block;
+  font-family:'Cormorant Garamond', serif;
+  font-size:2.6rem; font-weight:300; color:var(--gold); display:block;
+}
+.stat-label {
+  font-size:0.65rem; letter-spacing:0.25em;
+  text-transform:uppercase; color:var(--sand); opacity:0.7;
 }
 
-.stat-label {
-  font-size: 0.65rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--sand);
-  opacity: 0.7;
+/* ── FOOTER ── */
+footer {
+  background:var(--night);
+  border-top:1px solid rgba(212,184,150,0.1);
+  padding:3.5rem 4rem;
+  display:grid; grid-template-columns:1fr auto;
+  align-items:center; gap:2rem;
 }
+.footer-logo {
+  font-family:'Cormorant Garamond', serif;
+  font-size:1.2rem; color:var(--sand); letter-spacing:0.1em; margin-bottom:0.5rem;
+}
+.footer-logo em { color:var(--gold); font-style:italic; }
+.footer-copy { font-size:0.7rem; color:var(--fog); opacity:0.35; letter-spacing:0.1em; }
+.footer-links { display:flex; gap:2rem; }
+.footer-links a {
+  font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--fog); opacity:0.45; transition:opacity 0.2s;
+}
+.footer-links a:hover { opacity:0.9; }
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 1050px) {
-  #about         { grid-template-columns: 1fr; gap: 4rem; padding: 5rem 2.5rem; }
-  .itin-layout   { grid-template-columns: 1fr; gap: 2rem; }
-  .pricing-grid  { grid-template-columns: 1fr; max-width: 480px; }
-  .contact-wrap  { grid-template-columns: 1fr; gap: 3.5rem; }
-  .incl-layout   { grid-template-columns: 1fr; }
-  .dest-grid     { grid-template-columns: repeat(2, 1fr); }
-  .about-img-wrap { max-width: 500px; }
+@media (max-width:1050px) {
+  .extras-grid { grid-template-columns:repeat(2,1fr); }
 }
-
-@media (max-width: 768px) {
-  nav, nav.scrolled { padding: 1.2rem 2rem; }
-  .nav-links        { display: none; }
-  .hamburger        { display: flex; }
-
-  section,
-  #about,
-  #itinerary,
-  #inclusions       { padding: 5rem 2rem; }
-
-  .stats-strip      { padding: 2rem; gap: 2.5rem; }
-  .dest-grid        { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
-  .form-row         { grid-template-columns: 1fr; }
-  footer            { grid-template-columns: 1fr; gap: 1.5rem; }
-  .footer-links     { flex-wrap: wrap; gap: 1.2rem; }
-
-  #contact,
-  #pricing,
-  #destinations     { padding: 5rem 2rem; }
-
-  .page-hero        { padding: 2.5rem 2rem; }
+@media (max-width:768px) {
+  nav, nav.scrolled { padding:1.2rem 2rem; }
+  .nav-links { display:none; }
+  .hamburger { display:flex; }
+  section, #extras, #extras-intro { padding:4rem 1.5rem; }
+  .extras-grid { grid-template-columns:1fr; }
+  .extra-card { aspect-ratio:3/2; }
+  .extra-card-body { transform:translateY(0); }
+  .extra-card-desc { opacity:0.72; max-height:200px; }
+  .extra-card-cta  { opacity:1; }
+  footer { grid-template-columns:1fr; gap:1.5rem; }
+  .footer-links { flex-wrap:wrap; gap:1.2rem; }
+  .page-hero { padding:2.5rem 2rem; }
+  .stats-strip { padding:2rem; gap:2.5rem; }
 }
-
-@media (max-width: 480px) {
-  .dest-grid      { grid-template-columns: 1fr; }
-  .hero-actions   { flex-direction: column; align-items: center; }
-  .about-features { grid-template-columns: 1fr; }
-}
-  </style>
-  <style>
-    /* ── PRICING SECTION ── */
-    #pricing {
-      background: var(--dusk);
-      padding: 7rem 4rem;
-    }
-
-    .pricing-header {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto 4rem;
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .pricing-card {
-      padding: 3rem 2.5rem;
-      border: 1px solid rgba(212,184,150,0.15);
-      position: relative;
-      transition: border-color 0.3s;
-    }
-
-    .pricing-card:hover { border-color: rgba(212,184,150,0.4); }
-
-    .pricing-card.featured {
-      border-color: var(--gold);
-      background: rgba(191,155,77,0.04);
-    }
-
-    .featured-badge {
-      position: absolute;
-      top: -1px;
-      right: 2rem;
-      background: var(--gold);
-      color: var(--night);
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.9rem;
-    }
-
-    .pricing-tier {
-      font-size: 0.65rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    .pricing-price {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3.2rem;
-      font-weight: 300;
-      color: var(--ivory);
-      line-height: 1;
-    }
-
-    .pricing-price sup { font-size: 1.4rem; vertical-align: super; }
-
-    .pricing-price small {
-      font-size: 0.8rem;
-      font-family: 'Josefin Sans', sans-serif;
-      color: var(--sand);
-      opacity: 0.7;
-      font-weight: 300;
-    }
-
-    .pricing-divider {
-      width: 40px;
-      height: 1px;
-      background: rgba(212,184,150,0.3);
-      margin: 1.4rem 0;
-    }
-
-    .pricing-accommodation {
-      font-size: 0.72rem;
-      color: var(--sand);
-      opacity: 0.7;
-      margin-bottom: 2rem;
-      line-height: 1.6;
-    }
-
-    .pricing-includes {
-      list-style: none;
-      margin-bottom: 2rem;
-    }
-
-    .pricing-includes li {
-      font-size: 0.78rem;
-      line-height: 1.7;
-      color: var(--fog);
-      opacity: 0.75;
-      padding-left: 1.2rem;
-      position: relative;
-    }
-
-    .pricing-includes li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--gold);
-      font-size: 0.7rem;
-    }
-
-    .pricing-optional {
-      text-align: center;
-      margin-top: 1.8rem;
-      font-size: 0.72rem;
-      color: var(--sand);
-      opacity: 0.6;
-      letter-spacing: 0.1em;
-    }
-
-    /* ── INCLUSIONS ── */
-    #inclusions {
-      background: var(--night);
-      padding: 7rem 4rem;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-
-    .incl-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      margin-top: 3.5rem;
-    }
-
-    .incl-group h3 {
-      font-size: 0.65rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.4rem;
-      padding-bottom: 0.7rem;
-      border-bottom: 1px solid rgba(212,184,150,0.12);
-    }
-
-    .incl-list { list-style: none; }
-
-    .incl-list li {
-      font-size: 0.82rem;
-      line-height: 1.75;
-      color: var(--fog);
-      opacity: 0.78;
-      padding: 0.55rem 0;
-      border-bottom: 1px solid rgba(212,184,150,0.06);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .incl-list li::before {
-      content: '✓';
-      color: var(--moss);
-      font-size: 0.9rem;
-      flex-shrink: 0;
-    }
-
-    .excl-list li::before {
-      content: '✕';
-      color: var(--flame);
-      opacity: 0.6;
-    }
-
-    .good-to-know {
-      margin-top: 2.5rem;
-      padding: 2rem;
-      border: 1px solid rgba(212,184,150,0.12);
-    }
-
-    .good-to-know-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.8rem;
-    }
-
-    .good-to-know p {
-      font-size: 0.82rem;
-      line-height: 1.8;
-      color: var(--fog);
-      opacity: 0.7;
-    }
-
-    @media (max-width: 768px) {
-      .pricing-grid  { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
-      #inclusions    { padding: 5rem 2rem; }
-      #pricing       { padding: 5rem 2rem; }
-    }
   </style>
 </head>
 <body>
 
-  <!-- CURSOR & NAV -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
+  <!-- ── NAV ── -->
   <nav id="navbar">
-    <a href="../index.html" class="nav-logo">Tamiron <span> Adventures</span></a>
+    <a href="../index.html" class="nav-logo">Tamiron <span>Adventures</span></a>
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
       <li><a href="destinations.html">Destinations</a></li>
       <li><a href="safaris.html">Safaris</a></li>
-      <li><a href="pricing.html" class="active">Pricing</a></li>
+      <li><a href="extras.html" class="active">Extras</a></li>
       <li><a href="book.html" class="nav-cta">Book Safari</a></li>
     </ul>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
@@ -713,141 +407,142 @@ section {
     <a href="about.html"        onclick="closeMobileNav()">About</a>
     <a href="destinations.html" onclick="closeMobileNav()">Destinations</a>
     <a href="safaris.html"      onclick="closeMobileNav()">Safaris</a>
-    <a href="pricing.html"      onclick="closeMobileNav()">Pricing</a>
+    <a href="extras.html"       onclick="closeMobileNav()">Extras</a>
     <a href="book.html"         onclick="closeMobileNav()">Book Safari</a>
   </div>
 
-  <!-- PAGE HERO -->
+  <!-- ── PAGE HERO ── -->
   <div class="page-hero">
-    <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=1400&q=80');"></div>
+    <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1600&q=80');"></div>
     <div class="page-hero-content">
-      <p class="page-hero-eyebrow">Investment</p>
-      <h1 class="page-hero-title">Safari <em>Packages</em></h1>
+      <p class="page-hero-eyebrow">Beyond the Safari</p>
+      <h1 class="page-hero-title">Our <em>Extras</em></h1>
+      <p class="page-hero-sub">From honeymoons to visa assistance — we handle every detail so all you carry is wonder.</p>
     </div>
   </div>
 
-  <!-- PRICING CARDS -->
-  <section id="pricing">
-    <div class="pricing-header reveal">
-      <p class="section-label">Two Tiers</p>
-      <h2 class="section-title">Choose Your <em>Experience</em></h2>
-      <p class="section-body" style="margin:0 auto; text-align:center">Same extraordinary wildlife, same private 4×4 Landcruiser — two levels of accommodation luxury.</p>
+  <!-- ── INTRO ── -->
+  <section id="extras-intro">
+    <div class="reveal">
+      <p class="section-label">Full-Service Travel</p>
+      <h2 class="section-title" style="margin-bottom:1rem">Everything You <em>Need</em></h2>
+      <div class="gold-divider"></div>
     </div>
-
-    <div class="pricing-grid">
-      <!-- Semi-Luxury -->
-      <div class="pricing-card reveal">
-        <p class="pricing-tier">Semi-Luxury</p>
-        <div class="pricing-price"><sup>USD</sup> 2,310 <small>/ person sharing</small></div>
-        <div class="pricing-divider"></div>
-        <p class="pricing-accommodation">
-          Sarova Panafric (Nairobi) · Amboseli Sopa Lodge ·
-          Naivasha Kongoni Lodge · Flamingo Hill Tented Camp ·
-          Enkorok Mara Camp
-        </p>
-        <ul class="pricing-includes">
-          <li>All National Park Entry Fees</li>
-          <li>Full Board on Safari / B&amp;B in Nairobi</li>
-          <li>Private 4×4 Landcruiser with pop-top roof</li>
-          <li>Professional English-speaking guide</li>
-          <li>Airport transfers &amp; meet/greet</li>
-          <li>Mineral water throughout</li>
-          <li>Carnivore Restaurant dinner (Day 8)</li>
-          <li>Hippo boat ride &amp; Crescent Island walk</li>
-        </ul>
-        <a href="book.html" class="btn-ghost" style="font-size:0.7rem; padding:0.85rem 2rem">Request This Package</a>
-      </div>
-
-      <!-- Luxury -->
-      <div class="pricing-card featured reveal">
-        <div class="featured-badge">Recommended</div>
-        <p class="pricing-tier">Luxury</p>
-        <div class="pricing-price"><sup>USD</sup> 2,990 <small>/ person sharing</small></div>
-        <div class="pricing-divider"></div>
-        <p class="pricing-accommodation">
-          Sarova Panafric (Nairobi) · Oltukai Lodge ·
-          Lake Naivasha Sopa Resort · Sarova LionHill ·
-          Sarova Mara Game Camp
-        </p>
-        <ul class="pricing-includes">
-          <li>All National Park Entry Fees</li>
-          <li>Full Board on Safari / B&amp;B in Nairobi</li>
-          <li>Private 4×4 Landcruiser with pop-top roof</li>
-          <li>Professional English-speaking guide</li>
-          <li>Airport transfers &amp; meet/greet</li>
-          <li>Mineral water throughout</li>
-          <li>Carnivore Restaurant dinner (Day 8)</li>
-          <li>Hippo boat ride &amp; Crescent Island walk</li>
-        </ul>
-        <a href="book.html" class="btn-primary" style="font-size:0.7rem; padding:0.85rem 2rem">Request This Package</a>
-      </div>
-    </div>
-
-    <p class="pricing-optional">Optional add-ons: Hot Air Balloon Ride USD 450 pp · Maasai Village Visit USD 30 pp</p>
+    <p class="section-body reveal" style="margin-top:2rem; text-align:center">
+      We are more than a safari company. Whether you are celebrating love, building your team, chasing a dream destination, or simply need your paperwork sorted — Tamiron Afrika Adventures is your one stop travel partner.
+    </p>
   </section>
 
-  <!-- INCLUSIONS & EXCLUSIONS -->
-  <section id="inclusions">
-    <div class="reveal">
-      <p class="section-label">What's Covered</p>
-      <h2 class="section-title">Inclusions &amp;<br><em>Exclusions</em></h2>
-    </div>
-    <div class="incl-layout">
-      <!-- Included -->
-      <div class="incl-group reveal">
-        <h3>Included in Your Safari</h3>
-        <ul class="incl-list">
-          <li>All National Park and Reserve entry fees</li>
-          <li>Full board accommodation while on safari</li>
-          <li>Bed &amp; Breakfast at Sarova Panafric, Nairobi</li>
-          <li>All meals throughout + picnic lunches</li>
-          <li>Bottled mineral water throughout</li>
-          <li>Airport transfers (arrival &amp; departure)</li>
-          <li>Private 4×4 Safari Landcruiser</li>
-          <li>Pop-up roof for unobstructed game viewing</li>
-          <li>Window seat guaranteed for all guests</li>
-          <li>Professional English-speaking safari guide</li>
-          <li>Daily safari &amp; wildlife briefings</li>
-          <li>Carnivore Restaurant dinner on final day</li>
-          <li>Hippo boat ride at Lake Naivasha</li>
-          <li>Crescent Island walking safari</li>
-          <li>All applicable government taxes</li>
-        </ul>
-      </div>
+  <!-- ── EXTRAS GRID ── -->
+  <section id="extras" style="padding-top:3rem;">
+    <div class="extras-grid">
 
-      <!-- Excluded -->
-      <div class="incl-group reveal">
-        <h3>Not Included</h3>
-        <ul class="incl-list excl-list">
-          <li>Personal expenses &amp; souvenirs</li>
-          <li>Travel &amp; medical insurance</li>
-          <li>Passports and visa fees</li>
-          <li>Driver / guide gratuity and tips</li>
-          <li>Hot air balloon ride (USD 450 pp — optional)</li>
-          <li>Maasai village visit (USD 30 pp — optional)</li>
-          <li>Alcoholic beverages</li>
-          <li>International flights</li>
-        </ul>
-
-        <div class="good-to-know">
-          <p class="good-to-know-label">Good to Know</p>
-          <p>Safari dates span the festive season — 27th December 2026 to 3rd January 2027. The Mara wildebeest crossing is typically July–October; the Mara's wildlife is extraordinary year-round.</p>
+      <!-- 1. Honeymoon -->
+      <div class="extra-card reveal">
+        <div class="extra-card-img" style="background-image:url('https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=900&q=80');"></div>
+        <span class="extra-card-label">Romance</span>
+        <div class="extra-card-body">
+          <p class="extra-card-number">01</p>
+          <h3 class="extra-card-title">Honeymoon<br>Escapes</h3>
+          <p class="extra-card-desc">Celebrate your love story against the world's most breathtaking backdrops. Private tented suites, candlelit bush dinners, rose-petal surprises, and exclusive sunrise drives — all curated entirely for two. Let Africa write the most romantic chapter of your lives.</p>
+          <a href="book.html" class="extra-card-cta">Enquire Now</a>
         </div>
       </div>
+
+      <!-- 2. Team Building -->
+      <div class="extra-card reveal" style="transition-delay:0.1s">
+        <div class="extra-card-img" style="background-image:url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=900&q=80');"></div>
+        <span class="extra-card-label">Corporate</span>
+        <div class="extra-card-body">
+          <p class="extra-card-number">02</p>
+          <h3 class="extra-card-title">Team<br>Building</h3>
+          <p class="extra-card-desc">Take your team out of the boardroom and into the wild. Nature has a remarkable way of unlocking collaboration, trust, and energy. We design bespoke corporate retreats — from game-reserve experiences to guided wilderness challenges — that your team will talk about for years.</p>
+          <a href="book.html" class="extra-card-cta">Enquire Now</a>
+        </div>
+      </div>
+
+      <!-- 3. Vacations -->
+      <div class="extra-card reveal" style="transition-delay:0.2s">
+        <div class="extra-card-img" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=80');"></div>
+        <span class="extra-card-label">Leisure</span>
+        <div class="extra-card-body">
+          <p class="extra-card-number">03</p>
+          <h3 class="extra-card-title">Vacation<br>Packages</h3>
+          <p class="extra-card-desc">Sun-kissed beaches, island escapes, mountain retreats — wherever your soul is calling you, we'll get you there seamlessly. Our tailor-made vacation packages blend comfort, culture, and adventure for the perfect getaway, whether solo, with family, or with friends.</p>
+          <a href="book.html" class="extra-card-cta">Enquire Now</a>
+        </div>
+      </div>
+
+      <!-- 4. Visa Applications -->
+      <div class="extra-card reveal" style="transition-delay:0.05s">
+        <div class="extra-card-img" style="background-image:url('https://images.unsplash.com/photo-1569982175971-d92b01cf8694?w=900&q=80');"></div>
+        <span class="extra-card-label">Documentation</span>
+        <div class="extra-card-body">
+          <p class="extra-card-number">04</p>
+          <h3 class="extra-card-title">Visa<br>Applications</h3>
+          <p class="extra-card-desc">Paperwork should never stand between you and your adventure. Our experienced consultants guide you through every visa category — tourist, transit, business, and more — with precision and efficiency. We've helped hundreds of travellers secure clearance without the stress.</p>
+          <a href="book.html" class="extra-card-cta">Enquire Now</a>
+        </div>
+      </div>
+
+      <!-- 5. Flight Booking -->
+      <div class="extra-card reveal" style="transition-delay:0.15s">
+        <div class="extra-card-img" style="background-image:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&q=80');"></div>
+        <span class="extra-card-label">Air Travel</span>
+        <div class="extra-card-body">
+          <p class="extra-card-number">05</p>
+          <h3 class="extra-card-title">Flight<br>Booking</h3>
+          <p class="extra-card-desc">International connections, domestic hops, or bush-plane transfers — we source the best fares across all major airlines and handle the ticketing from start to finish. Enjoy peace of mind knowing your air itinerary is perfectly aligned with your on-ground schedule.</p>
+          <a href="book.html" class="extra-card-cta">Enquire Now</a>
+        </div>
+      </div>
+
+      <!-- 6. Accommodation -->
+      <div class="extra-card reveal" style="transition-delay:0.25s">
+        <div class="extra-card-img" style="background-image:url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=900&q=80');"></div>
+        <span class="extra-card-label">Stays</span>
+        <div class="extra-card-body">
+          <p class="extra-card-number">06</p>
+          <h3 class="extra-card-title">Accommodation<br>Arrangements</h3>
+          <p class="extra-card-desc">From luxury tented camps under the African stars to city-centre hotels in Nairobi's finest addresses — we match every budget and taste with the perfect property. Our vetted network spans lodges, boutique guesthouses, beach resorts, and private villas across East Africa and beyond.</p>
+          <a href="book.html" class="extra-card-cta">Enquire Now</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- ── STATS STRIP ── -->
+  <div class="stats-strip">
+    <div class="stat reveal">
+      <span class="stat-num">500+</span>
+      <span class="stat-label">Happy Travellers</span>
+    </div>
+    <div class="stat reveal" style="transition-delay:0.12s">
+      <span class="stat-num">12+</span>
+      <span class="stat-label">Destinations Covered</span>
+    </div>
+    <div class="stat reveal" style="transition-delay:0.24s">
+      <span class="stat-num">6</span>
+      <span class="stat-label">Premium Services</span>
+    </div>
+    <div class="stat reveal" style="transition-delay:0.36s">
+      <span class="stat-num">24/7</span>
+      <span class="stat-label">On-Trip Support</span>
+    </div>
+  </div>
+
+  <!-- ── CTA ── -->
   <div style="background:var(--dusk); padding:5rem 4rem; text-align:center">
     <p class="section-label reveal" style="text-align:center">Secure Your Spot</p>
-    <h2 class="section-title reveal" style="text-align:center; max-width:500px; margin: 0 auto 2rem">Ready to Start Your <em>Safari?</em></h2>
+    <h2 class="section-title reveal" style="text-align:center; max-width:500px; margin:0 auto 2rem">Ready to Start Your <em>Safari?</em></h2>
     <div class="reveal" style="display:flex; gap:1.2rem; justify-content:center; flex-wrap:wrap">
       <a href="book.html" class="btn-primary">Book Now</a>
       <a href="safaris.html" class="btn-ghost">View Full Itinerary</a>
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- ── FOOTER ── -->
   <footer>
     <div>
       <div class="footer-logo">Tamiron <em>Afrika</em> Adventures</div>
@@ -857,131 +552,67 @@ section {
       <a href="about.html">About</a>
       <a href="destinations.html">Destinations</a>
       <a href="safaris.html">Safaris</a>
-      <a href="pricing.html">Pricing</a>
+      <a href="extras.html">Extras</a>
       <a href="book.html">Contact</a>
     </div>
   </footer>
 
   <script>
-/* ============================================================
-   TAMIRON AFRIKA ADVENTURES — main.js
-   Shared scripts for all pages
-   ============================================================ */
-
 /* ── CUSTOM CURSOR ── */
-(function initCursor() {
+(function() {
   const cursor = document.getElementById('cursor');
   const ring   = document.getElementById('cursorRing');
   if (!cursor || !ring) return;
-
-  let mx = 0, my = 0, rx = 0, ry = 0;
-
+  let mx=0,my=0,rx=0,ry=0;
   document.addEventListener('mousemove', e => {
-    mx = e.clientX;
-    my = e.clientY;
-    cursor.style.left = mx - 5 + 'px';
-    cursor.style.top  = my - 5 + 'px';
+    mx=e.clientX; my=e.clientY;
+    cursor.style.left = mx-5+'px';
+    cursor.style.top  = my-5+'px';
   });
-
-  (function animateRing() {
-    rx += (mx - rx - 18) * 0.18;
-    ry += (my - ry - 18) * 0.18;
-    ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
+  (function animateRing(){
+    rx += (mx-rx-18)*0.18;
+    ry += (my-ry-18)*0.18;
+    ring.style.left = rx+'px';
+    ring.style.top  = ry+'px';
     requestAnimationFrame(animateRing);
   })();
-
-  document.querySelectorAll('a, button, input, select, textarea').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.transform = 'scale(2)';
-      ring.style.transform   = 'scale(1.5)';
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.transform = 'scale(1)';
-      ring.style.transform   = 'scale(1)';
-    });
+  document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{ cursor.style.transform='scale(2)'; ring.style.transform='scale(1.5)'; });
+    el.addEventListener('mouseleave',()=>{ cursor.style.transform='scale(1)'; ring.style.transform='scale(1)'; });
   });
 })();
 
 /* ── NAV SCROLL ── */
-(function initNav() {
-  const navbar = document.getElementById('navbar');
-  if (!navbar) return;
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-  });
-})();
-
-/* ── HERO KEN BURNS ── */
-(function initHero() {
-  const hero = document.getElementById('hero');
-  if (!hero) return;
-  window.addEventListener('load', () => hero.classList.add('loaded'));
+(function(){
+  const navbar=document.getElementById('navbar');
+  if(!navbar)return;
+  window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60));
 })();
 
 /* ── PAGE HERO KEN BURNS ── */
-(function initPageHero() {
-  const ph = document.querySelector('.page-hero');
-  if (!ph) return;
-  window.addEventListener('load', () => ph.classList.add('loaded'));
+(function(){
+  const ph=document.querySelector('.page-hero');
+  if(!ph)return;
+  window.addEventListener('load',()=>ph.classList.add('loaded'));
 })();
 
-/* ── HAMBURGER MENU ── */
-(function initHamburger() {
-  const hamburger = document.getElementById('hamburger');
-  const mobileNav = document.getElementById('mobileNav');
-  if (!hamburger || !mobileNav) return;
-
-  hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
-
-  // expose globally so inline onclick="closeMobileNav()" works
-  window.closeMobileNav = () => mobileNav.classList.remove('open');
+/* ── HAMBURGER ── */
+(function(){
+  const hamburger=document.getElementById('hamburger');
+  const mobileNav=document.getElementById('mobileNav');
+  if(!hamburger||!mobileNav)return;
+  hamburger.addEventListener('click',()=>mobileNav.classList.toggle('open'));
+  window.closeMobileNav=()=>mobileNav.classList.remove('open');
 })();
 
 /* ── SCROLL REVEAL ── */
-(function initReveal() {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
+(function(){
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // Stagger stats strip
-  document.querySelectorAll('.stats-strip .stat').forEach((el, i) => {
-    el.style.transitionDelay = (i * 0.12) + 's';
-  });
-
-  // Stagger destination cards
-  document.querySelectorAll('.dest-card').forEach((el, i) => {
-    el.style.transitionDelay = (i * 0.1) + 's';
-  });
-})();
-
-/* ── ITINERARY TABS ── */
-(function initItineraryTabs() {
-  window.showDay = function(index) {
-    document.querySelectorAll('.itin-day-btn').forEach((btn, i) =>
-      btn.classList.toggle('active', i === index)
-    );
-    document.querySelectorAll('.itin-panel').forEach((panel, i) =>
-      panel.classList.toggle('active', i === index)
-    );
-  };
-})();
-
-/* ── CONTACT FORM ── */
-(function initForm() {
-  window.handleSubmit = function(e) {
-    e.preventDefault();
-    e.target.style.display = 'none';
-    const success = document.getElementById('form-success');
-    if (success) success.style.display = 'block';
-  };
+  },{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 })();
   </script>
 </body>
