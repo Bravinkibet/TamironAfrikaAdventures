@@ -52,25 +52,45 @@ a   { color:inherit; text-decoration:none; }
 /* ── NAV ── */
 nav {
   position:fixed; top:0; left:0; right:0; z-index:100;
-  padding:1.4rem 4rem;
+  padding:0.8rem 3rem;
   display:flex; justify-content:space-between; align-items:center;
   transition:background 0.4s ease, padding 0.3s ease;
 }
 nav.scrolled {
-  background:rgba(92,61,30,0.95);
-  backdrop-filter:blur(12px);
-  padding:1rem 4rem;
+  background:rgba(20,12,4,0.96);
+  backdrop-filter:blur(14px);
+  padding:0.5rem 3rem;
   border-bottom:1px solid rgba(212,184,150,0.15);
 }
+
+/* ── NAV LOGO ── */
 .nav-logo {
+  display:flex; align-items:center; gap:0.75rem;
+  text-decoration:none;
+  transition:opacity 0.2s;
+}
+.nav-logo:hover { opacity:0.85; }
+.nav-logo-img {
+  height:56px; width:auto; object-fit:contain;
+  filter:drop-shadow(0 1px 6px rgba(0,0,0,0.55));
+  transition:height 0.3s ease;
+}
+nav.scrolled .nav-logo-img { height:44px; }
+.nav-logo-text { display:flex; flex-direction:column; line-height:1.1; }
+.nav-logo-name {
   font-family:'Cormorant Garamond', serif;
-  font-size:1.25rem; letter-spacing:0.12em;
+  font-size:1.05rem; letter-spacing:0.14em;
   color:var(--ivory); font-weight:400;
 }
-.nav-logo span { color:var(--gold); font-style:italic; }
+.nav-logo-name span { color:var(--gold); font-style:italic; }
+.nav-logo-tagline {
+  font-size:0.56rem; letter-spacing:0.28em;
+  text-transform:uppercase; color:var(--sand); opacity:0.6;
+}
+
 .nav-links { display:flex; gap:2.4rem; list-style:none; }
 .nav-links a {
-  color:var(--fog); font-size:0.92rem;
+  color:var(--fog); font-size:0.88rem;
   letter-spacing:0.2em; text-transform:uppercase;
   opacity:0.75; font-weight:400;
   transition:opacity 0.2s, color 0.2s;
@@ -79,19 +99,26 @@ nav.scrolled {
 .nav-links a.active { opacity:1; color:var(--gold); }
 .nav-cta {
   background:transparent; border:1px solid var(--gold);
-  color:var(--gold) !important; padding:0.55rem 1.4rem !important;
+  color:var(--gold) !important; padding:0.5rem 1.3rem !important;
   opacity:1 !important;
   transition:background 0.25s, color 0.25s !important;
 }
 .nav-cta:hover { background:var(--gold) !important; color:var(--night) !important; }
+
 .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
 .hamburger span { width:24px; height:1px; background:var(--fog); transition:all 0.3s; }
+
 .mobile-nav {
   display:none; position:fixed; inset:0; z-index:90;
   background:rgba(15,10,5,0.98);
   flex-direction:column; align-items:center; justify-content:center; gap:2.5rem;
 }
 .mobile-nav.open { display:flex; }
+.mobile-nav-logo { margin-bottom:1rem; }
+.mobile-nav-logo img {
+  height:90px; width:auto; object-fit:contain;
+  filter:drop-shadow(0 2px 12px rgba(191,155,77,0.3));
+}
 .mobile-nav a {
   font-family:'Cormorant Garamond', serif;
   font-size:2rem; font-weight:300; color:var(--fog);
@@ -187,9 +214,7 @@ nav.scrolled {
   margin:1.6rem auto 0;
 }
 
-/* ================================================================
-   EXTRAS CARDS — new layout: image on top, text below, always visible
-   ================================================================ */
+/* ── EXTRAS CARDS ── */
 #extras {
   background:var(--night);
   padding:6rem 4rem 8rem;
@@ -203,7 +228,6 @@ nav.scrolled {
   margin:0 auto;
 }
 
-/* ---- individual card ---- */
 .extra-card {
   display:flex;
   flex-direction:column;
@@ -219,7 +243,6 @@ nav.scrolled {
   box-shadow:0 24px 60px rgba(0,0,0,0.55);
 }
 
-/* ---- image wrapper ---- */
 .extra-card-img-wrap {
   position:relative;
   width:100%;
@@ -237,7 +260,6 @@ nav.scrolled {
   transform:scale(1.07);
 }
 
-/* category badge over image */
 .extra-card-badge {
   position:absolute;
   top:1.1rem; left:1.1rem;
@@ -251,7 +273,6 @@ nav.scrolled {
   z-index:2;
 }
 
-/* gold line accent at bottom of image */
 .extra-card-img-wrap::after {
   content:'';
   position:absolute; bottom:0; left:0; right:0;
@@ -262,7 +283,6 @@ nav.scrolled {
 }
 .extra-card:hover .extra-card-img-wrap::after { opacity:1; }
 
-/* ---- text body ---- */
 .extra-card-body {
   padding:1.8rem 1.8rem 2rem;
   display:flex;
@@ -324,17 +344,23 @@ nav.scrolled {
 footer {
   background:var(--night);
   border-top:1px solid rgba(212,184,150,0.1);
-  padding:3.5rem 4rem;
-  display:grid; grid-template-columns:1fr auto;
-  align-items:center; gap:2rem;
+  padding:3rem 4rem;
+  display:grid; grid-template-columns:auto 1fr auto;
+  align-items:center; gap:2.5rem;
 }
-.footer-logo {
+.footer-logo-img {
+  height:72px; width:auto; object-fit:contain;
+  filter:drop-shadow(0 1px 8px rgba(0,0,0,0.5));
+  opacity:0.9; transition:opacity 0.25s;
+}
+.footer-logo-img:hover { opacity:1; }
+.footer-text .footer-logo-name {
   font-family:'Cormorant Garamond', serif;
-  font-size:1.2rem; color:var(--sand); letter-spacing:0.1em; margin-bottom:0.5rem;
+  font-size:1.1rem; color:var(--sand); letter-spacing:0.1em; margin-bottom:0.35rem;
 }
-.footer-logo em { color:var(--gold); font-style:italic; }
-.footer-copy { font-size:0.7rem; color:var(--fog); opacity:0.35; letter-spacing:0.1em; }
-.footer-links { display:flex; gap:2rem; }
+.footer-text .footer-logo-name em { color:var(--gold); font-style:italic; }
+.footer-copy { font-size:0.68rem; color:var(--fog); opacity:0.32; letter-spacing:0.1em; }
+.footer-links { display:flex; gap:2rem; justify-content:flex-end; }
 .footer-links a {
   font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase;
   color:var(--fog); opacity:0.45; transition:opacity 0.2s;
@@ -346,17 +372,24 @@ footer {
   .extras-grid { grid-template-columns:repeat(2,1fr); gap:2rem; }
 }
 @media (max-width:768px) {
-  nav, nav.scrolled { padding:1.2rem 2rem; }
+  nav, nav.scrolled { padding:0.8rem 1.5rem; }
   .nav-links { display:none; }
   .hamburger { display:flex; }
+  .nav-logo-tagline { display:none; }
+  .nav-logo-img { height:46px; }
+  nav.scrolled .nav-logo-img { height:38px; }
   #extras { padding:4rem 1.5rem 5rem; }
   #extras-intro { padding:4rem 2rem 3rem; }
   .extras-grid { grid-template-columns:1fr; gap:1.8rem; }
   .extra-card-img-wrap { height:220px; }
-  footer { grid-template-columns:1fr; gap:1.5rem; }
-  .footer-links { flex-wrap:wrap; gap:1.2rem; }
+  footer { grid-template-columns:1fr; gap:1.5rem; text-align:center; }
+  .footer-logo-img { height:60px; margin:0 auto; }
+  .footer-links { justify-content:center; flex-wrap:wrap; gap:1.2rem; }
   .page-hero { padding:2.5rem 2rem; }
   .stats-strip { padding:2rem; gap:2.5rem; }
+}
+@media (max-width:500px) {
+  .extras-grid { grid-template-columns:1fr; }
 }
   </style>
 </head>
@@ -367,7 +400,13 @@ footer {
 
   <!-- NAV -->
   <nav id="navbar">
-    <a href="../index.html" class="nav-logo">Tamiron <span>Adventures</span></a>
+    <a href="../index.html" class="nav-logo">
+      <img src="../logo1.png" alt="Tamiron Afrika Adventures Logo" class="nav-logo-img">
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Tamiron <span>Afrika</span></span>
+        <span class="nav-logo-tagline">Adventures · Nairobi, Kenya</span>
+      </div>
+    </a>
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
       <li><a href="destinations.html">Destinations</a></li>
@@ -379,6 +418,9 @@ footer {
   </nav>
 
   <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-logo">
+      <img src="../logo1.png" alt="Tamiron Afrika Adventures">
+    </div>
     <a href="about.html"        onclick="closeMobileNav()">About</a>
     <a href="destinations.html" onclick="closeMobileNav()">Destinations</a>
     <a href="safaris.html"      onclick="closeMobileNav()">Safaris</a>
@@ -415,10 +457,7 @@ footer {
       <!-- 1. Honeymoon -->
       <div class="extra-card reveal">
         <div class="extra-card-img-wrap">
-          <img
-            src="https://media.istockphoto.com/id/155280792/photo/happy-couple-walking-on-waikiki-beach-at-sunrise.webp?b=1&s=612x612&w=0&k=20&c=pbizjjmVL9XJVFULzBVS_vfa97CYJP29Mnvnbjx6Zdo="
-            alt="Romantic honeymoon sunset over the savannah"
-            loading="lazy">
+          <img src="https://media.istockphoto.com/id/155280792/photo/happy-couple-walking-on-waikiki-beach-at-sunrise.webp?b=1&s=612x612&w=0&k=20&c=pbizjjmVL9XJVFULzBVS_vfa97CYJP29Mnvnbjx6Zdo=" alt="Romantic honeymoon sunset over the savannah" loading="lazy">
           <span class="extra-card-badge">Romance</span>
         </div>
         <div class="extra-card-body">
@@ -432,10 +471,7 @@ footer {
       <!-- 2. Team Building -->
       <div class="extra-card reveal" style="transition-delay:0.08s">
         <div class="extra-card-img-wrap">
-          <img
-            src="https://media.istockphoto.com/id/1282503047/photo/company-employees-playing-game-and-joining-pieces-of-jigsaw-puzzle-during-team-building.webp?b=1&s=612x612&w=0&k=20&c=-q748yQ-zuLRAglXxrHS3OK_VD47J4pO45YkQN6kItQ="
-            alt="Corporate team celebrating outdoors"
-            loading="lazy">
+          <img src="https://media.istockphoto.com/id/1282503047/photo/company-employees-playing-game-and-joining-pieces-of-jigsaw-puzzle-during-team-building.webp?b=1&s=612x612&w=0&k=20&c=-q748yQ-zuLRAglXxrHS3OK_VD47J4pO45YkQN6kItQ=" alt="Corporate team celebrating outdoors" loading="lazy">
           <span class="extra-card-badge">Corporate</span>
         </div>
         <div class="extra-card-body">
@@ -449,10 +485,7 @@ footer {
       <!-- 3. Vacations -->
       <div class="extra-card reveal" style="transition-delay:0.16s">
         <div class="extra-card-img-wrap">
-          <img
-            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
-            alt="Tropical beach vacation with turquoise water"
-            loading="lazy">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" alt="Tropical beach vacation with turquoise water" loading="lazy">
           <span class="extra-card-badge">Leisure</span>
         </div>
         <div class="extra-card-body">
@@ -466,10 +499,7 @@ footer {
       <!-- 4. Visa Applications -->
       <div class="extra-card reveal" style="transition-delay:0.04s">
         <div class="extra-card-img-wrap">
-          <img
-            src="https://media.istockphoto.com/id/529686926/photo/europe-union-visa-application-form-with-passport.webp?b=1&s=612x612&w=0&k=20&c=ni5ZssG2XiKDc1MrvV39rJo356cG0FqdCb3ZkmfGnO4="
-            alt="Passport and travel documents for visa application"
-            loading="lazy">
+          <img src="https://media.istockphoto.com/id/529686926/photo/europe-union-visa-application-form-with-passport.webp?b=1&s=612x612&w=0&k=20&c=ni5ZssG2XiKDc1MrvV39rJo356cG0FqdCb3ZkmfGnO4=" alt="Passport and travel documents for visa application" loading="lazy">
           <span class="extra-card-badge">Documentation</span>
         </div>
         <div class="extra-card-body">
@@ -483,10 +513,7 @@ footer {
       <!-- 5. Flight Booking -->
       <div class="extra-card reveal" style="transition-delay:0.12s">
         <div class="extra-card-img-wrap">
-          <img
-            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80"
-            alt="Airplane wing above clouds at golden hour"
-            loading="lazy">
+          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80" alt="Airplane wing above clouds at golden hour" loading="lazy">
           <span class="extra-card-badge">Air Travel</span>
         </div>
         <div class="extra-card-body">
@@ -500,10 +527,7 @@ footer {
       <!-- 6. Accommodation -->
       <div class="extra-card reveal" style="transition-delay:0.2s">
         <div class="extra-card-img-wrap">
-          <img
-            src="https://images.unsplash.com/photo-1518733057094-95b53143d2a7?w=800&q=80"
-            alt="Luxury tented safari lodge at sunset"
-            loading="lazy">
+          <img src="https://images.unsplash.com/photo-1518733057094-95b53143d2a7?w=800&q=80" alt="Luxury tented safari lodge at sunset" loading="lazy">
           <span class="extra-card-badge">Stays</span>
         </div>
         <div class="extra-card-body">
@@ -519,22 +543,10 @@ footer {
 
   <!-- STATS -->
   <div class="stats-strip">
-    <div class="stat reveal">
-      <span class="stat-num">500+</span>
-      <span class="stat-label">Happy Travellers</span>
-    </div>
-    <div class="stat reveal" style="transition-delay:0.12s">
-      <span class="stat-num">12+</span>
-      <span class="stat-label">Destinations Covered</span>
-    </div>
-    <div class="stat reveal" style="transition-delay:0.24s">
-      <span class="stat-num">6</span>
-      <span class="stat-label">Premium Services</span>
-    </div>
-    <div class="stat reveal" style="transition-delay:0.36s">
-      <span class="stat-num">24/7</span>
-      <span class="stat-label">On-Trip Support</span>
-    </div>
+    <div class="stat reveal"><span class="stat-num">500+</span><span class="stat-label">Happy Travellers</span></div>
+    <div class="stat reveal" style="transition-delay:0.12s"><span class="stat-num">12+</span><span class="stat-label">Destinations Covered</span></div>
+    <div class="stat reveal" style="transition-delay:0.24s"><span class="stat-num">6</span><span class="stat-label">Premium Services</span></div>
+    <div class="stat reveal" style="transition-delay:0.36s"><span class="stat-num">24/7</span><span class="stat-label">On-Trip Support</span></div>
   </div>
 
   <!-- CTA -->
@@ -549,8 +561,11 @@ footer {
 
   <!-- FOOTER -->
   <footer>
-    <div>
-      <div class="footer-logo">Tamiron <em>Afrika</em> Adventures</div>
+    <a href="../index.html">
+      <img src="../logo1.png" alt="Tamiron Afrika Adventures" class="footer-logo-img">
+    </a>
+    <div class="footer-text">
+      <div class="footer-logo-name">Tamiron <em>Afrika</em> Adventures</div>
       <div class="footer-copy">© 2020 Tamiron Afrika Adventures · Nairobi, Kenya · P.O. Box 00100</div>
     </div>
     <div class="footer-links">
@@ -563,42 +578,20 @@ footer {
   </footer>
 
   <script>
-/* CURSOR */
 (function(){
   const cursor=document.getElementById('cursor');
   const ring=document.getElementById('cursorRing');
   if(!cursor||!ring)return;
   let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove',e=>{
-    mx=e.clientX;my=e.clientY;
-    cursor.style.left=mx-5+'px';cursor.style.top=my-5+'px';
-  });
-  (function loop(){
-    rx+=(mx-rx-18)*0.18;ry+=(my-ry-18)*0.18;
-    ring.style.left=rx+'px';ring.style.top=ry+'px';
-    requestAnimationFrame(loop);
-  })();
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx-5+'px';cursor.style.top=my-5+'px';});
+  (function loop(){rx+=(mx-rx-18)*0.18;ry+=(my-ry-18)*0.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
   document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
     el.addEventListener('mouseenter',()=>{cursor.style.transform='scale(2)';ring.style.transform='scale(1.5)';});
     el.addEventListener('mouseleave',()=>{cursor.style.transform='scale(1)';ring.style.transform='scale(1)';});
   });
 })();
-
-/* NAV SCROLL */
-(function(){
-  const n=document.getElementById('navbar');
-  if(!n)return;
-  window.addEventListener('scroll',()=>n.classList.toggle('scrolled',window.scrollY>60));
-})();
-
-/* PAGE HERO */
-(function(){
-  const ph=document.querySelector('.page-hero');
-  if(!ph)return;
-  window.addEventListener('load',()=>ph.classList.add('loaded'));
-})();
-
-/* HAMBURGER */
+(function(){const n=document.getElementById('navbar');if(!n)return;window.addEventListener('scroll',()=>n.classList.toggle('scrolled',window.scrollY>60));})();
+(function(){const ph=document.querySelector('.page-hero');if(!ph)return;window.addEventListener('load',()=>ph.classList.add('loaded'));})();
 (function(){
   const h=document.getElementById('hamburger');
   const m=document.getElementById('mobileNav');
@@ -606,14 +599,8 @@ footer {
   h.addEventListener('click',()=>m.classList.toggle('open'));
   window.closeMobileNav=()=>m.classList.remove('open');
 })();
-
-/* SCROLL REVEAL */
 (function(){
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
-    });
-  },{threshold:0.07,rootMargin:'0px 0px -30px 0px'});
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.07,rootMargin:'0px 0px -30px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 })();
   </script>
