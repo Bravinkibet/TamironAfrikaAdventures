@@ -101,10 +101,10 @@ python3 -m http.server 8080
 
 Each page in `pages/` has the shared CSS (`style.css`) and JavaScript (`main.js`) **inlined directly** into the file. This means every page works when opened standalone — no server required, no broken styles if files are moved individually.
 
-The `css/` and `js/` source files are kept for reference and future maintenance. If you move to a proper web server, you can restore the external links:
+The `css/` and `js/` source files are kept for reference and future maintenance. If you move to a proper web server, you can restore the external links: 
 
 ```html
-<!-- In <head> — replace the first <style> block with: -->
+<!-- In <head> — replace the  first <style> block with: -->
 <link rel="stylesheet" href="../css/style.css">
 
 <!-- Before </body> — replace the last <script> block with: -->
