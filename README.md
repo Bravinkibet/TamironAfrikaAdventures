@@ -113,18 +113,6 @@ The `css/` and `js/` source files are kept for reference and future maintenance.
 
 ---
 
-## Safari Details
-
-| Day | Date | Destination | Drive |
-|---|---|---|---|
-| 1 | 27 Dec 2026 | Nairobi (arrival) | — |
-| 2–3 | 28–29 Dec | Amboseli National Park | 250 km / ~4 hrs |
-| 4 | 30 Dec | Lake Naivasha | 350 km / ~6 hrs |
-| 5 | 31 Dec | Lake Nakuru National Park | 100 km / ~1 hr |
-| 6–7 | 1–2 Jan 2027 | Masai Mara National Reserve | 300 km / ~5 hrs |
-| 8 | 3 Jan 2027 | Nairobi (departure) | 350 km / ~6 hrs |
-
----
 
 ## Contact
 
