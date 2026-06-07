@@ -1,6 +1,6 @@
 # Tamiron Afrika Adventures — Website
 
-A multi-page static website for **Tamiron Afrika Adventures**, a Nairobi-based private luxury safari operator. The site presents an 8-day Kenya safari itinerary for the festive season (27 Dec 2026 – 3 Jan 2027), covering Amboseli, Lake Naivasha, Lake Nakuru, and the Masai Mara.
+A multi-page static website for *Tamiron Afrika Adventures*, a Nairobi-based luxury travel company specializing in private travel experiences. The website showcases curated itineraries, iconic destinations, personalized adventures, and unforgettable experiences across diverse landscapes, wildlife destinations, and cultural attractions worldwide.
 
 ---
 
